@@ -4,7 +4,7 @@
   <description asmv2:iconFile="mypic.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="wmi" version="0.9.9.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="wmi" version="0.9.9.1" language="neutral" processorArchitecture="msil" />
     <commandLine file="wmi.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="wmi.exe" size="939960">
-      <assemblyIdentity name="wmi" version="0.9.9.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="wmi" version="0.9.9.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>c98sCX4Js+ckpyzLHu6xO6xQEbH6NWQD/cv+xL5V8T8=</dsig:DigestValue>
+        <dsig:DigestValue>Lbs+kjy7jDj+ohe3OnkBtVM+q0gEyyJzJ/0iSJS03+I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

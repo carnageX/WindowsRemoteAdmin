@@ -30,7 +30,7 @@ namespace wmi.Services
             var softwares = searcher.Get();
             foreach(var s in softwares)
             {
-                softwareList.Add(s["Name"].ToString());
+                if (s != null && s["Name"] != null) { softwareList.Add(s["Name"].ToString()); }
             }
             return softwareList;
         }

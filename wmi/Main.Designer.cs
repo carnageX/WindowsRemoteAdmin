@@ -33,15 +33,17 @@
             this.lblComputerConn = new System.Windows.Forms.Label();
             this.txtCompName = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabSysInfo = new System.Windows.Forms.TabPage();
-            this.tabServices = new System.Windows.Forms.TabPage();
-            this.tabSoftware = new System.Windows.Forms.TabPage();
-            this.tabPrinters = new System.Windows.Forms.TabPage();
+            this.lblVer = new System.Windows.Forms.Label();
+            this.lblManufacturer = new System.Windows.Forms.Label();
+            this.lblCaption = new System.Windows.Forms.Label();
+            this.lblWinDir = new System.Windows.Forms.Label();
+            this.lblComputerName = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.lblAdminStatus = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,24 +60,22 @@
             this.lblDiskFree = new System.Windows.Forms.Label();
             this.lblDiskSize = new System.Windows.Forms.Label();
             this.lblDiskName = new System.Windows.Forms.Label();
-            this.lblVer = new System.Windows.Forms.Label();
-            this.lblManufacturer = new System.Windows.Forms.Label();
-            this.lblCaption = new System.Windows.Forms.Label();
-            this.lblWinDir = new System.Windows.Forms.Label();
-            this.lblComputerName = new System.Windows.Forms.Label();
-            this.btnGetServices = new System.Windows.Forms.Button();
-            this.btnServiceStart = new System.Windows.Forms.Button();
-            this.btnServiceStop = new System.Windows.Forms.Button();
-            this.listServices = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tabServices = new System.Windows.Forms.TabPage();
             this.lblServiceStatus = new System.Windows.Forms.Label();
-            this.btnGetSoftware = new System.Windows.Forms.Button();
-            this.btnSoftwareUninstall = new System.Windows.Forms.Button();
-            this.listSoftware = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listServices = new System.Windows.Forms.ListBox();
+            this.btnServiceStop = new System.Windows.Forms.Button();
+            this.btnServiceStart = new System.Windows.Forms.Button();
+            this.btnGetServices = new System.Windows.Forms.Button();
+            this.tabSoftware = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listPrinters = new System.Windows.Forms.ListBox();
-            this.btnGetPrinters = new System.Windows.Forms.Button();
+            this.listSoftware = new System.Windows.Forms.ListBox();
+            this.btnSoftwareUninstall = new System.Windows.Forms.Button();
+            this.btnGetSoftware = new System.Windows.Forms.Button();
+            this.tabPrinters = new System.Windows.Forms.TabPage();
             this.btnUninstallPrinter = new System.Windows.Forms.Button();
+            this.btnGetPrinters = new System.Windows.Forms.Button();
+            this.listPrinters = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
@@ -123,21 +123,6 @@
             this.menuStrip1.TabIndex = 118;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -149,9 +134,24 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // tabControl
             // 
@@ -199,48 +199,50 @@
             this.tabSysInfo.TabIndex = 0;
             this.tabSysInfo.Text = "System Info";
             // 
-            // tabServices
+            // lblVer
             // 
-            this.tabServices.BackColor = System.Drawing.SystemColors.Control;
-            this.tabServices.Controls.Add(this.lblServiceStatus);
-            this.tabServices.Controls.Add(this.label1);
-            this.tabServices.Controls.Add(this.listServices);
-            this.tabServices.Controls.Add(this.btnServiceStop);
-            this.tabServices.Controls.Add(this.btnServiceStart);
-            this.tabServices.Controls.Add(this.btnGetServices);
-            this.tabServices.Location = new System.Drawing.Point(4, 22);
-            this.tabServices.Name = "tabServices";
-            this.tabServices.Padding = new System.Windows.Forms.Padding(3);
-            this.tabServices.Size = new System.Drawing.Size(595, 343);
-            this.tabServices.TabIndex = 1;
-            this.tabServices.Text = "Services";
+            this.lblVer.AutoSize = true;
+            this.lblVer.Location = new System.Drawing.Point(16, 283);
+            this.lblVer.Name = "lblVer";
+            this.lblVer.Size = new System.Drawing.Size(10, 13);
+            this.lblVer.TabIndex = 132;
+            this.lblVer.Text = "-";
             // 
-            // tabSoftware
+            // lblManufacturer
             // 
-            this.tabSoftware.BackColor = System.Drawing.SystemColors.Control;
-            this.tabSoftware.Controls.Add(this.textBox1);
-            this.tabSoftware.Controls.Add(this.listSoftware);
-            this.tabSoftware.Controls.Add(this.btnSoftwareUninstall);
-            this.tabSoftware.Controls.Add(this.btnGetSoftware);
-            this.tabSoftware.Location = new System.Drawing.Point(4, 22);
-            this.tabSoftware.Name = "tabSoftware";
-            this.tabSoftware.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSoftware.Size = new System.Drawing.Size(595, 343);
-            this.tabSoftware.TabIndex = 2;
-            this.tabSoftware.Text = "Software";
+            this.lblManufacturer.AutoSize = true;
+            this.lblManufacturer.Location = new System.Drawing.Point(16, 306);
+            this.lblManufacturer.Name = "lblManufacturer";
+            this.lblManufacturer.Size = new System.Drawing.Size(10, 13);
+            this.lblManufacturer.TabIndex = 131;
+            this.lblManufacturer.Text = "-";
             // 
-            // tabPrinters
+            // lblCaption
             // 
-            this.tabPrinters.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPrinters.Controls.Add(this.btnUninstallPrinter);
-            this.tabPrinters.Controls.Add(this.btnGetPrinters);
-            this.tabPrinters.Controls.Add(this.listPrinters);
-            this.tabPrinters.Location = new System.Drawing.Point(4, 22);
-            this.tabPrinters.Name = "tabPrinters";
-            this.tabPrinters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPrinters.Size = new System.Drawing.Size(595, 343);
-            this.tabPrinters.TabIndex = 3;
-            this.tabPrinters.Text = "Printers";
+            this.lblCaption.AutoSize = true;
+            this.lblCaption.Location = new System.Drawing.Point(16, 258);
+            this.lblCaption.Name = "lblCaption";
+            this.lblCaption.Size = new System.Drawing.Size(10, 13);
+            this.lblCaption.TabIndex = 130;
+            this.lblCaption.Text = "-";
+            // 
+            // lblWinDir
+            // 
+            this.lblWinDir.AutoSize = true;
+            this.lblWinDir.Location = new System.Drawing.Point(16, 211);
+            this.lblWinDir.Name = "lblWinDir";
+            this.lblWinDir.Size = new System.Drawing.Size(10, 13);
+            this.lblWinDir.TabIndex = 129;
+            this.lblWinDir.Text = "-";
+            // 
+            // lblComputerName
+            // 
+            this.lblComputerName.AutoSize = true;
+            this.lblComputerName.Location = new System.Drawing.Point(16, 234);
+            this.lblComputerName.Name = "lblComputerName";
+            this.lblComputerName.Size = new System.Drawing.Size(10, 13);
+            this.lblComputerName.TabIndex = 128;
+            this.lblComputerName.Text = "-";
             // 
             // label27
             // 
@@ -386,82 +388,41 @@
             this.lblDiskName.TabIndex = 119;
             this.lblDiskName.Text = "-";
             // 
-            // lblVer
+            // tabServices
             // 
-            this.lblVer.AutoSize = true;
-            this.lblVer.Location = new System.Drawing.Point(16, 283);
-            this.lblVer.Name = "lblVer";
-            this.lblVer.Size = new System.Drawing.Size(10, 13);
-            this.lblVer.TabIndex = 132;
-            this.lblVer.Text = "-";
+            this.tabServices.BackColor = System.Drawing.SystemColors.Control;
+            this.tabServices.Controls.Add(this.lblServiceStatus);
+            this.tabServices.Controls.Add(this.label1);
+            this.tabServices.Controls.Add(this.listServices);
+            this.tabServices.Controls.Add(this.btnServiceStop);
+            this.tabServices.Controls.Add(this.btnServiceStart);
+            this.tabServices.Controls.Add(this.btnGetServices);
+            this.tabServices.Location = new System.Drawing.Point(4, 22);
+            this.tabServices.Name = "tabServices";
+            this.tabServices.Padding = new System.Windows.Forms.Padding(3);
+            this.tabServices.Size = new System.Drawing.Size(595, 343);
+            this.tabServices.TabIndex = 1;
+            this.tabServices.Text = "Services";
             // 
-            // lblManufacturer
+            // lblServiceStatus
             // 
-            this.lblManufacturer.AutoSize = true;
-            this.lblManufacturer.Location = new System.Drawing.Point(16, 306);
-            this.lblManufacturer.Name = "lblManufacturer";
-            this.lblManufacturer.Size = new System.Drawing.Size(10, 13);
-            this.lblManufacturer.TabIndex = 131;
-            this.lblManufacturer.Text = "-";
+            this.lblServiceStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblServiceStatus.AutoSize = true;
+            this.lblServiceStatus.Location = new System.Drawing.Point(251, 319);
+            this.lblServiceStatus.Name = "lblServiceStatus";
+            this.lblServiceStatus.Size = new System.Drawing.Size(10, 13);
+            this.lblServiceStatus.TabIndex = 5;
+            this.lblServiceStatus.Text = "-";
             // 
-            // lblCaption
+            // label1
             // 
-            this.lblCaption.AutoSize = true;
-            this.lblCaption.Location = new System.Drawing.Point(16, 258);
-            this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(10, 13);
-            this.lblCaption.TabIndex = 130;
-            this.lblCaption.Text = "-";
-            // 
-            // lblWinDir
-            // 
-            this.lblWinDir.AutoSize = true;
-            this.lblWinDir.Location = new System.Drawing.Point(16, 211);
-            this.lblWinDir.Name = "lblWinDir";
-            this.lblWinDir.Size = new System.Drawing.Size(10, 13);
-            this.lblWinDir.TabIndex = 129;
-            this.lblWinDir.Text = "-";
-            // 
-            // lblComputerName
-            // 
-            this.lblComputerName.AutoSize = true;
-            this.lblComputerName.Location = new System.Drawing.Point(16, 234);
-            this.lblComputerName.Name = "lblComputerName";
-            this.lblComputerName.Size = new System.Drawing.Size(10, 13);
-            this.lblComputerName.TabIndex = 128;
-            this.lblComputerName.Text = "-";
-            // 
-            // btnGetServices
-            // 
-            this.btnGetServices.Location = new System.Drawing.Point(6, 6);
-            this.btnGetServices.Name = "btnGetServices";
-            this.btnGetServices.Size = new System.Drawing.Size(95, 23);
-            this.btnGetServices.TabIndex = 0;
-            this.btnGetServices.Text = "Get Services";
-            this.btnGetServices.UseVisualStyleBackColor = true;
-            this.btnGetServices.Click += new System.EventHandler(this.btnGetServices_Click);
-            // 
-            // btnServiceStart
-            // 
-            this.btnServiceStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnServiceStart.Location = new System.Drawing.Point(6, 314);
-            this.btnServiceStart.Name = "btnServiceStart";
-            this.btnServiceStart.Size = new System.Drawing.Size(75, 23);
-            this.btnServiceStart.TabIndex = 1;
-            this.btnServiceStart.Text = "Start";
-            this.btnServiceStart.UseVisualStyleBackColor = true;
-            this.btnServiceStart.Click += new System.EventHandler(this.btnServiceStart_Click);
-            // 
-            // btnServiceStop
-            // 
-            this.btnServiceStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnServiceStop.Location = new System.Drawing.Point(87, 314);
-            this.btnServiceStop.Name = "btnServiceStop";
-            this.btnServiceStop.Size = new System.Drawing.Size(75, 23);
-            this.btnServiceStop.TabIndex = 2;
-            this.btnServiceStop.Text = "Stop";
-            this.btnServiceStop.UseVisualStyleBackColor = true;
-            this.btnServiceStop.Click += new System.EventHandler(this.btnServiceStop_Click);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(202, 319);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Status: ";
             // 
             // listServices
             // 
@@ -476,57 +437,51 @@
             this.listServices.TabIndex = 3;
             this.listServices.SelectedIndexChanged += new System.EventHandler(this.listServices_SelectedIndexChanged);
             // 
-            // label1
+            // btnServiceStop
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(202, 319);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Status: ";
+            this.btnServiceStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnServiceStop.Location = new System.Drawing.Point(87, 314);
+            this.btnServiceStop.Name = "btnServiceStop";
+            this.btnServiceStop.Size = new System.Drawing.Size(75, 23);
+            this.btnServiceStop.TabIndex = 2;
+            this.btnServiceStop.Text = "Stop";
+            this.btnServiceStop.UseVisualStyleBackColor = true;
+            this.btnServiceStop.Click += new System.EventHandler(this.btnServiceStop_Click);
             // 
-            // lblServiceStatus
+            // btnServiceStart
             // 
-            this.lblServiceStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblServiceStatus.AutoSize = true;
-            this.lblServiceStatus.Location = new System.Drawing.Point(251, 319);
-            this.lblServiceStatus.Name = "lblServiceStatus";
-            this.lblServiceStatus.Size = new System.Drawing.Size(10, 13);
-            this.lblServiceStatus.TabIndex = 5;
-            this.lblServiceStatus.Text = "-";
+            this.btnServiceStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnServiceStart.Location = new System.Drawing.Point(6, 314);
+            this.btnServiceStart.Name = "btnServiceStart";
+            this.btnServiceStart.Size = new System.Drawing.Size(75, 23);
+            this.btnServiceStart.TabIndex = 1;
+            this.btnServiceStart.Text = "Start";
+            this.btnServiceStart.UseVisualStyleBackColor = true;
+            this.btnServiceStart.Click += new System.EventHandler(this.btnServiceStart_Click);
             // 
-            // btnGetSoftware
+            // btnGetServices
             // 
-            this.btnGetSoftware.Location = new System.Drawing.Point(6, 6);
-            this.btnGetSoftware.Name = "btnGetSoftware";
-            this.btnGetSoftware.Size = new System.Drawing.Size(95, 23);
-            this.btnGetSoftware.TabIndex = 0;
-            this.btnGetSoftware.Text = "Get Software";
-            this.btnGetSoftware.UseVisualStyleBackColor = true;
-            this.btnGetSoftware.Click += new System.EventHandler(this.btnGetSoftware_Click);
+            this.btnGetServices.Location = new System.Drawing.Point(6, 6);
+            this.btnGetServices.Name = "btnGetServices";
+            this.btnGetServices.Size = new System.Drawing.Size(95, 23);
+            this.btnGetServices.TabIndex = 0;
+            this.btnGetServices.Text = "Get Services";
+            this.btnGetServices.UseVisualStyleBackColor = true;
+            this.btnGetServices.Click += new System.EventHandler(this.btnGetServices_Click);
             // 
-            // btnSoftwareUninstall
+            // tabSoftware
             // 
-            this.btnSoftwareUninstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSoftwareUninstall.Location = new System.Drawing.Point(6, 301);
-            this.btnSoftwareUninstall.Name = "btnSoftwareUninstall";
-            this.btnSoftwareUninstall.Size = new System.Drawing.Size(75, 23);
-            this.btnSoftwareUninstall.TabIndex = 1;
-            this.btnSoftwareUninstall.Text = "Uninstall";
-            this.btnSoftwareUninstall.UseVisualStyleBackColor = true;
-            this.btnSoftwareUninstall.Click += new System.EventHandler(this.btnSoftwareUninstall_Click);
-            // 
-            // listSoftware
-            // 
-            this.listSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listSoftware.FormattingEnabled = true;
-            this.listSoftware.Location = new System.Drawing.Point(3, 35);
-            this.listSoftware.Name = "listSoftware";
-            this.listSoftware.Size = new System.Drawing.Size(586, 251);
-            this.listSoftware.TabIndex = 2;
+            this.tabSoftware.BackColor = System.Drawing.SystemColors.Control;
+            this.tabSoftware.Controls.Add(this.textBox1);
+            this.tabSoftware.Controls.Add(this.listSoftware);
+            this.tabSoftware.Controls.Add(this.btnSoftwareUninstall);
+            this.tabSoftware.Controls.Add(this.btnGetSoftware);
+            this.tabSoftware.Location = new System.Drawing.Point(4, 22);
+            this.tabSoftware.Name = "tabSoftware";
+            this.tabSoftware.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSoftware.Size = new System.Drawing.Size(595, 343);
+            this.tabSoftware.TabIndex = 2;
+            this.tabSoftware.Text = "Software";
             // 
             // textBox1
             // 
@@ -542,26 +497,51 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
-            // listPrinters
+            // listSoftware
             // 
-            this.listPrinters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listSoftware.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listPrinters.FormattingEnabled = true;
-            this.listPrinters.Location = new System.Drawing.Point(6, 35);
-            this.listPrinters.Name = "listPrinters";
-            this.listPrinters.Size = new System.Drawing.Size(583, 264);
-            this.listPrinters.TabIndex = 0;
+            this.listSoftware.FormattingEnabled = true;
+            this.listSoftware.Location = new System.Drawing.Point(3, 35);
+            this.listSoftware.Name = "listSoftware";
+            this.listSoftware.Size = new System.Drawing.Size(586, 251);
+            this.listSoftware.Sorted = true;
+            this.listSoftware.TabIndex = 2;
             // 
-            // btnGetPrinters
+            // btnSoftwareUninstall
             // 
-            this.btnGetPrinters.Location = new System.Drawing.Point(6, 6);
-            this.btnGetPrinters.Name = "btnGetPrinters";
-            this.btnGetPrinters.Size = new System.Drawing.Size(85, 23);
-            this.btnGetPrinters.TabIndex = 1;
-            this.btnGetPrinters.Text = "Get Printers";
-            this.btnGetPrinters.UseVisualStyleBackColor = true;
-            this.btnGetPrinters.Click += new System.EventHandler(this.btnGetPrinters_Click);
+            this.btnSoftwareUninstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSoftwareUninstall.Location = new System.Drawing.Point(6, 301);
+            this.btnSoftwareUninstall.Name = "btnSoftwareUninstall";
+            this.btnSoftwareUninstall.Size = new System.Drawing.Size(75, 23);
+            this.btnSoftwareUninstall.TabIndex = 1;
+            this.btnSoftwareUninstall.Text = "Uninstall";
+            this.btnSoftwareUninstall.UseVisualStyleBackColor = true;
+            this.btnSoftwareUninstall.Click += new System.EventHandler(this.btnSoftwareUninstall_Click);
+            // 
+            // btnGetSoftware
+            // 
+            this.btnGetSoftware.Location = new System.Drawing.Point(6, 6);
+            this.btnGetSoftware.Name = "btnGetSoftware";
+            this.btnGetSoftware.Size = new System.Drawing.Size(95, 23);
+            this.btnGetSoftware.TabIndex = 0;
+            this.btnGetSoftware.Text = "Get Software";
+            this.btnGetSoftware.UseVisualStyleBackColor = true;
+            this.btnGetSoftware.Click += new System.EventHandler(this.btnGetSoftware_Click);
+            // 
+            // tabPrinters
+            // 
+            this.tabPrinters.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPrinters.Controls.Add(this.btnUninstallPrinter);
+            this.tabPrinters.Controls.Add(this.btnGetPrinters);
+            this.tabPrinters.Controls.Add(this.listPrinters);
+            this.tabPrinters.Location = new System.Drawing.Point(4, 22);
+            this.tabPrinters.Name = "tabPrinters";
+            this.tabPrinters.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPrinters.Size = new System.Drawing.Size(595, 343);
+            this.tabPrinters.TabIndex = 3;
+            this.tabPrinters.Text = "Printers";
             // 
             // btnUninstallPrinter
             // 
@@ -573,6 +553,28 @@
             this.btnUninstallPrinter.Text = "Uninstall";
             this.btnUninstallPrinter.UseVisualStyleBackColor = true;
             this.btnUninstallPrinter.Click += new System.EventHandler(this.btnUninstallPrinter_Click);
+            // 
+            // btnGetPrinters
+            // 
+            this.btnGetPrinters.Location = new System.Drawing.Point(6, 6);
+            this.btnGetPrinters.Name = "btnGetPrinters";
+            this.btnGetPrinters.Size = new System.Drawing.Size(85, 23);
+            this.btnGetPrinters.TabIndex = 1;
+            this.btnGetPrinters.Text = "Get Printers";
+            this.btnGetPrinters.UseVisualStyleBackColor = true;
+            this.btnGetPrinters.Click += new System.EventHandler(this.btnGetPrinters_Click);
+            // 
+            // listPrinters
+            // 
+            this.listPrinters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listPrinters.FormattingEnabled = true;
+            this.listPrinters.Location = new System.Drawing.Point(6, 35);
+            this.listPrinters.Name = "listPrinters";
+            this.listPrinters.Size = new System.Drawing.Size(583, 264);
+            this.listPrinters.Sorted = true;
+            this.listPrinters.TabIndex = 0;
             // 
             // Main
             // 

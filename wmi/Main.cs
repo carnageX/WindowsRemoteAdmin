@@ -56,8 +56,11 @@ namespace wmi
         private void btnGetServices_Click(object sender, EventArgs e)
         {
             if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-            _services = new ServicesService(_sysConnector.Scope, _sysConnector.Options);
-            listServices.DataSource = new BindingList<string>(_services.GetServicesNameList());
+            else
+            {
+                _services = new ServicesService(_sysConnector.Scope, _sysConnector.Options);
+                listServices.DataSource = new BindingList<string>(_services.GetServicesNameList());
+            }
         }
 
         private void btnServiceStart_Click(object sender, EventArgs e)
@@ -85,8 +88,13 @@ namespace wmi
         private void btnGetSoftware_Click(object sender, EventArgs e)
         {
             if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-            _applications = new SoftwareService(_sysConnector.Scope, _sysConnector.Options);
-            listSoftware.DataSource = new BindingList<string>(_applications.GetAllSoftwareNames());
+            else
+            {
+                this.Cursor = Cursors.WaitCursor;
+                _applications = new SoftwareService(_sysConnector.Scope, _sysConnector.Options);
+                listSoftware.DataSource = new BindingList<string>(_applications.GetAllSoftwareNames());
+                this.Cursor = Cursors.Default;
+            }
         }
 
         private void btnSoftwareUninstall_Click(object sender, EventArgs e)
@@ -100,8 +108,11 @@ namespace wmi
         private void btnGetPrinters_Click(object sender, EventArgs e)
         {
             if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-            _printers = new PrintersService(_sysConnector.Scope, _sysConnector.Options);
-            listPrinters.DataSource = new BindingList<string>(_printers.GetPrinterNames());
+            else
+            {
+                _printers = new PrintersService(_sysConnector.Scope, _sysConnector.Options);
+                listPrinters.DataSource = new BindingList<string>(_printers.GetPrinterNames());
+            }
         }
 
         private void btnUninstallPrinter_Click(object sender, EventArgs e)
