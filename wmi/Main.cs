@@ -28,12 +28,8 @@ namespace wmi
         #region System Info
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-            else
+            try
             {
-
-
-
                 _sysConnector = new SystemConnector(this.txtCompName.Text);
                 var sysInfoService = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
                 var sysInfo = sysInfoService.GetSystemInfo().FirstOrDefault();
@@ -56,6 +52,11 @@ namespace wmi
                 lblCurrentUser.Text = adminStatus.Username;
                 lblAdminStatus.Text = adminStatus.Status;
             }
+            catch
+            {
+                MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         #endregion

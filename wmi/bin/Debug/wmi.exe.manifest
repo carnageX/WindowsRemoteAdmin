@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="wmi.exe" size="940032">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="wmi.exe" size="939520">
       <assemblyIdentity name="wmi" version="0.9.9.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Pq2HcGIiDpP9oGT8AZLZdiij2euISUcIO8yQ7ux/xCg=</dsig:DigestValue>
+        <dsig:DigestValue>/QSx2l+8mOEHZx1bunBYsXGhQ9WrXiFAV77opsbCZrc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

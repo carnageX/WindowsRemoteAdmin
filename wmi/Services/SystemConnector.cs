@@ -16,13 +16,9 @@ namespace wmi
 
         public SystemConnector(string computerName, ConnectionOptions options = null)
         {
-            try
-            {
                 if (options == null) { Options = new ConnectionOptions(); }
                 else { Options = options; }
                 Scope = new ManagementScope(String.Format(@"\\{0}\root\cimv2", computerName), options);
-            }
-            catch { }
             
         }
     }
