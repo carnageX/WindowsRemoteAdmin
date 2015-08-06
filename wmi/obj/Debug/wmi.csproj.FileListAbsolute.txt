@@ -15,3 +15,18 @@ C:\Users\dougp.FICONT\documents\visual studio 2012\Projects\wmi\wmi\bin\Debug\wm
 C:\Users\dougp.FICONT\documents\visual studio 2012\Projects\wmi\wmi\obj\Debug\wmi.exe.manifest
 C:\Users\dougp.FICONT\documents\visual studio 2012\Projects\wmi\wmi\obj\Debug\wmi.application
 C:\Users\dougp.FICONT\documents\visual studio 2012\Projects\wmi\wmi\obj\Debug\wmi.AboutBox1.resources
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\bin\Debug\wmi.exe.config
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.exe
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.pdb
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\bin\Debug\wmi.exe.manifest
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\bin\Debug\wmi.application
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\bin\Debug\wmi.exe
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\bin\Debug\wmi.pdb
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.csprojResolveAssemblyReference.cache
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.AboutBox1.resources
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.Form1.resources
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.Main.resources
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.Properties.Resources.resources
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.csproj.GenerateResource.Cache
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.exe.manifest
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.application
