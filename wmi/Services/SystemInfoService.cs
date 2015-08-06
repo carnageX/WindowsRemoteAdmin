@@ -17,12 +17,17 @@ namespace wmi.Services
 
         public SystemInfoService(ManagementScope scope, ConnectionOptions options)
         {
-            _scope = scope;
-            _options = options;
+            try
+            {
+                _scope = scope;
+                _options = options;
 
-            _scope.Connect();
+                _scope.Connect();
+            }
+            catch { }
+            
         }
-
+        
         public List<SystemInfo> GetSystemInfo()
         {
             var systemInfoCollection = new List<SystemInfo>();

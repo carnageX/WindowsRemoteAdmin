@@ -30,3 +30,15 @@ C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.
 C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.csproj.GenerateResource.Cache
 C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.exe.manifest
 C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.application
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\bin\Debug\wmi.exe.manifest
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\bin\Debug\wmi.application
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\bin\Debug\wmi.exe
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\bin\Debug\wmi.pdb
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.csprojResolveAssemblyReference.cache
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.AboutBox1.resources
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.Form1.resources
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.Main.resources
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.Properties.Resources.resources
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.csproj.GenerateResource.Cache
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.exe.manifest
+C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.application

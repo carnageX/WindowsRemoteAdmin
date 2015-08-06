@@ -28,28 +28,36 @@ namespace wmi
         #region System Info
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            _sysConnector = new SystemConnector(this.txtCompName.Text);
-            var sysInfoService = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
-            var sysInfo = sysInfoService.GetSystemInfo().FirstOrDefault();
+            if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            else
+            {
 
-            lblComputerName.Text = sysInfo.HostName;
-            lblWinDir.Text = sysInfo.WinDir;
-            lblCaption.Text = sysInfo.Caption;
-            lblManufacturer.Text = sysInfo.Manufacturer;
-            lblVer.Text = sysInfo.Version;
-            lblProcCount.Text = sysInfo.ProcessCount;
-            lblArch.Text = sysInfo.OSArchitecture;
-            lblRam.Text = String.Format("{0} bytes", sysInfo.MemoryInBytes);
 
-            var disk = sysInfo.Disks.First();
-            lblDiskName.Text = disk.DiskName;
-            lblDiskSize.Text = String.Format("{0} bytes", disk.SizeInBytes);
-            lblDiskFree.Text = String.Format("{0} bytes", disk.FreeSpaceInBytes);
 
-            var adminStatus = sysInfo.AdminPasswordStatuses.First();
-            lblCurrentUser.Text = adminStatus.Username;
-            lblAdminStatus.Text = adminStatus.Status;
+                _sysConnector = new SystemConnector(this.txtCompName.Text);
+                var sysInfoService = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
+                var sysInfo = sysInfoService.GetSystemInfo().FirstOrDefault();
+
+                lblComputerName.Text = sysInfo.HostName;
+                lblWinDir.Text = sysInfo.WinDir;
+                lblCaption.Text = sysInfo.Caption;
+                lblManufacturer.Text = sysInfo.Manufacturer;
+                lblVer.Text = sysInfo.Version;
+                lblProcCount.Text = sysInfo.ProcessCount;
+                lblArch.Text = sysInfo.OSArchitecture;
+                lblRam.Text = String.Format("{0} bytes", sysInfo.MemoryInBytes);
+
+                var disk = sysInfo.Disks.First();
+                lblDiskName.Text = disk.DiskName;
+                lblDiskSize.Text = String.Format("{0} bytes", disk.SizeInBytes);
+                lblDiskFree.Text = String.Format("{0} bytes", disk.FreeSpaceInBytes);
+
+                var adminStatus = sysInfo.AdminPasswordStatuses.First();
+                lblCurrentUser.Text = adminStatus.Username;
+                lblAdminStatus.Text = adminStatus.Status;
+            }
         }
+
         #endregion
 
         #region Services
@@ -65,16 +73,24 @@ namespace wmi
 
         private void btnServiceStart_Click(object sender, EventArgs e)
         {
-            var serviceName = listServices.SelectedItem.ToString();
-            var isStarted = _services.StartService(serviceName);
-            if (isStarted) { lblServiceStatus.Text = _services.GetServiceStatus(serviceName); }
+            try
+            {
+                var serviceName = listServices.SelectedItem.ToString();
+                var isStarted = _services.StartService(serviceName);
+                if (isStarted) { lblServiceStatus.Text = _services.GetServiceStatus(serviceName); }
+            }
+            catch { }
         }
 
         private void btnServiceStop_Click(object sender, EventArgs e)
         {
-            var serviceName = listServices.SelectedItem.ToString();
-            var isStopped = _services.StopService(serviceName);
-            if (isStopped) { lblServiceStatus.Text = _services.GetServiceStatus(serviceName); }
+            try
+            {
+                var serviceName = listServices.SelectedItem.ToString();
+                var isStopped = _services.StopService(serviceName);
+                if (isStopped) { lblServiceStatus.Text = _services.GetServiceStatus(serviceName); }
+            }
+            catch { }
         }
 
         private void listServices_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,9 +115,13 @@ namespace wmi
 
         private void btnSoftwareUninstall_Click(object sender, EventArgs e)
         {
-            var applicationName = listSoftware.SelectedItem.ToString();
-            var isRemoved = _applications.UninstallSoftware(applicationName);
-        }
+            try
+            {
+                var applicationName = listSoftware.SelectedItem.ToString();
+                var isRemoved = _applications.UninstallSoftware(applicationName);
+            }
+            catch { }
+        } 
         #endregion
 
         #region Printers
@@ -117,8 +137,12 @@ namespace wmi
 
         private void btnUninstallPrinter_Click(object sender, EventArgs e)
         {
-            var printerName = listPrinters.SelectedItem.ToString();
-            var isRemoved = _printers.UninstallPrinter(printerName);
+            try
+            {
+                var printerName = listPrinters.SelectedItem.ToString();
+                var isRemoved = _printers.UninstallPrinter(printerName);
+            }
+            catch { }
         }
         #endregion
 
