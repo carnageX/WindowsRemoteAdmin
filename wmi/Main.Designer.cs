@@ -76,12 +76,16 @@
             this.btnUninstallPrinter = new System.Windows.Forms.Button();
             this.btnGetPrinters = new System.Windows.Forms.Button();
             this.listPrinters = new System.Windows.Forms.ListBox();
+            this.tabDisks = new System.Windows.Forms.TabPage();
+            this.listDisks = new System.Windows.Forms.ListBox();
+            this.btnGetDisks = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
             this.tabServices.SuspendLayout();
             this.tabSoftware.SuspendLayout();
             this.tabPrinters.SuspendLayout();
+            this.tabDisks.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -162,6 +166,7 @@
             this.tabControl.Controls.Add(this.tabServices);
             this.tabControl.Controls.Add(this.tabSoftware);
             this.tabControl.Controls.Add(this.tabPrinters);
+            this.tabControl.Controls.Add(this.tabDisks);
             this.tabControl.Location = new System.Drawing.Point(12, 65);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -576,6 +581,40 @@
             this.listPrinters.Sorted = true;
             this.listPrinters.TabIndex = 0;
             // 
+            // tabDisks
+            // 
+            this.tabDisks.BackColor = System.Drawing.SystemColors.Control;
+            this.tabDisks.Controls.Add(this.btnGetDisks);
+            this.tabDisks.Controls.Add(this.listDisks);
+            this.tabDisks.Location = new System.Drawing.Point(4, 22);
+            this.tabDisks.Name = "tabDisks";
+            this.tabDisks.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDisks.Size = new System.Drawing.Size(595, 343);
+            this.tabDisks.TabIndex = 4;
+            this.tabDisks.Text = "Disks";
+            // 
+            // listDisks
+            // 
+            this.listDisks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listDisks.FormattingEnabled = true;
+            this.listDisks.Location = new System.Drawing.Point(6, 35);
+            this.listDisks.Name = "listDisks";
+            this.listDisks.Size = new System.Drawing.Size(583, 264);
+            this.listDisks.Sorted = true;
+            this.listDisks.TabIndex = 1;
+            // 
+            // btnGetDisks
+            // 
+            this.btnGetDisks.Location = new System.Drawing.Point(6, 6);
+            this.btnGetDisks.Name = "btnGetDisks";
+            this.btnGetDisks.Size = new System.Drawing.Size(85, 23);
+            this.btnGetDisks.TabIndex = 2;
+            this.btnGetDisks.Text = "Get Disks";
+            this.btnGetDisks.UseVisualStyleBackColor = true;
+            this.btnGetDisks.Click += new System.EventHandler(this.btnGetDisks_Click);
+            // 
             // Main
             // 
             this.AcceptButton = this.btnConnect;
@@ -602,6 +641,7 @@
             this.tabSoftware.ResumeLayout(false);
             this.tabSoftware.PerformLayout();
             this.tabPrinters.ResumeLayout(false);
+            this.tabDisks.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -656,5 +696,8 @@
         private System.Windows.Forms.ListBox listPrinters;
         private System.Windows.Forms.Button btnGetPrinters;
         private System.Windows.Forms.Button btnUninstallPrinter;
+        private System.Windows.Forms.TabPage tabDisks;
+        private System.Windows.Forms.Button btnGetDisks;
+        private System.Windows.Forms.ListBox listDisks;
     }
 }

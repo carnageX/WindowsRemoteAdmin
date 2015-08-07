@@ -19,6 +19,7 @@ namespace wmi
         private IServicesService _services;
         private ISoftwareService _applications;
         private IPrintersService _printers;
+        private IDiskService _disk;
 
         public Main()
         {
@@ -223,5 +224,28 @@ namespace wmi
             aboutScreen.Show();
         }
         #endregion
+
+        #region Disks
+        private void btnGetDisks_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    _disk = new DiskService(_sysConnector.Scope, _sysConnector.Options);
+                    listDisks.DataSource = new BindingList<string>(_disk.GetDiskModel());
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
+
+        }
+        #endregion
+
+
     }
 }

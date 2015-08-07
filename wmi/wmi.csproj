@@ -90,6 +90,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IDiskService.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +108,8 @@
     <Compile Include="Models\SystemInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DiskService.cs" />
+    <Compile Include="Services\Interfaces\IDiskService.cs" />
     <Compile Include="Services\Interfaces\IPrintersService.cs" />
     <Compile Include="Services\Interfaces\IServicesService.cs" />
     <Compile Include="Services\Interfaces\ISoftwareService.cs" />
