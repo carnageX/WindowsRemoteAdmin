@@ -30,31 +30,46 @@ namespace wmi
         {
             try
             {
-                _sysConnector = new SystemConnector(this.txtCompName.Text);
-                var sysInfoService = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
-                var sysInfo = sysInfoService.GetSystemInfo().FirstOrDefault();
+                if(String.IsNullOrWhiteSpace(this.txtCompName.Text))
+                {
+                    MessageBox.Show("Please enter a computer name or IP.", "No system!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    _sysConnector = new SystemConnector(this.txtCompName.Text);
+                    var sysInfoService = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
+                    var sysInfo = sysInfoService.GetSystemInfo().FirstOrDefault();
 
-                lblComputerName.Text = sysInfo.HostName;
-                lblWinDir.Text = sysInfo.WinDir;
-                lblCaption.Text = sysInfo.Caption;
-                lblManufacturer.Text = sysInfo.Manufacturer;
-                lblVer.Text = sysInfo.Version;
-                lblProcCount.Text = sysInfo.ProcessCount;
-                lblArch.Text = sysInfo.OSArchitecture;
-                lblRam.Text = String.Format("{0} bytes", sysInfo.MemoryInBytes);
+                    lblComputerName.Text = sysInfo.HostName;
+                    lblWinDir.Text = sysInfo.WinDir;
+                    lblCaption.Text = sysInfo.Caption;
+                    lblManufacturer.Text = sysInfo.Manufacturer;
+                    lblVer.Text = sysInfo.Version;
+                    lblProcCount.Text = sysInfo.ProcessCount;
+                    lblArch.Text = sysInfo.OSArchitecture;
+                    var memoryGB = Math.Round((((double)Convert.ToDouble(sysInfo.MemoryInBytes) / 1024) / 1024), 2).ToString("N");
+                    lblRam.Text = String.Format("{0} bytes ({1} GB)", sysInfo.MemoryInBytes, memoryGB);
 
-                var disk = sysInfo.Disks.First();
-                lblDiskName.Text = disk.DiskName;
-                lblDiskSize.Text = String.Format("{0} bytes", disk.SizeInBytes);
-                lblDiskFree.Text = String.Format("{0} bytes", disk.FreeSpaceInBytes);
+                    var disk = sysInfo.Disks.First();
+                    lblDiskName.Text = disk.DiskName;
+                    var diskSizeGB = Math.Round((((double)Convert.ToDouble(disk.SizeInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
+                    var diskFreeGB = Math.Round((((double)Convert.ToDouble(disk.FreeSpaceInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
+                    lblDiskSize.Text = String.Format("{0} bytes ({1} GB)", disk.SizeInBytes, diskSizeGB );
+                    lblDiskFree.Text = String.Format("{0} bytes ({1} GB)", disk.FreeSpaceInBytes, diskFreeGB);
 
-                var adminStatus = sysInfo.AdminPasswordStatuses.First();
-                lblCurrentUser.Text = adminStatus.Username;
-                lblAdminStatus.Text = adminStatus.Status;
+                    var adminStatus = sysInfo.AdminPasswordStatuses.First();
+                    lblCurrentUser.Text = adminStatus.Username;
+                    lblAdminStatus.Text = adminStatus.Status;
+                    this.Cursor = Cursors.Default;
+                }
+                
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+                this.Cursor = Cursors.Default;
             }
 
         }
@@ -64,11 +79,19 @@ namespace wmi
         #region Services
         private void btnGetServices_Click(object sender, EventArgs e)
         {
-            if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-            else
+            try
             {
-                _services = new ServicesService(_sysConnector.Scope, _sysConnector.Options);
-                listServices.DataSource = new BindingList<string>(_services.GetServicesNameList());
+                if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    _services = new ServicesService(_sysConnector.Scope, _sysConnector.Options);
+                    listServices.DataSource = new BindingList<string>(_services.GetServicesNameList());
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
             }
         }
 
@@ -80,7 +103,11 @@ namespace wmi
                 var isStarted = _services.StartService(serviceName);
                 if (isStarted) { lblServiceStatus.Text = _services.GetServiceStatus(serviceName); }
             }
-            catch { }
+            catch(Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
         }
 
         private void btnServiceStop_Click(object sender, EventArgs e)
@@ -91,26 +118,47 @@ namespace wmi
                 var isStopped = _services.StopService(serviceName);
                 if (isStopped) { lblServiceStatus.Text = _services.GetServiceStatus(serviceName); }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
         }
 
         private void listServices_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var serviceName = listServices.SelectedItem.ToString();
-            lblServiceStatus.Text = _services.GetServiceStatus(serviceName);
+            try
+            {
+                var serviceName = listServices.SelectedItem.ToString();
+                lblServiceStatus.Text = _services.GetServiceStatus(serviceName);
+            }
+            catch (Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
+
         }
         #endregion
 
         #region Software
         private void btnGetSoftware_Click(object sender, EventArgs e)
         {
-            if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-            else
+            try
             {
-                this.Cursor = Cursors.WaitCursor;
-                _applications = new SoftwareService(_sysConnector.Scope, _sysConnector.Options);
-                listSoftware.DataSource = new BindingList<string>(_applications.GetAllSoftwareNames());
-                this.Cursor = Cursors.Default;
+                if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    _applications = new SoftwareService(_sysConnector.Scope, _sysConnector.Options);
+                    listSoftware.DataSource = new BindingList<string>(_applications.GetAllSoftwareNames());
+                    this.Cursor = Cursors.Default;
+                }
+            }
+            catch(Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
             }
         }
 
@@ -121,18 +169,30 @@ namespace wmi
                 var applicationName = listSoftware.SelectedItem.ToString();
                 var isRemoved = _applications.UninstallSoftware(applicationName);
             }
-            catch { }
+            catch (Exception ex) 
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
         } 
         #endregion
 
         #region Printers
         private void btnGetPrinters_Click(object sender, EventArgs e)
         {
-            if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-            else
+            try
             {
-                _printers = new PrintersService(_sysConnector.Scope, _sysConnector.Options);
-                listPrinters.DataSource = new BindingList<string>(_printers.GetPrinterNames());
+                if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    _printers = new PrintersService(_sysConnector.Scope, _sysConnector.Options);
+                    listPrinters.DataSource = new BindingList<string>(_printers.GetPrinterNames());
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
             }
         }
 
@@ -143,7 +203,11 @@ namespace wmi
                 var printerName = listPrinters.SelectedItem.ToString();
                 var isRemoved = _printers.UninstallPrinter(printerName);
             }
-            catch { }
+            catch (Exception ex) 
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
         }
         #endregion
 

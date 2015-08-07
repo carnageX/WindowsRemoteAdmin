@@ -42,3 +42,4 @@ C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.Properties.Resources.resourc
 C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.csproj.GenerateResource.Cache
 C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.exe.manifest
 C:\Users\dougp.FICONT\Desktop\wmi\wmi\obj\Debug\wmi.application
+C:\Users\carnageX\Desktop\Projects\WMI Remote Admin Tools\wmi\wmi\obj\Debug\wmi.MessageWindow.resources

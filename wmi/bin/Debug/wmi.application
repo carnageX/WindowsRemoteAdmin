@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="wmi.exe.manifest" size="3905">
+    <dependentAssembly dependencyType="install" codebase="wmi.exe.manifest" size="3906">
       <assemblyIdentity name="wmi.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tn7Cvupr6SGOjPVBog5hpiHuT8CNmjcZn80Qw215oW0=</dsig:DigestValue>
+        <dsig:DigestValue>HoY6Lps15Q8Vbbl3bNdgGr1ykDgAOamz6dTq3cNTJ+c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
