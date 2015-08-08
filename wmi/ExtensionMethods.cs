@@ -17,6 +17,7 @@ namespace wmi
             var query = new ObjectQuery("SELECT FreeSpace,Size,Name FROM Win32_LogicalDisk WHERE DriveType=3");
             var searcher = new ManagementObjectSearcher(scope, query);
             var diskCollection = searcher.Get();
+
             foreach (var disk in diskCollection)
             {
                 disks.Add(
@@ -31,6 +32,29 @@ namespace wmi
             return disks;
         }
 
+        public static List<DriveInfo> GetDriveInfo(this SystemInfo systemInfo, ManagementScope scope)
+        {
+            var driveList = new List<DriveInfo>();
+            var query = new ObjectQuery("SELECT * FROM Win32_DiskDrive");
+            var searcher = new ManagementObjectSearcher(scope, query);
+            var drives = searcher.Get();
+
+            foreach(var drive in drives)
+            {
+                driveList.Add(
+                    new DriveInfo()
+                    {
+                        Caption = drive["Caption"].ToString(),
+                        DeviceId = drive["DeviceID"].ToString(),
+                        Model = drive["Model"].ToString(),
+                        Partitions = drive["Partitions"].ToString(),
+                        SizeInBytes = drive["Size"].ToString()
+                    }
+                );
+            }
+            return driveList;
+        }
+
         public static List<AdminPasswordStatus> GetAdminPasswordStatus(this SystemInfo systemInfo, ManagementScope scope)
         {
             var statuses = new List<AdminPasswordStatus>();
@@ -40,16 +64,22 @@ namespace wmi
             foreach (var status in statusCollection)
             {
                 var passwordStatus = String.Empty;
-                if (status["AdminPasswordStatus"].ToString() == "0") { passwordStatus = "Disabled"; }
+                if (status["AdminPasswordStatus"] == null) { passwordStatus = "null"; }
+                else if (status["AdminPasswordStatus"].ToString() == "0") { passwordStatus = "Disabled"; }
                 else if (status["AdminPasswordStatus"].ToString() == "1") { passwordStatus = "Enabled"; }
                 else if (status["AdminPasswordStatus"].ToString() == "2") { passwordStatus = "Not Implemented"; }
                 else if (status["AdminPasswordStatus"].ToString() == "3") { passwordStatus = "Unknown"; }
+                else { passwordStatus = "Unknown"; }
+
+                string username;
+                if (status["UserName"] != null) { username = status["UserName"].ToString(); }
+                else { username = "null"; }
 
                 statuses.Add(
                     new AdminPasswordStatus()
                     {
                         Status = passwordStatus,
-                        Username = status["UserName"].ToString()
+                        Username = username
                     }
                 );
             }

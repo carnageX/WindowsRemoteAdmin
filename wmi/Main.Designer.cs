@@ -77,8 +77,8 @@
             this.btnGetPrinters = new System.Windows.Forms.Button();
             this.listPrinters = new System.Windows.Forms.ListBox();
             this.tabDisks = new System.Windows.Forms.TabPage();
-            this.listDisks = new System.Windows.Forms.ListBox();
-            this.btnGetDisks = new System.Windows.Forms.Button();
+            this.btnGetDrives = new System.Windows.Forms.Button();
+            this.listDrives = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
@@ -584,36 +584,36 @@
             // tabDisks
             // 
             this.tabDisks.BackColor = System.Drawing.SystemColors.Control;
-            this.tabDisks.Controls.Add(this.btnGetDisks);
-            this.tabDisks.Controls.Add(this.listDisks);
+            this.tabDisks.Controls.Add(this.btnGetDrives);
+            this.tabDisks.Controls.Add(this.listDrives);
             this.tabDisks.Location = new System.Drawing.Point(4, 22);
             this.tabDisks.Name = "tabDisks";
             this.tabDisks.Padding = new System.Windows.Forms.Padding(3);
             this.tabDisks.Size = new System.Drawing.Size(595, 343);
             this.tabDisks.TabIndex = 4;
-            this.tabDisks.Text = "Disks";
+            this.tabDisks.Text = "Drives";
             // 
-            // listDisks
+            // btnGetDrives
             // 
-            this.listDisks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnGetDrives.Location = new System.Drawing.Point(6, 6);
+            this.btnGetDrives.Name = "btnGetDrives";
+            this.btnGetDrives.Size = new System.Drawing.Size(85, 23);
+            this.btnGetDrives.TabIndex = 2;
+            this.btnGetDrives.Text = "Get Drives";
+            this.btnGetDrives.UseVisualStyleBackColor = true;
+            this.btnGetDrives.Click += new System.EventHandler(this.btnGetDisks_Click);
+            // 
+            // listDrives
+            // 
+            this.listDrives.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listDisks.FormattingEnabled = true;
-            this.listDisks.Location = new System.Drawing.Point(6, 35);
-            this.listDisks.Name = "listDisks";
-            this.listDisks.Size = new System.Drawing.Size(583, 264);
-            this.listDisks.Sorted = true;
-            this.listDisks.TabIndex = 1;
-            // 
-            // btnGetDisks
-            // 
-            this.btnGetDisks.Location = new System.Drawing.Point(6, 6);
-            this.btnGetDisks.Name = "btnGetDisks";
-            this.btnGetDisks.Size = new System.Drawing.Size(85, 23);
-            this.btnGetDisks.TabIndex = 2;
-            this.btnGetDisks.Text = "Get Disks";
-            this.btnGetDisks.UseVisualStyleBackColor = true;
-            this.btnGetDisks.Click += new System.EventHandler(this.btnGetDisks_Click);
+            this.listDrives.FormattingEnabled = true;
+            this.listDrives.Location = new System.Drawing.Point(6, 35);
+            this.listDrives.Name = "listDrives";
+            this.listDrives.Size = new System.Drawing.Size(583, 264);
+            this.listDrives.Sorted = true;
+            this.listDrives.TabIndex = 1;
             // 
             // Main
             // 
@@ -697,7 +697,7 @@
         private System.Windows.Forms.Button btnGetPrinters;
         private System.Windows.Forms.Button btnUninstallPrinter;
         private System.Windows.Forms.TabPage tabDisks;
-        private System.Windows.Forms.Button btnGetDisks;
-        private System.Windows.Forms.ListBox listDisks;
+        private System.Windows.Forms.Button btnGetDrives;
+        private System.Windows.Forms.ListBox listDrives;
     }
 }

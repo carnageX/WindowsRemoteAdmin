@@ -35,8 +35,10 @@ namespace wmi.Services
             foreach (var item in systemInfoCollection)
             {
                 item.Disks = item.GetDiskInfo(_scope);
+                item.Drives = item.GetDriveInfo(_scope);
                 item.AdminPasswordStatuses = item.GetAdminPasswordStatus(_scope);
             }
+
             return systemInfoCollection;
         }
 

@@ -15,11 +15,13 @@ namespace wmi
 {
     public partial class Main : Form
     {
+        #region Private Fields
         private SystemConnector _sysConnector;
         private IServicesService _services;
         private ISoftwareService _applications;
         private IPrintersService _printers;
-        private IDiskService _disk;
+        private ISystemInfoService _sysInfo;
+        #endregion
 
         public Main()
         {
@@ -39,8 +41,8 @@ namespace wmi
                 {
                     this.Cursor = Cursors.WaitCursor;
                     _sysConnector = new SystemConnector(this.txtCompName.Text);
-                    var sysInfoService = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
-                    var sysInfo = sysInfoService.GetSystemInfo().FirstOrDefault();
+                    _sysInfo = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
+                    var sysInfo = _sysInfo.GetSystemInfo().FirstOrDefault();
 
                     lblComputerName.Text = sysInfo.HostName;
                     lblWinDir.Text = sysInfo.WinDir;
@@ -212,6 +214,29 @@ namespace wmi
         }
         #endregion
 
+        #region Drives
+        private void btnGetDisks_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    var sysInfo = _sysInfo.GetSystemInfo().FirstOrDefault();
+                    listDrives.DataSource = new BindingList<DriveInfo>(sysInfo.Drives);
+                    listDrives.DisplayMember = "Model";
+                    listDrives.ValueMember = "DeviceId";
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
+
+        }
+        #endregion
+
         #region Control Events
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -224,28 +249,5 @@ namespace wmi
             aboutScreen.Show();
         }
         #endregion
-
-        #region Disks
-        private void btnGetDisks_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-                else
-                {
-                    _disk = new DiskService(_sysConnector.Scope, _sysConnector.Options);
-                    listDisks.DataSource = new BindingList<string>(_disk.GetDiskModel());
-                }
-            }
-            catch (Exception ex)
-            {
-                var message = new MessageWindow("Error", ex);
-                message.ShowDialog();
-            }
-
-        }
-        #endregion
-
-
     }
 }

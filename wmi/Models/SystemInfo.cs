@@ -18,6 +18,7 @@ namespace wmi.Models
         public string OSArchitecture { get; set; }
         public string MemoryInBytes { get; set; }
         public List<DiskInfo> Disks { get; set; }
+        public List<DriveInfo> Drives { get; set; }
         public List<AdminPasswordStatus> AdminPasswordStatuses { get; set; }
     }
 }
