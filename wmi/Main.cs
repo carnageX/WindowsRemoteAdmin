@@ -21,6 +21,7 @@ namespace wmi
         private ISoftwareService _applications;
         private IPrintersService _printers;
         private ISystemInfoService _sysInfo;
+        private IDiskService _disk;
         #endregion
 
         public Main()
@@ -84,7 +85,7 @@ namespace wmi
         {
             try
             {
-                if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                if (_sysConnector == null) { ShowConnectionErrorMessage(); }
                 else
                 {
                     _services = new ServicesService(_sysConnector.Scope, _sysConnector.Options);
@@ -149,7 +150,7 @@ namespace wmi
         {
             try
             {
-                if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                if (_sysConnector == null) { ShowConnectionErrorMessage(); }
                 else
                 {
                     this.Cursor = Cursors.WaitCursor;
@@ -185,7 +186,7 @@ namespace wmi
         {
             try
             {
-                if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                if (_sysConnector == null) { ShowConnectionErrorMessage(); }
                 else
                 {
                     _printers = new PrintersService(_sysConnector.Scope, _sysConnector.Options);
@@ -219,7 +220,7 @@ namespace wmi
         {
             try
             {
-                if (_sysConnector == null) { MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                if (_sysConnector == null) { ShowConnectionErrorMessage(); }
                 else
                 {
                     var sysInfo = _sysInfo.GetSystemInfo().FirstOrDefault();
@@ -235,6 +236,29 @@ namespace wmi
             }
 
         }
+
+        private void listDrives_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_sysConnector == null) { ShowConnectionErrorMessage(); }
+                else
+                {
+                    var selectedDrive = listDrives.SelectedItem as DriveInfo;
+                    var diskSizeInGB = Math.Round((((double)Convert.ToDouble(selectedDrive.SizeInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
+
+                    lblDriveModel.Text = selectedDrive.Model;
+                    lblDrivePartitionCount.Text = selectedDrive.Partitions;
+                    lblDriveSize.Text = String.Format("{0} bytes ({1} GB)", selectedDrive.SizeInBytes, diskSizeInGB);
+                    lblDriveDeviceId.Text = selectedDrive.DeviceId;
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
+        }
         #endregion
 
         #region Control Events
@@ -247,6 +271,13 @@ namespace wmi
         {
             var aboutScreen = new AboutBox1();
             aboutScreen.Show();
+        }
+        #endregion
+
+        #region Helper Methods
+        private void ShowConnectionErrorMessage()
+        {
+            MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         #endregion
     }

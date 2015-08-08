@@ -79,6 +79,14 @@
             this.tabDisks = new System.Windows.Forms.TabPage();
             this.btnGetDrives = new System.Windows.Forms.Button();
             this.listDrives = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblDriveSize = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblDriveModel = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblDrivePartitionCount = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblDriveDeviceId = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
@@ -584,6 +592,14 @@
             // tabDisks
             // 
             this.tabDisks.BackColor = System.Drawing.SystemColors.Control;
+            this.tabDisks.Controls.Add(this.lblDriveDeviceId);
+            this.tabDisks.Controls.Add(this.label9);
+            this.tabDisks.Controls.Add(this.lblDrivePartitionCount);
+            this.tabDisks.Controls.Add(this.label13);
+            this.tabDisks.Controls.Add(this.lblDriveModel);
+            this.tabDisks.Controls.Add(this.label11);
+            this.tabDisks.Controls.Add(this.lblDriveSize);
+            this.tabDisks.Controls.Add(this.label8);
             this.tabDisks.Controls.Add(this.btnGetDrives);
             this.tabDisks.Controls.Add(this.listDrives);
             this.tabDisks.Location = new System.Drawing.Point(4, 22);
@@ -611,9 +627,82 @@
             this.listDrives.FormattingEnabled = true;
             this.listDrives.Location = new System.Drawing.Point(6, 35);
             this.listDrives.Name = "listDrives";
-            this.listDrives.Size = new System.Drawing.Size(583, 264);
+            this.listDrives.Size = new System.Drawing.Size(583, 199);
             this.listDrives.Sorted = true;
             this.listDrives.TabIndex = 1;
+            this.listDrives.SelectedIndexChanged += new System.EventHandler(this.listDrives_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 294);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Size: ";
+            // 
+            // lblDriveSize
+            // 
+            this.lblDriveSize.AutoSize = true;
+            this.lblDriveSize.Location = new System.Drawing.Point(91, 294);
+            this.lblDriveSize.Name = "lblDriveSize";
+            this.lblDriveSize.Size = new System.Drawing.Size(10, 13);
+            this.lblDriveSize.TabIndex = 4;
+            this.lblDriveSize.Text = "-";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 249);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Model: ";
+            // 
+            // lblDriveModel
+            // 
+            this.lblDriveModel.AutoSize = true;
+            this.lblDriveModel.Location = new System.Drawing.Point(91, 249);
+            this.lblDriveModel.Name = "lblDriveModel";
+            this.lblDriveModel.Size = new System.Drawing.Size(10, 13);
+            this.lblDriveModel.TabIndex = 6;
+            this.lblDriveModel.Text = "-";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 271);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(82, 13);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Partition Count: ";
+            // 
+            // lblDrivePartitionCount
+            // 
+            this.lblDrivePartitionCount.AutoSize = true;
+            this.lblDrivePartitionCount.Location = new System.Drawing.Point(91, 271);
+            this.lblDrivePartitionCount.Name = "lblDrivePartitionCount";
+            this.lblDrivePartitionCount.Size = new System.Drawing.Size(10, 13);
+            this.lblDrivePartitionCount.TabIndex = 8;
+            this.lblDrivePartitionCount.Text = "-";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 316);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Device ID: ";
+            // 
+            // lblDriveDeviceId
+            // 
+            this.lblDriveDeviceId.AutoSize = true;
+            this.lblDriveDeviceId.Location = new System.Drawing.Point(91, 316);
+            this.lblDriveDeviceId.Name = "lblDriveDeviceId";
+            this.lblDriveDeviceId.Size = new System.Drawing.Size(10, 13);
+            this.lblDriveDeviceId.TabIndex = 10;
+            this.lblDriveDeviceId.Text = "-";
             // 
             // Main
             // 
@@ -642,6 +731,7 @@
             this.tabSoftware.PerformLayout();
             this.tabPrinters.ResumeLayout(false);
             this.tabDisks.ResumeLayout(false);
+            this.tabDisks.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -699,5 +789,13 @@
         private System.Windows.Forms.TabPage tabDisks;
         private System.Windows.Forms.Button btnGetDrives;
         private System.Windows.Forms.ListBox listDrives;
+        private System.Windows.Forms.Label lblDriveSize;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDrivePartitionCount;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblDriveModel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblDriveDeviceId;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -14,7 +14,7 @@ namespace wmi
         public static List<DiskInfo> GetDiskInfo(this SystemInfo systemInfo, ManagementScope scope)
         {
             var disks = new List<DiskInfo>();
-            var query = new ObjectQuery("SELECT FreeSpace,Size,Name FROM Win32_LogicalDisk WHERE DriveType=3");
+            var query = new ObjectQuery("SELECT FreeSpace,Size,Name,VolumeName,DeviceID FROM Win32_LogicalDisk WHERE DriveType=3");
             var searcher = new ManagementObjectSearcher(scope, query);
             var diskCollection = searcher.Get();
 
@@ -23,9 +23,11 @@ namespace wmi
                 disks.Add(
                     new DiskInfo()
                     {
+                        DiskId = disk["DeviceID"].ToString(),
                         DiskName = disk["Name"].ToString(),
                         SizeInBytes = disk["Size"].ToString(),
-                        FreeSpaceInBytes = disk["FreeSpace"].ToString()
+                        FreeSpaceInBytes = disk["FreeSpace"].ToString(),
+                        Volume = disk["VolumeName"].ToString()
                     }
                 );
             }
