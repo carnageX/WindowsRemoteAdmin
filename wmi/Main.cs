@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,7 +42,20 @@ namespace wmi
                 else
                 {
                     this.Cursor = Cursors.WaitCursor;
-                    _sysConnector = new SystemConnector(this.txtCompName.Text);
+//                    _sysConnector = new SystemConnector(this.txtCompName.Text);
+
+                    if (!String.IsNullOrWhiteSpace(txtUserName.Text) && !String.IsNullOrWhiteSpace(txtPassword.Text))
+                    {
+                        var options = new ConnectionOptions();
+                        options.Username = txtUserName.Text;
+                        options.Password = txtPassword.Text;
+                        _sysConnector = new SystemConnector(this.txtCompName.Text, options);
+                    }
+                    else
+                    {
+                        _sysConnector = new SystemConnector(this.txtCompName.Text);
+                    }
+
                     _sysInfo = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
                     var sysInfo = _sysInfo.GetSystemInfo().FirstOrDefault();
 

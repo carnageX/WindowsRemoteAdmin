@@ -77,16 +77,20 @@
             this.btnGetPrinters = new System.Windows.Forms.Button();
             this.listPrinters = new System.Windows.Forms.ListBox();
             this.tabDisks = new System.Windows.Forms.TabPage();
+            this.lblDriveDeviceId = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblDrivePartitionCount = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblDriveModel = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblDriveSize = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnGetDrives = new System.Windows.Forms.Button();
             this.listDrives = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblDriveSize = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblDriveModel = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lblDrivePartitionCount = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblDriveDeviceId = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
@@ -175,10 +179,10 @@
             this.tabControl.Controls.Add(this.tabSoftware);
             this.tabControl.Controls.Add(this.tabPrinters);
             this.tabControl.Controls.Add(this.tabDisks);
-            this.tabControl.Location = new System.Drawing.Point(12, 65);
+            this.tabControl.Location = new System.Drawing.Point(12, 80);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(603, 369);
+            this.tabControl.Size = new System.Drawing.Size(603, 354);
             this.tabControl.TabIndex = 119;
             // 
             // tabSysInfo
@@ -208,7 +212,7 @@
             this.tabSysInfo.Location = new System.Drawing.Point(4, 22);
             this.tabSysInfo.Name = "tabSysInfo";
             this.tabSysInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSysInfo.Size = new System.Drawing.Size(595, 343);
+            this.tabSysInfo.Size = new System.Drawing.Size(595, 328);
             this.tabSysInfo.TabIndex = 0;
             this.tabSysInfo.Text = "System Info";
             // 
@@ -609,6 +613,78 @@
             this.tabDisks.TabIndex = 4;
             this.tabDisks.Text = "Drives";
             // 
+            // lblDriveDeviceId
+            // 
+            this.lblDriveDeviceId.AutoSize = true;
+            this.lblDriveDeviceId.Location = new System.Drawing.Point(91, 316);
+            this.lblDriveDeviceId.Name = "lblDriveDeviceId";
+            this.lblDriveDeviceId.Size = new System.Drawing.Size(10, 13);
+            this.lblDriveDeviceId.TabIndex = 10;
+            this.lblDriveDeviceId.Text = "-";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 316);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Device ID: ";
+            // 
+            // lblDrivePartitionCount
+            // 
+            this.lblDrivePartitionCount.AutoSize = true;
+            this.lblDrivePartitionCount.Location = new System.Drawing.Point(91, 271);
+            this.lblDrivePartitionCount.Name = "lblDrivePartitionCount";
+            this.lblDrivePartitionCount.Size = new System.Drawing.Size(10, 13);
+            this.lblDrivePartitionCount.TabIndex = 8;
+            this.lblDrivePartitionCount.Text = "-";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 271);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(82, 13);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Partition Count: ";
+            // 
+            // lblDriveModel
+            // 
+            this.lblDriveModel.AutoSize = true;
+            this.lblDriveModel.Location = new System.Drawing.Point(91, 249);
+            this.lblDriveModel.Name = "lblDriveModel";
+            this.lblDriveModel.Size = new System.Drawing.Size(10, 13);
+            this.lblDriveModel.TabIndex = 6;
+            this.lblDriveModel.Text = "-";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 249);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Model: ";
+            // 
+            // lblDriveSize
+            // 
+            this.lblDriveSize.AutoSize = true;
+            this.lblDriveSize.Location = new System.Drawing.Point(91, 294);
+            this.lblDriveSize.Name = "lblDriveSize";
+            this.lblDriveSize.Size = new System.Drawing.Size(10, 13);
+            this.lblDriveSize.TabIndex = 4;
+            this.lblDriveSize.Text = "-";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 294);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Size: ";
+            // 
             // btnGetDrives
             // 
             this.btnGetDrives.Location = new System.Drawing.Point(6, 6);
@@ -632,77 +708,38 @@
             this.listDrives.TabIndex = 1;
             this.listDrives.SelectedIndexChanged += new System.EventHandler(this.listDrives_SelectedIndexChanged);
             // 
-            // label8
+            // txtUserName
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 294);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Size: ";
+            this.txtUserName.Location = new System.Drawing.Point(447, 33);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(168, 20);
+            this.txtUserName.TabIndex = 133;
             // 
-            // lblDriveSize
+            // txtPassword
             // 
-            this.lblDriveSize.AutoSize = true;
-            this.lblDriveSize.Location = new System.Drawing.Point(91, 294);
-            this.lblDriveSize.Name = "lblDriveSize";
-            this.lblDriveSize.Size = new System.Drawing.Size(10, 13);
-            this.lblDriveSize.TabIndex = 4;
-            this.lblDriveSize.Text = "-";
+            this.txtPassword.Location = new System.Drawing.Point(447, 61);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(168, 20);
+            this.txtPassword.TabIndex = 134;
             // 
-            // label11
+            // label12
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 249);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 13);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Model: ";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(379, 64);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 13);
+            this.label12.TabIndex = 135;
+            this.label12.Text = "Password";
             // 
-            // lblDriveModel
+            // label14
             // 
-            this.lblDriveModel.AutoSize = true;
-            this.lblDriveModel.Location = new System.Drawing.Point(91, 249);
-            this.lblDriveModel.Name = "lblDriveModel";
-            this.lblDriveModel.Size = new System.Drawing.Size(10, 13);
-            this.lblDriveModel.TabIndex = 6;
-            this.lblDriveModel.Text = "-";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 271);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 13);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Partition Count: ";
-            // 
-            // lblDrivePartitionCount
-            // 
-            this.lblDrivePartitionCount.AutoSize = true;
-            this.lblDrivePartitionCount.Location = new System.Drawing.Point(91, 271);
-            this.lblDrivePartitionCount.Name = "lblDrivePartitionCount";
-            this.lblDrivePartitionCount.Size = new System.Drawing.Size(10, 13);
-            this.lblDrivePartitionCount.TabIndex = 8;
-            this.lblDrivePartitionCount.Text = "-";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 316);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Device ID: ";
-            // 
-            // lblDriveDeviceId
-            // 
-            this.lblDriveDeviceId.AutoSize = true;
-            this.lblDriveDeviceId.Location = new System.Drawing.Point(91, 316);
-            this.lblDriveDeviceId.Name = "lblDriveDeviceId";
-            this.lblDriveDeviceId.Size = new System.Drawing.Size(10, 13);
-            this.lblDriveDeviceId.TabIndex = 10;
-            this.lblDriveDeviceId.Text = "-";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(379, 36);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 13);
+            this.label14.TabIndex = 136;
+            this.label14.Text = "User Name";
             // 
             // Main
             // 
@@ -710,6 +747,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 447);
+            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.lblComputerConn);
@@ -797,5 +838,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblDriveDeviceId;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
     }
 }
