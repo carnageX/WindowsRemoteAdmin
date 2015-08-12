@@ -714,6 +714,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(168, 20);
             this.txtUserName.TabIndex = 133;
+            this.txtUserName.Text = "dom OR pcname\\user";
             // 
             // txtPassword
             // 
