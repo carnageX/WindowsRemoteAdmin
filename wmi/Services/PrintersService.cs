@@ -35,14 +35,14 @@ namespace wmi.Services
 
         public ManagementObjectCollection GetAllPrinters()
         {
-            var query = new ObjectQuery("SELECT * FROM Win32_Printer");
+            var query = new ObjectQuery("SELECT Name FROM Win32_Printer");
             var searcher = new ManagementObjectSearcher(_scope, query);
             return searcher.Get();
         }
 
         public ManagementObject GetPrinterObject(string printerName)
         {
-            var query = new ObjectQuery(String.Format("SELECT * FROM Win32_Printer where Name='{0}'", printerName));
+            var query = new ObjectQuery(String.Format("SELECT Name FROM Win32_Printer where Name='{0}'", printerName));
             var searcher = new ManagementObjectSearcher(_scope, query);
             var printer = searcher.Get().Cast<ManagementObject>().FirstOrDefault();
             return printer;

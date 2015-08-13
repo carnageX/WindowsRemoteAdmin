@@ -87,14 +87,33 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnGetDrives = new System.Windows.Forms.Button();
             this.listDrives = new System.Windows.Forms.ListBox();
+            this.tabLocalAccounts = new System.Windows.Forms.TabPage();
+            this.groupLocalAccountInfo = new System.Windows.Forms.GroupBox();
+            this.listLocalAccounts = new System.Windows.Forms.ListBox();
+            this.btnGetLocalAccounts = new System.Windows.Forms.Button();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tabLocalAccounts = new System.Windows.Forms.TabPage();
-            this.btnGetLocalAccounts = new System.Windows.Forms.Button();
-            this.listLocalAccounts = new System.Windows.Forms.ListBox();
-            this.groupLocalAccountInfo = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lblFulln = new System.Windows.Forms.Label();
+            this.lblPdis = new System.Windows.Forms.Label();
+            this.lblPcha = new System.Windows.Forms.Label();
+            this.lblPexp = new System.Windows.Forms.Label();
+            this.lblPreq = new System.Windows.Forms.Label();
+            this.lblPsta = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblServp = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
@@ -103,6 +122,7 @@
             this.tabPrinters.SuspendLayout();
             this.tabDisks.SuspendLayout();
             this.tabLocalAccounts.SuspendLayout();
+            this.groupLocalAccountInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -194,6 +214,13 @@
             // tabSysInfo
             // 
             this.tabSysInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.tabSysInfo.Controls.Add(this.lblServp);
+            this.tabSysInfo.Controls.Add(this.label15);
+            this.tabSysInfo.Controls.Add(this.label26);
+            this.tabSysInfo.Controls.Add(this.label25);
+            this.tabSysInfo.Controls.Add(this.label24);
+            this.tabSysInfo.Controls.Add(this.label23);
+            this.tabSysInfo.Controls.Add(this.label21);
             this.tabSysInfo.Controls.Add(this.lblVer);
             this.tabSysInfo.Controls.Add(this.lblManufacturer);
             this.tabSysInfo.Controls.Add(this.lblCaption);
@@ -225,7 +252,7 @@
             // lblVer
             // 
             this.lblVer.AutoSize = true;
-            this.lblVer.Location = new System.Drawing.Point(16, 283);
+            this.lblVer.Location = new System.Drawing.Point(117, 290);
             this.lblVer.Name = "lblVer";
             this.lblVer.Size = new System.Drawing.Size(10, 13);
             this.lblVer.TabIndex = 132;
@@ -234,7 +261,7 @@
             // lblManufacturer
             // 
             this.lblManufacturer.AutoSize = true;
-            this.lblManufacturer.Location = new System.Drawing.Point(16, 306);
+            this.lblManufacturer.Location = new System.Drawing.Point(117, 312);
             this.lblManufacturer.Name = "lblManufacturer";
             this.lblManufacturer.Size = new System.Drawing.Size(10, 13);
             this.lblManufacturer.TabIndex = 131;
@@ -243,7 +270,7 @@
             // lblCaption
             // 
             this.lblCaption.AutoSize = true;
-            this.lblCaption.Location = new System.Drawing.Point(16, 258);
+            this.lblCaption.Location = new System.Drawing.Point(117, 246);
             this.lblCaption.Name = "lblCaption";
             this.lblCaption.Size = new System.Drawing.Size(10, 13);
             this.lblCaption.TabIndex = 130;
@@ -252,7 +279,7 @@
             // lblWinDir
             // 
             this.lblWinDir.AutoSize = true;
-            this.lblWinDir.Location = new System.Drawing.Point(16, 211);
+            this.lblWinDir.Location = new System.Drawing.Point(117, 224);
             this.lblWinDir.Name = "lblWinDir";
             this.lblWinDir.Size = new System.Drawing.Size(10, 13);
             this.lblWinDir.TabIndex = 129;
@@ -261,7 +288,7 @@
             // lblComputerName
             // 
             this.lblComputerName.AutoSize = true;
-            this.lblComputerName.Location = new System.Drawing.Point(16, 234);
+            this.lblComputerName.Location = new System.Drawing.Point(117, 22);
             this.lblComputerName.Name = "lblComputerName";
             this.lblComputerName.Size = new System.Drawing.Size(10, 13);
             this.lblComputerName.TabIndex = 128;
@@ -270,7 +297,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(16, 13);
+            this.label27.Location = new System.Drawing.Point(16, 45);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(69, 13);
             this.label27.TabIndex = 126;
@@ -279,7 +306,7 @@
             // lblAdminStatus
             // 
             this.lblAdminStatus.AutoSize = true;
-            this.lblAdminStatus.Location = new System.Drawing.Point(117, 13);
+            this.lblAdminStatus.Location = new System.Drawing.Point(117, 45);
             this.lblAdminStatus.Name = "lblAdminStatus";
             this.lblAdminStatus.Size = new System.Drawing.Size(10, 13);
             this.lblAdminStatus.TabIndex = 127;
@@ -288,7 +315,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 158);
+            this.label3.Location = new System.Drawing.Point(16, 178);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 113;
@@ -297,7 +324,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 35);
+            this.label2.Location = new System.Drawing.Point(16, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 112;
@@ -306,7 +333,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 109);
+            this.label4.Location = new System.Drawing.Point(16, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 114;
@@ -315,7 +342,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 133);
+            this.label5.Location = new System.Drawing.Point(16, 155);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 115;
@@ -324,7 +351,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 85);
+            this.label6.Location = new System.Drawing.Point(16, 111);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 116;
@@ -333,7 +360,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 60);
+            this.label7.Location = new System.Drawing.Point(16, 89);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 13);
             this.label7.TabIndex = 117;
@@ -342,7 +369,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 180);
+            this.label10.Location = new System.Drawing.Point(16, 201);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 13);
             this.label10.TabIndex = 118;
@@ -351,7 +378,7 @@
             // lblRam
             // 
             this.lblRam.AutoSize = true;
-            this.lblRam.Location = new System.Drawing.Point(117, 180);
+            this.lblRam.Location = new System.Drawing.Point(117, 201);
             this.lblRam.Name = "lblRam";
             this.lblRam.Size = new System.Drawing.Size(10, 13);
             this.lblRam.TabIndex = 125;
@@ -360,7 +387,7 @@
             // lblCurrentUser
             // 
             this.lblCurrentUser.AutoSize = true;
-            this.lblCurrentUser.Location = new System.Drawing.Point(117, 158);
+            this.lblCurrentUser.Location = new System.Drawing.Point(117, 178);
             this.lblCurrentUser.Name = "lblCurrentUser";
             this.lblCurrentUser.Size = new System.Drawing.Size(10, 13);
             this.lblCurrentUser.TabIndex = 124;
@@ -369,7 +396,7 @@
             // lblArch
             // 
             this.lblArch.AutoSize = true;
-            this.lblArch.Location = new System.Drawing.Point(117, 109);
+            this.lblArch.Location = new System.Drawing.Point(117, 133);
             this.lblArch.Name = "lblArch";
             this.lblArch.Size = new System.Drawing.Size(10, 13);
             this.lblArch.TabIndex = 123;
@@ -378,7 +405,7 @@
             // lblProcCount
             // 
             this.lblProcCount.AutoSize = true;
-            this.lblProcCount.Location = new System.Drawing.Point(117, 133);
+            this.lblProcCount.Location = new System.Drawing.Point(117, 155);
             this.lblProcCount.Name = "lblProcCount";
             this.lblProcCount.Size = new System.Drawing.Size(10, 13);
             this.lblProcCount.TabIndex = 122;
@@ -387,7 +414,7 @@
             // lblDiskFree
             // 
             this.lblDiskFree.AutoSize = true;
-            this.lblDiskFree.Location = new System.Drawing.Point(117, 86);
+            this.lblDiskFree.Location = new System.Drawing.Point(117, 111);
             this.lblDiskFree.Name = "lblDiskFree";
             this.lblDiskFree.Size = new System.Drawing.Size(10, 13);
             this.lblDiskFree.TabIndex = 121;
@@ -396,7 +423,7 @@
             // lblDiskSize
             // 
             this.lblDiskSize.AutoSize = true;
-            this.lblDiskSize.Location = new System.Drawing.Point(117, 61);
+            this.lblDiskSize.Location = new System.Drawing.Point(117, 89);
             this.lblDiskSize.Name = "lblDiskSize";
             this.lblDiskSize.Size = new System.Drawing.Size(10, 13);
             this.lblDiskSize.TabIndex = 120;
@@ -405,7 +432,7 @@
             // lblDiskName
             // 
             this.lblDiskName.AutoSize = true;
-            this.lblDiskName.Location = new System.Drawing.Point(117, 36);
+            this.lblDiskName.Location = new System.Drawing.Point(117, 67);
             this.lblDiskName.Name = "lblDiskName";
             this.lblDiskName.Size = new System.Drawing.Size(10, 13);
             this.lblDiskName.TabIndex = 119;
@@ -722,6 +749,65 @@
             this.listDrives.TabIndex = 1;
             this.listDrives.SelectedIndexChanged += new System.EventHandler(this.listDrives_SelectedIndexChanged);
             // 
+            // tabLocalAccounts
+            // 
+            this.tabLocalAccounts.BackColor = System.Drawing.SystemColors.Control;
+            this.tabLocalAccounts.Controls.Add(this.groupLocalAccountInfo);
+            this.tabLocalAccounts.Controls.Add(this.listLocalAccounts);
+            this.tabLocalAccounts.Controls.Add(this.btnGetLocalAccounts);
+            this.tabLocalAccounts.Location = new System.Drawing.Point(4, 22);
+            this.tabLocalAccounts.Name = "tabLocalAccounts";
+            this.tabLocalAccounts.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLocalAccounts.Size = new System.Drawing.Size(595, 328);
+            this.tabLocalAccounts.TabIndex = 5;
+            this.tabLocalAccounts.Text = "Local Accounts";
+            // 
+            // groupLocalAccountInfo
+            // 
+            this.groupLocalAccountInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupLocalAccountInfo.Controls.Add(this.lblPsta);
+            this.groupLocalAccountInfo.Controls.Add(this.lblPreq);
+            this.groupLocalAccountInfo.Controls.Add(this.lblPexp);
+            this.groupLocalAccountInfo.Controls.Add(this.lblPcha);
+            this.groupLocalAccountInfo.Controls.Add(this.lblPdis);
+            this.groupLocalAccountInfo.Controls.Add(this.lblFulln);
+            this.groupLocalAccountInfo.Controls.Add(this.label20);
+            this.groupLocalAccountInfo.Controls.Add(this.label19);
+            this.groupLocalAccountInfo.Controls.Add(this.label18);
+            this.groupLocalAccountInfo.Controls.Add(this.label17);
+            this.groupLocalAccountInfo.Controls.Add(this.label22);
+            this.groupLocalAccountInfo.Controls.Add(this.label16);
+            this.groupLocalAccountInfo.Location = new System.Drawing.Point(6, 177);
+            this.groupLocalAccountInfo.Name = "groupLocalAccountInfo";
+            this.groupLocalAccountInfo.Size = new System.Drawing.Size(583, 145);
+            this.groupLocalAccountInfo.TabIndex = 2;
+            this.groupLocalAccountInfo.TabStop = false;
+            this.groupLocalAccountInfo.Text = "Account Details";
+            // 
+            // listLocalAccounts
+            // 
+            this.listLocalAccounts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listLocalAccounts.FormattingEnabled = true;
+            this.listLocalAccounts.Location = new System.Drawing.Point(6, 39);
+            this.listLocalAccounts.Name = "listLocalAccounts";
+            this.listLocalAccounts.Size = new System.Drawing.Size(583, 134);
+            this.listLocalAccounts.Sorted = true;
+            this.listLocalAccounts.TabIndex = 1;
+            this.listLocalAccounts.SelectedIndexChanged += new System.EventHandler(this.listLocalAccounts_SelectedIndexChanged);
+            // 
+            // btnGetLocalAccounts
+            // 
+            this.btnGetLocalAccounts.Location = new System.Drawing.Point(6, 6);
+            this.btnGetLocalAccounts.Name = "btnGetLocalAccounts";
+            this.btnGetLocalAccounts.Size = new System.Drawing.Size(139, 27);
+            this.btnGetLocalAccounts.TabIndex = 0;
+            this.btnGetLocalAccounts.Text = "Get Local Accounts";
+            this.btnGetLocalAccounts.UseVisualStyleBackColor = true;
+            this.btnGetLocalAccounts.Click += new System.EventHandler(this.btnGetLocalAccounts_Click);
+            // 
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(447, 39);
@@ -756,52 +842,176 @@
             this.label14.TabIndex = 136;
             this.label14.Text = "User Name";
             // 
-            // tabLocalAccounts
+            // label22
             // 
-            this.tabLocalAccounts.BackColor = System.Drawing.SystemColors.Control;
-            this.tabLocalAccounts.Controls.Add(this.groupLocalAccountInfo);
-            this.tabLocalAccounts.Controls.Add(this.listLocalAccounts);
-            this.tabLocalAccounts.Controls.Add(this.btnGetLocalAccounts);
-            this.tabLocalAccounts.Location = new System.Drawing.Point(4, 22);
-            this.tabLocalAccounts.Name = "tabLocalAccounts";
-            this.tabLocalAccounts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLocalAccounts.Size = new System.Drawing.Size(595, 328);
-            this.tabLocalAccounts.TabIndex = 5;
-            this.tabLocalAccounts.Text = "Local Accounts";
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 38);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(97, 13);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "Password Disabled";
             // 
-            // btnGetLocalAccounts
+            // label16
             // 
-            this.btnGetLocalAccounts.Location = new System.Drawing.Point(6, 6);
-            this.btnGetLocalAccounts.Name = "btnGetLocalAccounts";
-            this.btnGetLocalAccounts.Size = new System.Drawing.Size(139, 27);
-            this.btnGetLocalAccounts.TabIndex = 0;
-            this.btnGetLocalAccounts.Text = "Get Local Accounts";
-            this.btnGetLocalAccounts.UseVisualStyleBackColor = true;
-            this.btnGetLocalAccounts.Click += new System.EventHandler(this.btnGetLocalAccounts_Click);
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 13);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Full Name";
             // 
-            // listLocalAccounts
+            // label17
             // 
-            this.listLocalAccounts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listLocalAccounts.FormattingEnabled = true;
-            this.listLocalAccounts.Location = new System.Drawing.Point(6, 39);
-            this.listLocalAccounts.Name = "listLocalAccounts";
-            this.listLocalAccounts.Size = new System.Drawing.Size(583, 134);
-            this.listLocalAccounts.Sorted = true;
-            this.listLocalAccounts.TabIndex = 1;
-            this.listLocalAccounts.SelectedIndexChanged += new System.EventHandler(this.listLocalAccounts_SelectedIndexChanged);
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 60);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(113, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Password Changeable";
             // 
-            // groupLocalAccountInfo
+            // label18
             // 
-            this.groupLocalAccountInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupLocalAccountInfo.Location = new System.Drawing.Point(6, 179);
-            this.groupLocalAccountInfo.Name = "groupLocalAccountInfo";
-            this.groupLocalAccountInfo.Size = new System.Drawing.Size(583, 143);
-            this.groupLocalAccountInfo.TabIndex = 2;
-            this.groupLocalAccountInfo.TabStop = false;
-            this.groupLocalAccountInfo.Text = "Account Details";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 82);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(90, 13);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "Password Expires";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 105);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(99, 13);
+            this.label19.TabIndex = 7;
+            this.label19.Text = "Password Required";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 127);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(86, 13);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "Password Status";
+            // 
+            // lblFulln
+            // 
+            this.lblFulln.AutoSize = true;
+            this.lblFulln.Location = new System.Drawing.Point(125, 16);
+            this.lblFulln.Name = "lblFulln";
+            this.lblFulln.Size = new System.Drawing.Size(10, 13);
+            this.lblFulln.TabIndex = 9;
+            this.lblFulln.Text = "-";
+            // 
+            // lblPdis
+            // 
+            this.lblPdis.AutoSize = true;
+            this.lblPdis.Location = new System.Drawing.Point(125, 38);
+            this.lblPdis.Name = "lblPdis";
+            this.lblPdis.Size = new System.Drawing.Size(10, 13);
+            this.lblPdis.TabIndex = 10;
+            this.lblPdis.Text = "-";
+            // 
+            // lblPcha
+            // 
+            this.lblPcha.AutoSize = true;
+            this.lblPcha.Location = new System.Drawing.Point(125, 60);
+            this.lblPcha.Name = "lblPcha";
+            this.lblPcha.Size = new System.Drawing.Size(10, 13);
+            this.lblPcha.TabIndex = 11;
+            this.lblPcha.Text = "-";
+            // 
+            // lblPexp
+            // 
+            this.lblPexp.AutoSize = true;
+            this.lblPexp.Location = new System.Drawing.Point(125, 82);
+            this.lblPexp.Name = "lblPexp";
+            this.lblPexp.Size = new System.Drawing.Size(10, 13);
+            this.lblPexp.TabIndex = 12;
+            this.lblPexp.Text = "-";
+            // 
+            // lblPreq
+            // 
+            this.lblPreq.AutoSize = true;
+            this.lblPreq.Location = new System.Drawing.Point(125, 105);
+            this.lblPreq.Name = "lblPreq";
+            this.lblPreq.Size = new System.Drawing.Size(10, 13);
+            this.lblPreq.TabIndex = 13;
+            this.lblPreq.Text = "-";
+            // 
+            // lblPsta
+            // 
+            this.lblPsta.AutoSize = true;
+            this.lblPsta.Location = new System.Drawing.Point(125, 127);
+            this.lblPsta.Name = "lblPsta";
+            this.lblPsta.Size = new System.Drawing.Size(10, 13);
+            this.lblPsta.TabIndex = 14;
+            this.lblPsta.Text = "-";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(16, 224);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(67, 13);
+            this.label21.TabIndex = 134;
+            this.label21.Text = "Windows Dir";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(16, 22);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(60, 13);
+            this.label23.TabIndex = 135;
+            this.label23.Text = "Host Name";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(16, 246);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(22, 13);
+            this.label24.TabIndex = 136;
+            this.label24.Text = "OS";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(16, 290);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 13);
+            this.label25.TabIndex = 137;
+            this.label25.Text = "Version";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(16, 312);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(70, 13);
+            this.label26.TabIndex = 138;
+            this.label26.Text = "Manufacturer";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(16, 268);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(71, 13);
+            this.label15.TabIndex = 139;
+            this.label15.Text = "Service Pack";
+            // 
+            // lblServp
+            // 
+            this.lblServp.AutoSize = true;
+            this.lblServp.Location = new System.Drawing.Point(117, 268);
+            this.lblServp.Name = "lblServp";
+            this.lblServp.Size = new System.Drawing.Size(10, 13);
+            this.lblServp.TabIndex = 140;
+            this.lblServp.Text = "-";
             // 
             // Main
             // 
@@ -836,6 +1046,8 @@
             this.tabDisks.ResumeLayout(false);
             this.tabDisks.PerformLayout();
             this.tabLocalAccounts.ResumeLayout(false);
+            this.groupLocalAccountInfo.ResumeLayout(false);
+            this.groupLocalAccountInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -909,5 +1121,24 @@
         private System.Windows.Forms.GroupBox groupLocalAccountInfo;
         private System.Windows.Forms.ListBox listLocalAccounts;
         private System.Windows.Forms.Button btnGetLocalAccounts;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblPsta;
+        private System.Windows.Forms.Label lblPreq;
+        private System.Windows.Forms.Label lblPexp;
+        private System.Windows.Forms.Label lblPcha;
+        private System.Windows.Forms.Label lblPdis;
+        private System.Windows.Forms.Label lblFulln;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lblServp;
+        private System.Windows.Forms.Label label15;
     }
 }

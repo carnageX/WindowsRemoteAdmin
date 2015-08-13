@@ -39,7 +39,7 @@ namespace wmi
         public static List<DriveInfo> GetDriveInfo(this SystemInfo systemInfo, ManagementScope scope)
         {
             var driveList = new List<DriveInfo>();
-            var query = new ObjectQuery("SELECT * FROM Win32_DiskDrive");
+            var query = new ObjectQuery("SELECT Caption, DeviceID, Model, Partitions, Size FROM Win32_DiskDrive");
             var searcher = new ManagementObjectSearcher(scope, query);
             var drives = searcher.Get();
 

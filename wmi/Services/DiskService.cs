@@ -27,7 +27,7 @@ namespace wmi.Services
         public DiskInfo GetDiskInfo(string diskId)
         {
             var disks = new List<DiskInfo>();
-            var query = new ObjectQuery(String.Format("SELECT * FROM Win32_LogicalDisk WHERE DeviceID = {0}", diskId));
+            var query = new ObjectQuery(String.Format("SELECT DeviceID, Name, FreeSpace, Size, Volume FROM Win32_LogicalDisk WHERE DeviceID = {0}", diskId));
             var searcher = new ManagementObjectSearcher(_scope, query);
             var diskCollection = searcher.Get();
 

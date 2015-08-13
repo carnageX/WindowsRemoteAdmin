@@ -279,6 +279,12 @@ namespace wmi
             {
                 var localAccount = listLocalAccounts.SelectedItem as LocalAccountInfo;
                 //TODO: set Account Info Group controls here from localAccount properties
+                lblFulln.Text = localAccount.FullName;
+                lblPdis.Text = localAccount.Disabled;
+                lblPcha.Text = localAccount.PasswordChangeable;
+                lblPexp.Text = localAccount.PasswordExpires;
+                lblPreq.Text = localAccount.PasswordRequired;
+                lblPsta.Text = localAccount.Status;
             }
             catch(Exception ex)
             {
@@ -345,6 +351,7 @@ namespace wmi
             lblVer.Text = sysInfo.Version;
             lblProcCount.Text = sysInfo.ProcessCount;
             lblArch.Text = sysInfo.OSArchitecture;
+            lblServp.Text = sysInfo.ServicePack;
         }
 
         private void InitializeConnection()

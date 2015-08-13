@@ -47,15 +47,16 @@ namespace wmi.Services
                 systemInfoCollection.Add(
                     new SystemInfo()
                     {
-                        HostName = String.Format("Hostname: {0}", item["csname"]),
-                        WinDir = String.Format("Win Dir: {0}", item["WindowsDirectory"]),
+                        HostName = item["CSName"].ToString(),
+                        WinDir = String.Format("{0}", item["WindowsDirectory"]),
                         Caption = item["Caption"].ToString(),
-                        Manufacturer = String.Format("Manufacturer: {0}", item["Manufacturer"]),
-                        Version = String.Format("Version: {0}", item["Version"]),
+                        Manufacturer = String.Format("{0}", item["Manufacturer"]),
+                        Version = String.Format("{0}", item["Version"]),
                         ProcessCount = String.Format("{0}", item["NumberOfProcesses"]),
                         OSType = item["OSType"].ToString(),
                         OSArchitecture = item["OSArchitecture"].ToString(),
-                        MemoryInBytes = item["TotalVisibleMemorySize"].ToString()
+                        MemoryInBytes = item["TotalVisibleMemorySize"].ToString(),
+                        ServicePack = item["CSDVersion"].ToString()
                     }
                 );
             }

@@ -24,7 +24,7 @@ namespace wmi.Services.Interfaces
         public List<LocalAccountInfo> GetAllLocalAccounts(ObjectQuery query = null)
         {
             var accounts = new List<LocalAccountInfo>();
-            var selectList = "AccountType, Caption, Description, Disabled, Domain, FullName, InstallDate, LocalAccount, Lockout, Name, PasswordChangeable, PasswordExpires, PasswordRequired, SID, SIDType, Status";
+            var selectList = "AccountType, Disabled, FullName, LocalAccount, Name, PasswordChangeable, PasswordExpires, PasswordRequired, SID, Status";
             if (query == null) { query = new ObjectQuery(String.Format("SELECT {0} FROM Win32_UserAccount WHERE LocalAccount = True", selectList)); }
             var searcher = new ManagementObjectSearcher(_scope, query);
             var accountCollection = searcher.Get();
@@ -36,20 +36,20 @@ namespace wmi.Services.Interfaces
                     new LocalAccountInfo()
                     {
                         AccountType = (account["AccountType"] != null) ? account["AccountType"].ToString() : String.Empty,
-                        Caption = (account["Caption"] != null) ? account["Caption"].ToString() : String.Empty,
-                        Description = (account["Description"] != null) ? account["Description"].ToString() : String.Empty,
+                        //Caption = (account["Caption"] != null) ? account["Caption"].ToString() : String.Empty,
+                        //Description = (account["Description"] != null) ? account["Description"].ToString() : String.Empty,
                         Disabled = (account["Disabled"] != null) ? account["Disabled"].ToString() : String.Empty,
-                        Domain = (account["Domain"] != null) ? account["Domain"].ToString() : String.Empty,
+                        //Domain = (account["Domain"] != null) ? account["Domain"].ToString() : String.Empty,
                         FullName = (account["FullName"] != null) ? account["FullName"].ToString() : String.Empty,
-                        InstallDate = (account["InstallDate"] != null) ? account["InstallDate"].ToString() : String.Empty,
+                        //InstallDate = (account["InstallDate"] != null) ? account["InstallDate"].ToString() : String.Empty,
                         LocalAccount = (account["LocalAccount"] != null) ? account["LocalAccount"].ToString() : String.Empty,
-                        Lockout = (account["Lockout"] != null) ? account["Lockout"].ToString() : String.Empty,
+                        //Lockout = (account["Lockout"] != null) ? account["Lockout"].ToString() : String.Empty,
                         Name = (account["Name"] != null) ? account["Name"].ToString() : String.Empty,
                         PasswordChangeable = (account["PasswordChangeable"] != null) ? account["PasswordChangeable"].ToString() : String.Empty,
                         PasswordExpires = (account["PasswordExpires"] != null) ? account["PasswordExpires"].ToString() : String.Empty,
                         PasswordRequired = (account["PasswordRequired"] != null) ? account["PasswordRequired"].ToString() : String.Empty,
                         SID = (account["SID"] != null) ? account["SID"].ToString() : String.Empty,
-                        SIDType = (account["SIDType"] != null) ? account["SIDType"].ToString() : String.Empty,
+                        //SIDType = (account["SIDType"] != null) ? account["SIDType"].ToString() : String.Empty,
                         Status = (account["Status"] != null) ? account["Status"].ToString() : String.Empty
                     }
                 );
