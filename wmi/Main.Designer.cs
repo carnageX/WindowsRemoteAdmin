@@ -91,6 +91,10 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.tabLocalAccounts = new System.Windows.Forms.TabPage();
+            this.btnGetLocalAccounts = new System.Windows.Forms.Button();
+            this.listLocalAccounts = new System.Windows.Forms.ListBox();
+            this.groupLocalAccountInfo = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
@@ -98,6 +102,7 @@
             this.tabSoftware.SuspendLayout();
             this.tabPrinters.SuspendLayout();
             this.tabDisks.SuspendLayout();
+            this.tabLocalAccounts.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -179,6 +184,7 @@
             this.tabControl.Controls.Add(this.tabSoftware);
             this.tabControl.Controls.Add(this.tabPrinters);
             this.tabControl.Controls.Add(this.tabDisks);
+            this.tabControl.Controls.Add(this.tabLocalAccounts);
             this.tabControl.Location = new System.Drawing.Point(12, 80);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -417,7 +423,7 @@
             this.tabServices.Location = new System.Drawing.Point(4, 22);
             this.tabServices.Name = "tabServices";
             this.tabServices.Padding = new System.Windows.Forms.Padding(3);
-            this.tabServices.Size = new System.Drawing.Size(595, 343);
+            this.tabServices.Size = new System.Drawing.Size(595, 328);
             this.tabServices.TabIndex = 1;
             this.tabServices.Text = "Services";
             // 
@@ -425,7 +431,7 @@
             // 
             this.lblServiceStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblServiceStatus.AutoSize = true;
-            this.lblServiceStatus.Location = new System.Drawing.Point(251, 319);
+            this.lblServiceStatus.Location = new System.Drawing.Point(251, 304);
             this.lblServiceStatus.Name = "lblServiceStatus";
             this.lblServiceStatus.Size = new System.Drawing.Size(10, 13);
             this.lblServiceStatus.TabIndex = 5;
@@ -435,7 +441,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(202, 319);
+            this.label1.Location = new System.Drawing.Point(202, 304);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 4;
@@ -449,7 +455,7 @@
             this.listServices.FormattingEnabled = true;
             this.listServices.Location = new System.Drawing.Point(6, 35);
             this.listServices.Name = "listServices";
-            this.listServices.Size = new System.Drawing.Size(583, 264);
+            this.listServices.Size = new System.Drawing.Size(583, 251);
             this.listServices.Sorted = true;
             this.listServices.TabIndex = 3;
             this.listServices.SelectedIndexChanged += new System.EventHandler(this.listServices_SelectedIndexChanged);
@@ -457,7 +463,7 @@
             // btnServiceStop
             // 
             this.btnServiceStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnServiceStop.Location = new System.Drawing.Point(87, 314);
+            this.btnServiceStop.Location = new System.Drawing.Point(87, 299);
             this.btnServiceStop.Name = "btnServiceStop";
             this.btnServiceStop.Size = new System.Drawing.Size(75, 23);
             this.btnServiceStop.TabIndex = 2;
@@ -468,7 +474,7 @@
             // btnServiceStart
             // 
             this.btnServiceStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnServiceStart.Location = new System.Drawing.Point(6, 314);
+            this.btnServiceStart.Location = new System.Drawing.Point(6, 299);
             this.btnServiceStart.Name = "btnServiceStart";
             this.btnServiceStart.Size = new System.Drawing.Size(75, 23);
             this.btnServiceStart.TabIndex = 1;
@@ -496,7 +502,7 @@
             this.tabSoftware.Location = new System.Drawing.Point(4, 22);
             this.tabSoftware.Name = "tabSoftware";
             this.tabSoftware.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSoftware.Size = new System.Drawing.Size(595, 343);
+            this.tabSoftware.Size = new System.Drawing.Size(595, 328);
             this.tabSoftware.TabIndex = 2;
             this.tabSoftware.Text = "Software";
             // 
@@ -556,14 +562,14 @@
             this.tabPrinters.Location = new System.Drawing.Point(4, 22);
             this.tabPrinters.Name = "tabPrinters";
             this.tabPrinters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPrinters.Size = new System.Drawing.Size(595, 343);
+            this.tabPrinters.Size = new System.Drawing.Size(595, 328);
             this.tabPrinters.TabIndex = 3;
             this.tabPrinters.Text = "Printers";
             // 
             // btnUninstallPrinter
             // 
             this.btnUninstallPrinter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnUninstallPrinter.Location = new System.Drawing.Point(6, 314);
+            this.btnUninstallPrinter.Location = new System.Drawing.Point(6, 302);
             this.btnUninstallPrinter.Name = "btnUninstallPrinter";
             this.btnUninstallPrinter.Size = new System.Drawing.Size(75, 23);
             this.btnUninstallPrinter.TabIndex = 2;
@@ -589,7 +595,7 @@
             this.listPrinters.FormattingEnabled = true;
             this.listPrinters.Location = new System.Drawing.Point(6, 35);
             this.listPrinters.Name = "listPrinters";
-            this.listPrinters.Size = new System.Drawing.Size(583, 264);
+            this.listPrinters.Size = new System.Drawing.Size(583, 251);
             this.listPrinters.Sorted = true;
             this.listPrinters.TabIndex = 0;
             // 
@@ -609,14 +615,15 @@
             this.tabDisks.Location = new System.Drawing.Point(4, 22);
             this.tabDisks.Name = "tabDisks";
             this.tabDisks.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDisks.Size = new System.Drawing.Size(595, 343);
+            this.tabDisks.Size = new System.Drawing.Size(595, 328);
             this.tabDisks.TabIndex = 4;
             this.tabDisks.Text = "Drives";
             // 
             // lblDriveDeviceId
             // 
+            this.lblDriveDeviceId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDriveDeviceId.AutoSize = true;
-            this.lblDriveDeviceId.Location = new System.Drawing.Point(91, 316);
+            this.lblDriveDeviceId.Location = new System.Drawing.Point(91, 313);
             this.lblDriveDeviceId.Name = "lblDriveDeviceId";
             this.lblDriveDeviceId.Size = new System.Drawing.Size(10, 13);
             this.lblDriveDeviceId.TabIndex = 10;
@@ -624,8 +631,9 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 316);
+            this.label9.Location = new System.Drawing.Point(3, 313);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 9;
@@ -633,8 +641,9 @@
             // 
             // lblDrivePartitionCount
             // 
+            this.lblDrivePartitionCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDrivePartitionCount.AutoSize = true;
-            this.lblDrivePartitionCount.Location = new System.Drawing.Point(91, 271);
+            this.lblDrivePartitionCount.Location = new System.Drawing.Point(91, 268);
             this.lblDrivePartitionCount.Name = "lblDrivePartitionCount";
             this.lblDrivePartitionCount.Size = new System.Drawing.Size(10, 13);
             this.lblDrivePartitionCount.TabIndex = 8;
@@ -642,8 +651,9 @@
             // 
             // label13
             // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 271);
+            this.label13.Location = new System.Drawing.Point(3, 268);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(82, 13);
             this.label13.TabIndex = 7;
@@ -651,8 +661,9 @@
             // 
             // lblDriveModel
             // 
+            this.lblDriveModel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDriveModel.AutoSize = true;
-            this.lblDriveModel.Location = new System.Drawing.Point(91, 249);
+            this.lblDriveModel.Location = new System.Drawing.Point(91, 246);
             this.lblDriveModel.Name = "lblDriveModel";
             this.lblDriveModel.Size = new System.Drawing.Size(10, 13);
             this.lblDriveModel.TabIndex = 6;
@@ -660,8 +671,9 @@
             // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 249);
+            this.label11.Location = new System.Drawing.Point(3, 246);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(42, 13);
             this.label11.TabIndex = 5;
@@ -669,8 +681,9 @@
             // 
             // lblDriveSize
             // 
+            this.lblDriveSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDriveSize.AutoSize = true;
-            this.lblDriveSize.Location = new System.Drawing.Point(91, 294);
+            this.lblDriveSize.Location = new System.Drawing.Point(91, 291);
             this.lblDriveSize.Name = "lblDriveSize";
             this.lblDriveSize.Size = new System.Drawing.Size(10, 13);
             this.lblDriveSize.TabIndex = 4;
@@ -678,8 +691,9 @@
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 294);
+            this.label8.Location = new System.Drawing.Point(3, 291);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 3;
@@ -710,15 +724,15 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(447, 33);
+            this.txtUserName.Location = new System.Drawing.Point(447, 39);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(168, 20);
             this.txtUserName.TabIndex = 133;
-            this.txtUserName.Text = "dom OR pcname\\user";
+            this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(447, 61);
+            this.txtPassword.Location = new System.Drawing.Point(447, 65);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(168, 20);
@@ -727,7 +741,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(379, 64);
+            this.label12.Location = new System.Drawing.Point(379, 68);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 13);
             this.label12.TabIndex = 135;
@@ -736,11 +750,58 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(379, 36);
+            this.label14.Location = new System.Drawing.Point(379, 41);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 13);
             this.label14.TabIndex = 136;
             this.label14.Text = "User Name";
+            // 
+            // tabLocalAccounts
+            // 
+            this.tabLocalAccounts.BackColor = System.Drawing.SystemColors.Control;
+            this.tabLocalAccounts.Controls.Add(this.groupLocalAccountInfo);
+            this.tabLocalAccounts.Controls.Add(this.listLocalAccounts);
+            this.tabLocalAccounts.Controls.Add(this.btnGetLocalAccounts);
+            this.tabLocalAccounts.Location = new System.Drawing.Point(4, 22);
+            this.tabLocalAccounts.Name = "tabLocalAccounts";
+            this.tabLocalAccounts.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLocalAccounts.Size = new System.Drawing.Size(595, 328);
+            this.tabLocalAccounts.TabIndex = 5;
+            this.tabLocalAccounts.Text = "Local Accounts";
+            // 
+            // btnGetLocalAccounts
+            // 
+            this.btnGetLocalAccounts.Location = new System.Drawing.Point(6, 6);
+            this.btnGetLocalAccounts.Name = "btnGetLocalAccounts";
+            this.btnGetLocalAccounts.Size = new System.Drawing.Size(139, 27);
+            this.btnGetLocalAccounts.TabIndex = 0;
+            this.btnGetLocalAccounts.Text = "Get Local Accounts";
+            this.btnGetLocalAccounts.UseVisualStyleBackColor = true;
+            this.btnGetLocalAccounts.Click += new System.EventHandler(this.btnGetLocalAccounts_Click);
+            // 
+            // listLocalAccounts
+            // 
+            this.listLocalAccounts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listLocalAccounts.FormattingEnabled = true;
+            this.listLocalAccounts.Location = new System.Drawing.Point(6, 39);
+            this.listLocalAccounts.Name = "listLocalAccounts";
+            this.listLocalAccounts.Size = new System.Drawing.Size(583, 134);
+            this.listLocalAccounts.Sorted = true;
+            this.listLocalAccounts.TabIndex = 1;
+            this.listLocalAccounts.SelectedIndexChanged += new System.EventHandler(this.listLocalAccounts_SelectedIndexChanged);
+            // 
+            // groupLocalAccountInfo
+            // 
+            this.groupLocalAccountInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupLocalAccountInfo.Location = new System.Drawing.Point(6, 179);
+            this.groupLocalAccountInfo.Name = "groupLocalAccountInfo";
+            this.groupLocalAccountInfo.Size = new System.Drawing.Size(583, 143);
+            this.groupLocalAccountInfo.TabIndex = 2;
+            this.groupLocalAccountInfo.TabStop = false;
+            this.groupLocalAccountInfo.Text = "Account Details";
             // 
             // Main
             // 
@@ -774,6 +835,7 @@
             this.tabPrinters.ResumeLayout(false);
             this.tabDisks.ResumeLayout(false);
             this.tabDisks.PerformLayout();
+            this.tabLocalAccounts.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -843,5 +905,9 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TabPage tabLocalAccounts;
+        private System.Windows.Forms.GroupBox groupLocalAccountInfo;
+        private System.Windows.Forms.ListBox listLocalAccounts;
+        private System.Windows.Forms.Button btnGetLocalAccounts;
     }
 }

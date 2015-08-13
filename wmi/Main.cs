@@ -23,11 +23,15 @@ namespace wmi
         private IPrintersService _printers;
         private ISystemInfoService _sysInfo;
         private IDiskService _disk;
+        private ILocalAccountService _localAccounts;
+        private string _watermark = @"domain OR pcname\username";
         #endregion
 
         public Main()
         {
             InitializeComponent();
+
+            txtUserName.SetWatermark(_watermark);
         }
 
         #region System Info
@@ -42,46 +46,19 @@ namespace wmi
                 else
                 {
                     this.Cursor = Cursors.WaitCursor;
-//                    _sysConnector = new SystemConnector(this.txtCompName.Text);
 
-                    if (!String.IsNullOrWhiteSpace(txtUserName.Text) && !String.IsNullOrWhiteSpace(txtPassword.Text))
-                    {
-                        var options = new ConnectionOptions();
-                        options.Username = txtUserName.Text;
-                        options.Password = txtPassword.Text;
-                        _sysConnector = new SystemConnector(this.txtCompName.Text, options);
-                    }
-                    else
-                    {
-                        _sysConnector = new SystemConnector(this.txtCompName.Text);
-                    }
+                    InitializeConnection();
 
                     _sysInfo = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
                     var sysInfo = _sysInfo.GetSystemInfo().FirstOrDefault();
 
-                    lblComputerName.Text = sysInfo.HostName;
-                    lblWinDir.Text = sysInfo.WinDir;
-                    lblCaption.Text = sysInfo.Caption;
-                    lblManufacturer.Text = sysInfo.Manufacturer;
-                    lblVer.Text = sysInfo.Version;
-                    lblProcCount.Text = sysInfo.ProcessCount;
-                    lblArch.Text = sysInfo.OSArchitecture;
-                    var memoryGB = Math.Round((((double)Convert.ToDouble(sysInfo.MemoryInBytes) / 1024) / 1024), 2).ToString("N");
-                    lblRam.Text = String.Format("{0} bytes ({1} GB)", sysInfo.MemoryInBytes, memoryGB);
+                    SetGenericSystemInfo(sysInfo);
+                    SetMemoryInfo(sysInfo);
+                    SetDiskInfo(sysInfo);
+                    SetAdminStatusInfo(sysInfo);
 
-                    var disk = sysInfo.Disks.First();
-                    lblDiskName.Text = disk.DiskName;
-                    var diskSizeGB = Math.Round((((double)Convert.ToDouble(disk.SizeInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
-                    var diskFreeGB = Math.Round((((double)Convert.ToDouble(disk.FreeSpaceInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
-                    lblDiskSize.Text = String.Format("{0} bytes ({1} GB)", disk.SizeInBytes, diskSizeGB );
-                    lblDiskFree.Text = String.Format("{0} bytes ({1} GB)", disk.FreeSpaceInBytes, diskFreeGB);
-
-                    var adminStatus = sysInfo.AdminPasswordStatuses.First();
-                    lblCurrentUser.Text = adminStatus.Username;
-                    lblAdminStatus.Text = adminStatus.Status;
                     this.Cursor = Cursors.Default;
                 }
-                
             }
             catch (Exception ex)
             {
@@ -91,7 +68,6 @@ namespace wmi
             }
 
         }
-
         #endregion
 
         #region Services
@@ -275,6 +251,43 @@ namespace wmi
         }
         #endregion
 
+        #region Local Accounts
+        private void btnGetLocalAccounts_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_sysConnector == null) { ShowConnectionErrorMessage(); }
+                else
+                {
+                    _localAccounts = new LocalAccountService(_sysConnector.Scope, _sysConnector.Options);
+                    listLocalAccounts.DataSource = new BindingList<LocalAccountInfo>(_localAccounts.GetAllLocalAccounts());
+                    listLocalAccounts.DisplayMember = "Name";
+                    listLocalAccounts.ValueMember = "SID";
+                }
+            }
+            catch(Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
+        }
+
+        private void listLocalAccounts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var localAccount = listLocalAccounts.SelectedItem as LocalAccountInfo;
+                //TODO: set Account Info Group controls here from localAccount properties
+            }
+            catch(Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
+        }
+        #endregion
+
         #region Control Events
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -286,12 +299,69 @@ namespace wmi
             var aboutScreen = new AboutBox1();
             aboutScreen.Show();
         }
+
+        private void txtUserName_Enter(object sender, EventArgs e)
+        {
+            if(txtUserName.Text.Equals(_watermark)) { txtUserName.SetWatermark(String.Empty); }
+                        
+        }
         #endregion
 
         #region Helper Methods
         private void ShowConnectionErrorMessage()
         {
             MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void SetAdminStatusInfo(SystemInfo sysInfo)
+        {
+            var adminStatus = sysInfo.AdminPasswordStatuses.First();
+            lblCurrentUser.Text = adminStatus.Username;
+            lblAdminStatus.Text = adminStatus.Status;
+        }
+
+        private void SetDiskInfo(SystemInfo sysInfo)
+        {
+            var disk = sysInfo.Disks.First();
+            lblDiskName.Text = disk.DiskName;
+            var diskSizeGB = Math.Round((((double)Convert.ToDouble(disk.SizeInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
+            var diskFreeGB = Math.Round((((double)Convert.ToDouble(disk.FreeSpaceInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
+            lblDiskSize.Text = String.Format("{0} bytes ({1} GB)", disk.SizeInBytes, diskSizeGB);
+            lblDiskFree.Text = String.Format("{0} bytes ({1} GB)", disk.FreeSpaceInBytes, diskFreeGB);
+        }
+
+        private void SetMemoryInfo(SystemInfo sysInfo)
+        {
+            var memoryGB = Math.Round((((double)Convert.ToDouble(sysInfo.MemoryInBytes) / 1024) / 1024), 2).ToString("N");
+            lblRam.Text = String.Format("{0} bytes ({1} GB)", sysInfo.MemoryInBytes, memoryGB);
+        }
+
+        private void SetGenericSystemInfo(SystemInfo sysInfo)
+        {
+            lblComputerName.Text = sysInfo.HostName;
+            lblWinDir.Text = sysInfo.WinDir;
+            lblCaption.Text = sysInfo.Caption;
+            lblManufacturer.Text = sysInfo.Manufacturer;
+            lblVer.Text = sysInfo.Version;
+            lblProcCount.Text = sysInfo.ProcessCount;
+            lblArch.Text = sysInfo.OSArchitecture;
+        }
+
+        private void InitializeConnection()
+        {
+            //TODO: can password be blank???
+            if ((!String.IsNullOrWhiteSpace(txtUserName.Text) && !txtUserName.Text.Equals(_watermark)) 
+                && !String.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                var options = new ConnectionOptions();
+                options.Username = txtUserName.Text;
+                options.Password = txtPassword.Text;
+                _sysConnector = new SystemConnector(this.txtCompName.Text, options);
+            }
+            else
+            {
+                _sysConnector = new SystemConnector(this.txtCompName.Text);
+            }
         }
         #endregion
     }
