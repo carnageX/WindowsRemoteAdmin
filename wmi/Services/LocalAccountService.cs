@@ -24,7 +24,7 @@ namespace wmi.Services.Interfaces
         public List<LocalAccountInfo> GetAllLocalAccounts(ObjectQuery query = null)
         {
             var accounts = new List<LocalAccountInfo>();
-            var selectList = "AccountType, Disabled, FullName, LocalAccount, Name, PasswordChangeable, PasswordExpires, PasswordRequired, SID, Status";
+            var selectList = "AccountType, Disabled, Caption, LocalAccount, Name, PasswordChangeable, PasswordExpires, PasswordRequired, SID, Status, Lockout";
             if (query == null) { query = new ObjectQuery(String.Format("SELECT {0} FROM Win32_UserAccount WHERE LocalAccount = True", selectList)); }
             var searcher = new ManagementObjectSearcher(_scope, query);
             var accountCollection = searcher.Get();
@@ -35,22 +35,22 @@ namespace wmi.Services.Interfaces
                 (
                     new LocalAccountInfo()
                     {
-                        AccountType = (account["AccountType"] != null) ? account["AccountType"].ToString() : String.Empty,
-                        //Caption = (account["Caption"] != null) ? account["Caption"].ToString() : String.Empty,
-                        //Description = (account["Description"] != null) ? account["Description"].ToString() : String.Empty,
-                        Disabled = (account["Disabled"] != null) ? account["Disabled"].ToString() : String.Empty,
-                        //Domain = (account["Domain"] != null) ? account["Domain"].ToString() : String.Empty,
-                        FullName = (account["FullName"] != null) ? account["FullName"].ToString() : String.Empty,
-                        //InstallDate = (account["InstallDate"] != null) ? account["InstallDate"].ToString() : String.Empty,
-                        LocalAccount = (account["LocalAccount"] != null) ? account["LocalAccount"].ToString() : String.Empty,
-                        //Lockout = (account["Lockout"] != null) ? account["Lockout"].ToString() : String.Empty,
-                        Name = (account["Name"] != null) ? account["Name"].ToString() : String.Empty,
-                        PasswordChangeable = (account["PasswordChangeable"] != null) ? account["PasswordChangeable"].ToString() : String.Empty,
-                        PasswordExpires = (account["PasswordExpires"] != null) ? account["PasswordExpires"].ToString() : String.Empty,
-                        PasswordRequired = (account["PasswordRequired"] != null) ? account["PasswordRequired"].ToString() : String.Empty,
-                        SID = (account["SID"] != null) ? account["SID"].ToString() : String.Empty,
-                        //SIDType = (account["SIDType"] != null) ? account["SIDType"].ToString() : String.Empty,
-                        Status = (account["Status"] != null) ? account["Status"].ToString() : String.Empty
+                        AccountType = String.Format("{0}", account["AccountType"]),
+                        Caption = String.Format("{0}", account["Caption"]),
+                        //Description = String.Format("{0}", account["Description"]),
+                        Disabled = String.Format("{0}", account["Disabled"]),
+                        //Domain = String.Format("{0}", account["Domain"]),
+                        //FullName = String.Format("{0}", account["FullName"]), 
+                        //InstallDate = String.Format("{0}", account["InstallDate"]),
+                        LocalAccount = String.Format("{0}", account["LocalAccount"]),
+                        Lockout = String.Format("{0}", account["Lockout"]),
+                        Name = String.Format("{0}", account["Name"]),
+                        PasswordChangeable = String.Format("{0}", account["PasswordChangeable"]),
+                        PasswordExpires = String.Format("{0}", account["PasswordExpires"]),
+                        PasswordRequired = String.Format("{0}", account["PasswordRequired"]),
+                        SID = String.Format("{0}", account["SID"]),
+                        //SIDType = String.Format("{0}", account["SIDType"]),
+                        Status = String.Format("{0}", account["Status"])
                     }
                 );
             }

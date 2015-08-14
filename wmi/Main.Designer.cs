@@ -39,6 +39,13 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabSysInfo = new System.Windows.Forms.TabPage();
+            this.lblServp = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.lblVer = new System.Windows.Forms.Label();
             this.lblManufacturer = new System.Windows.Forms.Label();
             this.lblCaption = new System.Windows.Forms.Label();
@@ -68,6 +75,7 @@
             this.btnServiceStart = new System.Windows.Forms.Button();
             this.btnGetServices = new System.Windows.Forms.Button();
             this.tabSoftware = new System.Windows.Forms.TabPage();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.listSoftware = new System.Windows.Forms.ListBox();
             this.btnSoftwareUninstall = new System.Windows.Forms.Button();
@@ -89,31 +97,24 @@
             this.listDrives = new System.Windows.Forms.ListBox();
             this.tabLocalAccounts = new System.Windows.Forms.TabPage();
             this.groupLocalAccountInfo = new System.Windows.Forms.GroupBox();
+            this.lblAccountLockoutStatus = new System.Windows.Forms.Label();
+            this.lblAccountPassRequired = new System.Windows.Forms.Label();
+            this.lblAccountPassExpires = new System.Windows.Forms.Label();
+            this.lblAccountPassChangeable = new System.Windows.Forms.Label();
+            this.lblAccountPassDisabled = new System.Windows.Forms.Label();
+            this.lblAccountCaption = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.listLocalAccounts = new System.Windows.Forms.ListBox();
             this.btnGetLocalAccounts = new System.Windows.Forms.Button();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lblFulln = new System.Windows.Forms.Label();
-            this.lblPdis = new System.Windows.Forms.Label();
-            this.lblPcha = new System.Windows.Forms.Label();
-            this.lblPexp = new System.Windows.Forms.Label();
-            this.lblPreq = new System.Windows.Forms.Label();
-            this.lblPsta = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblServp = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
@@ -249,10 +250,73 @@
             this.tabSysInfo.TabIndex = 0;
             this.tabSysInfo.Text = "System Info";
             // 
+            // lblServp
+            // 
+            this.lblServp.AutoSize = true;
+            this.lblServp.Location = new System.Drawing.Point(117, 259);
+            this.lblServp.Name = "lblServp";
+            this.lblServp.Size = new System.Drawing.Size(10, 13);
+            this.lblServp.TabIndex = 140;
+            this.lblServp.Text = "-";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(16, 259);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(71, 13);
+            this.label15.TabIndex = 139;
+            this.label15.Text = "Service Pack";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(16, 303);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(70, 13);
+            this.label26.TabIndex = 138;
+            this.label26.Text = "Manufacturer";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(16, 281);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 13);
+            this.label25.TabIndex = 137;
+            this.label25.Text = "Version";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(16, 237);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(22, 13);
+            this.label24.TabIndex = 136;
+            this.label24.Text = "OS";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(16, 13);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(60, 13);
+            this.label23.TabIndex = 135;
+            this.label23.Text = "Host Name";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(16, 215);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(67, 13);
+            this.label21.TabIndex = 134;
+            this.label21.Text = "Windows Dir";
+            // 
             // lblVer
             // 
             this.lblVer.AutoSize = true;
-            this.lblVer.Location = new System.Drawing.Point(117, 290);
+            this.lblVer.Location = new System.Drawing.Point(117, 281);
             this.lblVer.Name = "lblVer";
             this.lblVer.Size = new System.Drawing.Size(10, 13);
             this.lblVer.TabIndex = 132;
@@ -261,7 +325,7 @@
             // lblManufacturer
             // 
             this.lblManufacturer.AutoSize = true;
-            this.lblManufacturer.Location = new System.Drawing.Point(117, 312);
+            this.lblManufacturer.Location = new System.Drawing.Point(117, 303);
             this.lblManufacturer.Name = "lblManufacturer";
             this.lblManufacturer.Size = new System.Drawing.Size(10, 13);
             this.lblManufacturer.TabIndex = 131;
@@ -270,7 +334,7 @@
             // lblCaption
             // 
             this.lblCaption.AutoSize = true;
-            this.lblCaption.Location = new System.Drawing.Point(117, 246);
+            this.lblCaption.Location = new System.Drawing.Point(117, 237);
             this.lblCaption.Name = "lblCaption";
             this.lblCaption.Size = new System.Drawing.Size(10, 13);
             this.lblCaption.TabIndex = 130;
@@ -279,7 +343,7 @@
             // lblWinDir
             // 
             this.lblWinDir.AutoSize = true;
-            this.lblWinDir.Location = new System.Drawing.Point(117, 224);
+            this.lblWinDir.Location = new System.Drawing.Point(117, 215);
             this.lblWinDir.Name = "lblWinDir";
             this.lblWinDir.Size = new System.Drawing.Size(10, 13);
             this.lblWinDir.TabIndex = 129;
@@ -288,7 +352,7 @@
             // lblComputerName
             // 
             this.lblComputerName.AutoSize = true;
-            this.lblComputerName.Location = new System.Drawing.Point(117, 22);
+            this.lblComputerName.Location = new System.Drawing.Point(117, 13);
             this.lblComputerName.Name = "lblComputerName";
             this.lblComputerName.Size = new System.Drawing.Size(10, 13);
             this.lblComputerName.TabIndex = 128;
@@ -297,7 +361,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(16, 45);
+            this.label27.Location = new System.Drawing.Point(16, 36);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(69, 13);
             this.label27.TabIndex = 126;
@@ -306,7 +370,7 @@
             // lblAdminStatus
             // 
             this.lblAdminStatus.AutoSize = true;
-            this.lblAdminStatus.Location = new System.Drawing.Point(117, 45);
+            this.lblAdminStatus.Location = new System.Drawing.Point(117, 36);
             this.lblAdminStatus.Name = "lblAdminStatus";
             this.lblAdminStatus.Size = new System.Drawing.Size(10, 13);
             this.lblAdminStatus.TabIndex = 127;
@@ -315,7 +379,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 178);
+            this.label3.Location = new System.Drawing.Point(16, 169);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 113;
@@ -324,7 +388,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 67);
+            this.label2.Location = new System.Drawing.Point(16, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 112;
@@ -333,7 +397,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 133);
+            this.label4.Location = new System.Drawing.Point(16, 124);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 114;
@@ -342,7 +406,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 155);
+            this.label5.Location = new System.Drawing.Point(16, 146);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 115;
@@ -351,7 +415,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 111);
+            this.label6.Location = new System.Drawing.Point(16, 102);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 116;
@@ -360,7 +424,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 89);
+            this.label7.Location = new System.Drawing.Point(16, 80);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 13);
             this.label7.TabIndex = 117;
@@ -369,7 +433,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 201);
+            this.label10.Location = new System.Drawing.Point(16, 192);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 13);
             this.label10.TabIndex = 118;
@@ -378,7 +442,7 @@
             // lblRam
             // 
             this.lblRam.AutoSize = true;
-            this.lblRam.Location = new System.Drawing.Point(117, 201);
+            this.lblRam.Location = new System.Drawing.Point(117, 192);
             this.lblRam.Name = "lblRam";
             this.lblRam.Size = new System.Drawing.Size(10, 13);
             this.lblRam.TabIndex = 125;
@@ -387,7 +451,7 @@
             // lblCurrentUser
             // 
             this.lblCurrentUser.AutoSize = true;
-            this.lblCurrentUser.Location = new System.Drawing.Point(117, 178);
+            this.lblCurrentUser.Location = new System.Drawing.Point(117, 169);
             this.lblCurrentUser.Name = "lblCurrentUser";
             this.lblCurrentUser.Size = new System.Drawing.Size(10, 13);
             this.lblCurrentUser.TabIndex = 124;
@@ -396,7 +460,7 @@
             // lblArch
             // 
             this.lblArch.AutoSize = true;
-            this.lblArch.Location = new System.Drawing.Point(117, 133);
+            this.lblArch.Location = new System.Drawing.Point(117, 124);
             this.lblArch.Name = "lblArch";
             this.lblArch.Size = new System.Drawing.Size(10, 13);
             this.lblArch.TabIndex = 123;
@@ -405,7 +469,7 @@
             // lblProcCount
             // 
             this.lblProcCount.AutoSize = true;
-            this.lblProcCount.Location = new System.Drawing.Point(117, 155);
+            this.lblProcCount.Location = new System.Drawing.Point(117, 146);
             this.lblProcCount.Name = "lblProcCount";
             this.lblProcCount.Size = new System.Drawing.Size(10, 13);
             this.lblProcCount.TabIndex = 122;
@@ -414,7 +478,7 @@
             // lblDiskFree
             // 
             this.lblDiskFree.AutoSize = true;
-            this.lblDiskFree.Location = new System.Drawing.Point(117, 111);
+            this.lblDiskFree.Location = new System.Drawing.Point(117, 102);
             this.lblDiskFree.Name = "lblDiskFree";
             this.lblDiskFree.Size = new System.Drawing.Size(10, 13);
             this.lblDiskFree.TabIndex = 121;
@@ -423,7 +487,7 @@
             // lblDiskSize
             // 
             this.lblDiskSize.AutoSize = true;
-            this.lblDiskSize.Location = new System.Drawing.Point(117, 89);
+            this.lblDiskSize.Location = new System.Drawing.Point(117, 80);
             this.lblDiskSize.Name = "lblDiskSize";
             this.lblDiskSize.Size = new System.Drawing.Size(10, 13);
             this.lblDiskSize.TabIndex = 120;
@@ -432,7 +496,7 @@
             // lblDiskName
             // 
             this.lblDiskName.AutoSize = true;
-            this.lblDiskName.Location = new System.Drawing.Point(117, 67);
+            this.lblDiskName.Location = new System.Drawing.Point(117, 58);
             this.lblDiskName.Name = "lblDiskName";
             this.lblDiskName.Size = new System.Drawing.Size(10, 13);
             this.lblDiskName.TabIndex = 119;
@@ -522,6 +586,7 @@
             // tabSoftware
             // 
             this.tabSoftware.BackColor = System.Drawing.SystemColors.Control;
+            this.tabSoftware.Controls.Add(this.textBox2);
             this.tabSoftware.Controls.Add(this.textBox1);
             this.tabSoftware.Controls.Add(this.listSoftware);
             this.tabSoftware.Controls.Add(this.btnSoftwareUninstall);
@@ -533,17 +598,33 @@
             this.tabSoftware.TabIndex = 2;
             this.tabSoftware.Text = "Software";
             // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox2.ForeColor = System.Drawing.Color.Red;
+            this.textBox2.Location = new System.Drawing.Point(107, 6);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(482, 33);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.Text = "Note: This process may take several minutes to display installed software, and ma" +
+    "y appear to be unresponsive. Please be patient.";
+            // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBox1.Location = new System.Drawing.Point(87, 290);
+            this.textBox1.Location = new System.Drawing.Point(87, 281);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(502, 47);
+            this.textBox1.Size = new System.Drawing.Size(502, 43);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
@@ -553,16 +634,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listSoftware.FormattingEnabled = true;
-            this.listSoftware.Location = new System.Drawing.Point(3, 35);
+            this.listSoftware.Location = new System.Drawing.Point(3, 40);
             this.listSoftware.Name = "listSoftware";
-            this.listSoftware.Size = new System.Drawing.Size(586, 251);
+            this.listSoftware.Size = new System.Drawing.Size(586, 238);
             this.listSoftware.Sorted = true;
             this.listSoftware.TabIndex = 2;
             // 
             // btnSoftwareUninstall
             // 
             this.btnSoftwareUninstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSoftwareUninstall.Location = new System.Drawing.Point(6, 301);
+            this.btnSoftwareUninstall.Location = new System.Drawing.Point(6, 299);
             this.btnSoftwareUninstall.Name = "btnSoftwareUninstall";
             this.btnSoftwareUninstall.Size = new System.Drawing.Size(75, 23);
             this.btnSoftwareUninstall.TabIndex = 1;
@@ -766,12 +847,12 @@
             // 
             this.groupLocalAccountInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupLocalAccountInfo.Controls.Add(this.lblPsta);
-            this.groupLocalAccountInfo.Controls.Add(this.lblPreq);
-            this.groupLocalAccountInfo.Controls.Add(this.lblPexp);
-            this.groupLocalAccountInfo.Controls.Add(this.lblPcha);
-            this.groupLocalAccountInfo.Controls.Add(this.lblPdis);
-            this.groupLocalAccountInfo.Controls.Add(this.lblFulln);
+            this.groupLocalAccountInfo.Controls.Add(this.lblAccountLockoutStatus);
+            this.groupLocalAccountInfo.Controls.Add(this.lblAccountPassRequired);
+            this.groupLocalAccountInfo.Controls.Add(this.lblAccountPassExpires);
+            this.groupLocalAccountInfo.Controls.Add(this.lblAccountPassChangeable);
+            this.groupLocalAccountInfo.Controls.Add(this.lblAccountPassDisabled);
+            this.groupLocalAccountInfo.Controls.Add(this.lblAccountCaption);
             this.groupLocalAccountInfo.Controls.Add(this.label20);
             this.groupLocalAccountInfo.Controls.Add(this.label19);
             this.groupLocalAccountInfo.Controls.Add(this.label18);
@@ -784,6 +865,114 @@
             this.groupLocalAccountInfo.TabIndex = 2;
             this.groupLocalAccountInfo.TabStop = false;
             this.groupLocalAccountInfo.Text = "Account Details";
+            // 
+            // lblAccountLockoutStatus
+            // 
+            this.lblAccountLockoutStatus.AutoSize = true;
+            this.lblAccountLockoutStatus.Location = new System.Drawing.Point(125, 38);
+            this.lblAccountLockoutStatus.Name = "lblAccountLockoutStatus";
+            this.lblAccountLockoutStatus.Size = new System.Drawing.Size(10, 13);
+            this.lblAccountLockoutStatus.TabIndex = 14;
+            this.lblAccountLockoutStatus.Text = "-";
+            // 
+            // lblAccountPassRequired
+            // 
+            this.lblAccountPassRequired.AutoSize = true;
+            this.lblAccountPassRequired.Location = new System.Drawing.Point(125, 129);
+            this.lblAccountPassRequired.Name = "lblAccountPassRequired";
+            this.lblAccountPassRequired.Size = new System.Drawing.Size(10, 13);
+            this.lblAccountPassRequired.TabIndex = 13;
+            this.lblAccountPassRequired.Text = "-";
+            // 
+            // lblAccountPassExpires
+            // 
+            this.lblAccountPassExpires.AutoSize = true;
+            this.lblAccountPassExpires.Location = new System.Drawing.Point(125, 106);
+            this.lblAccountPassExpires.Name = "lblAccountPassExpires";
+            this.lblAccountPassExpires.Size = new System.Drawing.Size(10, 13);
+            this.lblAccountPassExpires.TabIndex = 12;
+            this.lblAccountPassExpires.Text = "-";
+            // 
+            // lblAccountPassChangeable
+            // 
+            this.lblAccountPassChangeable.AutoSize = true;
+            this.lblAccountPassChangeable.Location = new System.Drawing.Point(125, 84);
+            this.lblAccountPassChangeable.Name = "lblAccountPassChangeable";
+            this.lblAccountPassChangeable.Size = new System.Drawing.Size(10, 13);
+            this.lblAccountPassChangeable.TabIndex = 11;
+            this.lblAccountPassChangeable.Text = "-";
+            // 
+            // lblAccountPassDisabled
+            // 
+            this.lblAccountPassDisabled.AutoSize = true;
+            this.lblAccountPassDisabled.Location = new System.Drawing.Point(125, 62);
+            this.lblAccountPassDisabled.Name = "lblAccountPassDisabled";
+            this.lblAccountPassDisabled.Size = new System.Drawing.Size(10, 13);
+            this.lblAccountPassDisabled.TabIndex = 10;
+            this.lblAccountPassDisabled.Text = "-";
+            // 
+            // lblAccountCaption
+            // 
+            this.lblAccountCaption.AutoSize = true;
+            this.lblAccountCaption.Location = new System.Drawing.Point(125, 16);
+            this.lblAccountCaption.Name = "lblAccountCaption";
+            this.lblAccountCaption.Size = new System.Drawing.Size(10, 13);
+            this.lblAccountCaption.TabIndex = 9;
+            this.lblAccountCaption.Text = "-";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 38);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(79, 13);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "Lockout Status";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 129);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(99, 13);
+            this.label19.TabIndex = 7;
+            this.label19.Text = "Password Required";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 106);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(90, 13);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "Password Expires";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 84);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(113, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Password Changeable";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 62);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(97, 13);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "Password Disabled";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 13);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Full Name";
             // 
             // listLocalAccounts
             // 
@@ -841,177 +1030,6 @@
             this.label14.Size = new System.Drawing.Size(60, 13);
             this.label14.TabIndex = 136;
             this.label14.Text = "User Name";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 38);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(97, 13);
-            this.label22.TabIndex = 3;
-            this.label22.Text = "Password Disabled";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 13);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Full Name";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 60);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(113, 13);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Password Changeable";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 82);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(90, 13);
-            this.label18.TabIndex = 6;
-            this.label18.Text = "Password Expires";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 105);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(99, 13);
-            this.label19.TabIndex = 7;
-            this.label19.Text = "Password Required";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 127);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(86, 13);
-            this.label20.TabIndex = 8;
-            this.label20.Text = "Password Status";
-            // 
-            // lblFulln
-            // 
-            this.lblFulln.AutoSize = true;
-            this.lblFulln.Location = new System.Drawing.Point(125, 16);
-            this.lblFulln.Name = "lblFulln";
-            this.lblFulln.Size = new System.Drawing.Size(10, 13);
-            this.lblFulln.TabIndex = 9;
-            this.lblFulln.Text = "-";
-            // 
-            // lblPdis
-            // 
-            this.lblPdis.AutoSize = true;
-            this.lblPdis.Location = new System.Drawing.Point(125, 38);
-            this.lblPdis.Name = "lblPdis";
-            this.lblPdis.Size = new System.Drawing.Size(10, 13);
-            this.lblPdis.TabIndex = 10;
-            this.lblPdis.Text = "-";
-            // 
-            // lblPcha
-            // 
-            this.lblPcha.AutoSize = true;
-            this.lblPcha.Location = new System.Drawing.Point(125, 60);
-            this.lblPcha.Name = "lblPcha";
-            this.lblPcha.Size = new System.Drawing.Size(10, 13);
-            this.lblPcha.TabIndex = 11;
-            this.lblPcha.Text = "-";
-            // 
-            // lblPexp
-            // 
-            this.lblPexp.AutoSize = true;
-            this.lblPexp.Location = new System.Drawing.Point(125, 82);
-            this.lblPexp.Name = "lblPexp";
-            this.lblPexp.Size = new System.Drawing.Size(10, 13);
-            this.lblPexp.TabIndex = 12;
-            this.lblPexp.Text = "-";
-            // 
-            // lblPreq
-            // 
-            this.lblPreq.AutoSize = true;
-            this.lblPreq.Location = new System.Drawing.Point(125, 105);
-            this.lblPreq.Name = "lblPreq";
-            this.lblPreq.Size = new System.Drawing.Size(10, 13);
-            this.lblPreq.TabIndex = 13;
-            this.lblPreq.Text = "-";
-            // 
-            // lblPsta
-            // 
-            this.lblPsta.AutoSize = true;
-            this.lblPsta.Location = new System.Drawing.Point(125, 127);
-            this.lblPsta.Name = "lblPsta";
-            this.lblPsta.Size = new System.Drawing.Size(10, 13);
-            this.lblPsta.TabIndex = 14;
-            this.lblPsta.Text = "-";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(16, 224);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(67, 13);
-            this.label21.TabIndex = 134;
-            this.label21.Text = "Windows Dir";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(16, 22);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(60, 13);
-            this.label23.TabIndex = 135;
-            this.label23.Text = "Host Name";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(16, 246);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(22, 13);
-            this.label24.TabIndex = 136;
-            this.label24.Text = "OS";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(16, 290);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(42, 13);
-            this.label25.TabIndex = 137;
-            this.label25.Text = "Version";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(16, 312);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(70, 13);
-            this.label26.TabIndex = 138;
-            this.label26.Text = "Manufacturer";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(16, 268);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 13);
-            this.label15.TabIndex = 139;
-            this.label15.Text = "Service Pack";
-            // 
-            // lblServp
-            // 
-            this.lblServp.AutoSize = true;
-            this.lblServp.Location = new System.Drawing.Point(117, 268);
-            this.lblServp.Name = "lblServp";
-            this.lblServp.Size = new System.Drawing.Size(10, 13);
-            this.lblServp.TabIndex = 140;
-            this.lblServp.Text = "-";
             // 
             // Main
             // 
@@ -1127,12 +1145,12 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label lblPsta;
-        private System.Windows.Forms.Label lblPreq;
-        private System.Windows.Forms.Label lblPexp;
-        private System.Windows.Forms.Label lblPcha;
-        private System.Windows.Forms.Label lblPdis;
-        private System.Windows.Forms.Label lblFulln;
+        private System.Windows.Forms.Label lblAccountLockoutStatus;
+        private System.Windows.Forms.Label lblAccountPassRequired;
+        private System.Windows.Forms.Label lblAccountPassExpires;
+        private System.Windows.Forms.Label lblAccountPassChangeable;
+        private System.Windows.Forms.Label lblAccountPassDisabled;
+        private System.Windows.Forms.Label lblAccountCaption;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
@@ -1140,5 +1158,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label lblServp;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

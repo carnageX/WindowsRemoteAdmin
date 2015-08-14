@@ -47,6 +47,7 @@ namespace wmi
                 {
                     this.Cursor = Cursors.WaitCursor;
 
+                    ClearAllTabControls();
                     InitializeConnection();
 
                     _sysInfo = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
@@ -278,13 +279,12 @@ namespace wmi
             try
             {
                 var localAccount = listLocalAccounts.SelectedItem as LocalAccountInfo;
-                //TODO: set Account Info Group controls here from localAccount properties
-                lblFulln.Text = localAccount.FullName;
-                lblPdis.Text = localAccount.Disabled;
-                lblPcha.Text = localAccount.PasswordChangeable;
-                lblPexp.Text = localAccount.PasswordExpires;
-                lblPreq.Text = localAccount.PasswordRequired;
-                lblPsta.Text = localAccount.Status;
+                lblAccountCaption.Text = localAccount.Caption;
+                lblAccountPassDisabled.Text = localAccount.Disabled;
+                lblAccountPassChangeable.Text = localAccount.PasswordChangeable;
+                lblAccountPassExpires.Text = localAccount.PasswordExpires;
+                lblAccountPassRequired.Text = localAccount.PasswordRequired;
+                lblAccountLockoutStatus.Text = localAccount.Lockout;
             }
             catch(Exception ex)
             {
@@ -369,6 +369,72 @@ namespace wmi
             {
                 _sysConnector = new SystemConnector(this.txtCompName.Text);
             }
+        }
+
+
+
+        private void ClearSystemInfoControls()
+        {
+            lblComputerName.Text = String.Empty;
+            lblAdminStatus.Text = String.Empty;
+            lblDiskName.Text = String.Empty;
+            lblDiskSize.Text = String.Empty;
+            lblDiskFree.Text = String.Empty;
+            lblArch.Text = String.Empty;
+            lblProcCount.Text = String.Empty;
+            lblCurrentUser.Text = String.Empty;
+            lblRam.Text = String.Empty;
+            lblWinDir.Text = String.Empty;
+            lblCaption.Text = String.Empty;
+            lblServp.Text = String.Empty;
+            lblVer.Text = String.Empty;
+            lblManufacturer.Text = String.Empty;
+        }
+
+        private void ClearServicesControls()
+        {
+            listServices.DataSource = new List<string>();
+            lblServiceStatus.Text = String.Empty;
+        }
+
+        private void ClearSoftwareControls()
+        {
+            listSoftware.DataSource = new List<string>();
+        }
+
+        private void ClearPrintersControls()
+        {
+            listPrinters.DataSource = new List<string>();
+        }
+
+        private void ClearDrivesControls()
+        {
+            listDrives.DataSource = new List<string>();
+            lblDriveModel.Text = String.Empty;
+            lblDrivePartitionCount.Text = String.Empty;
+            lblDriveSize.Text = String.Empty;
+            lblDriveDeviceId.Text = String.Empty;
+        }
+
+        private void ClearLocalAccountsControls()
+        {
+            listLocalAccounts.DataSource = new List<string>();
+            lblAccountCaption.Text = String.Empty;
+            lblAccountPassDisabled.Text = String.Empty;
+            lblAccountPassChangeable.Text = String.Empty;
+            lblAccountPassExpires.Text = String.Empty;
+            lblAccountPassRequired.Text = String.Empty;
+            lblAccountLockoutStatus.Text = String.Empty;
+        }
+
+        private void ClearAllTabControls()
+        {
+            ClearSystemInfoControls();
+            ClearServicesControls();
+            ClearSoftwareControls();
+            ClearPrintersControls();
+            ClearDrivesControls();
+            ClearLocalAccountsControls();
         }
         #endregion
     }

@@ -39,7 +39,8 @@ namespace wmi.Services
 
         public void GetBaseSystemInfo(List<SystemInfo> systemInfoCollection)
         {
-            var query = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
+            var fields = "CSName, WindowsDirectory, Caption, Manufacturer, Version, NumberOfProcesses, OSType, OSArchitecture, TotalVisibleMemorySize, CSDVersion";
+            var query = new ObjectQuery(String.Format("SELECT {0} FROM Win32_OperatingSystem", fields));
             var searcher = new ManagementObjectSearcher(_scope, query);
             var queryCollection = searcher.Get();
             foreach (var item in queryCollection)
@@ -47,16 +48,16 @@ namespace wmi.Services
                 systemInfoCollection.Add(
                     new SystemInfo()
                     {
-                        HostName = item["CSName"].ToString(),
+                        HostName = String.Format("{0}", item["CSName"]),
                         WinDir = String.Format("{0}", item["WindowsDirectory"]),
-                        Caption = item["Caption"].ToString(),
+                        Caption = String.Format("{0}", item["Caption"]),
                         Manufacturer = String.Format("{0}", item["Manufacturer"]),
                         Version = String.Format("{0}", item["Version"]),
                         ProcessCount = String.Format("{0}", item["NumberOfProcesses"]),
-                        OSType = item["OSType"].ToString(),
-                        OSArchitecture = item["OSArchitecture"].ToString(),
-                        MemoryInBytes = item["TotalVisibleMemorySize"].ToString(),
-                        ServicePack = item["CSDVersion"].ToString()
+                        OSType = String.Format("{0}", item["OSType"]),
+                        OSArchitecture = String.Format("{0}", item["OSArchitecture"]),
+                        MemoryInBytes = String.Format("{0}", item["TotalVisibleMemorySize"]),
+                        ServicePack = String.Format("{0}", item["CSDVersion"])
                     }
                 );
             }
