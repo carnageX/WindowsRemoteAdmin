@@ -56,7 +56,7 @@ namespace wmi
                     SetGenericSystemInfo(sysInfo);
                     SetMemoryInfo(sysInfo);
                     SetDiskInfo(sysInfo);
-                    SetAdminStatusInfo(sysInfo);
+                    SetComputerSystemInfo(sysInfo);
 
                     this.Cursor = Cursors.Default;
                 }
@@ -319,11 +319,13 @@ namespace wmi
             MessageBox.Show("Please connect to a system first.", "No Connection!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void SetAdminStatusInfo(SystemInfo sysInfo)
+        private void SetComputerSystemInfo(SystemInfo sysInfo)
         {
-            var adminStatus = sysInfo.AdminPasswordStatuses.First();
-            lblCurrentUser.Text = adminStatus.Username;
-            lblAdminStatus.Text = adminStatus.Status;
+            var compSystem = sysInfo.CompSystem.First();
+            lblCurrentUser.Text = compSystem.Username;
+            lblAdminStatus.Text = compSystem.PasswordStatus;
+            lblHWManufacturer.Text = compSystem.Manufacturer;
+            lblHWModel.Text = compSystem.Model;
         }
 
         private void SetDiskInfo(SystemInfo sysInfo)
@@ -347,7 +349,7 @@ namespace wmi
             lblComputerName.Text = sysInfo.HostName;
             lblWinDir.Text = sysInfo.WinDir;
             lblCaption.Text = sysInfo.Caption;
-            lblManufacturer.Text = sysInfo.Manufacturer;
+            lblOSManufacturer.Text = sysInfo.OSManufacturer;
             lblVer.Text = sysInfo.Version;
             lblProcCount.Text = sysInfo.ProcessCount;
             lblArch.Text = sysInfo.OSArchitecture;
@@ -388,7 +390,7 @@ namespace wmi
             lblCaption.Text = String.Empty;
             lblServp.Text = String.Empty;
             lblVer.Text = String.Empty;
-            lblManufacturer.Text = String.Empty;
+            lblOSManufacturer.Text = String.Empty;
         }
 
         private void ClearServicesControls()

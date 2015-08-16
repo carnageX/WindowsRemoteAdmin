@@ -96,7 +96,7 @@
     <Compile Include="MessageWindow.Designer.cs">
       <DependentUpon>MessageWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\AdminPasswordStatus.cs" />
+    <Compile Include="Models\ComputerSystem.cs" />
     <Compile Include="Models\DiskInfo.cs" />
     <Compile Include="Models\DriveInfo.cs" />
     <Compile Include="Models\LocalAccountInfo.cs" />

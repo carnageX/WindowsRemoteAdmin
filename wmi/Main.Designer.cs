@@ -47,7 +47,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.lblVer = new System.Windows.Forms.Label();
-            this.lblManufacturer = new System.Windows.Forms.Label();
+            this.lblOSManufacturer = new System.Windows.Forms.Label();
             this.lblCaption = new System.Windows.Forms.Label();
             this.lblWinDir = new System.Windows.Forms.Label();
             this.lblComputerName = new System.Windows.Forms.Label();
@@ -115,6 +115,13 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.lblHWManufacturer = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.lblHWModel = new System.Windows.Forms.Label();
+            this.splitSystemInfo = new System.Windows.Forms.SplitContainer();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
@@ -124,6 +131,12 @@
             this.tabDisks.SuspendLayout();
             this.tabLocalAccounts.SuspendLayout();
             this.groupLocalAccountInfo.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitSystemInfo)).BeginInit();
+            this.splitSystemInfo.Panel1.SuspendLayout();
+            this.splitSystemInfo.Panel2.SuspendLayout();
+            this.splitSystemInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -215,34 +228,7 @@
             // tabSysInfo
             // 
             this.tabSysInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.tabSysInfo.Controls.Add(this.lblServp);
-            this.tabSysInfo.Controls.Add(this.label15);
-            this.tabSysInfo.Controls.Add(this.label26);
-            this.tabSysInfo.Controls.Add(this.label25);
-            this.tabSysInfo.Controls.Add(this.label24);
-            this.tabSysInfo.Controls.Add(this.label23);
-            this.tabSysInfo.Controls.Add(this.label21);
-            this.tabSysInfo.Controls.Add(this.lblVer);
-            this.tabSysInfo.Controls.Add(this.lblManufacturer);
-            this.tabSysInfo.Controls.Add(this.lblCaption);
-            this.tabSysInfo.Controls.Add(this.lblWinDir);
-            this.tabSysInfo.Controls.Add(this.lblComputerName);
-            this.tabSysInfo.Controls.Add(this.label27);
-            this.tabSysInfo.Controls.Add(this.lblAdminStatus);
-            this.tabSysInfo.Controls.Add(this.label3);
-            this.tabSysInfo.Controls.Add(this.label2);
-            this.tabSysInfo.Controls.Add(this.label4);
-            this.tabSysInfo.Controls.Add(this.label5);
-            this.tabSysInfo.Controls.Add(this.label6);
-            this.tabSysInfo.Controls.Add(this.label7);
-            this.tabSysInfo.Controls.Add(this.label10);
-            this.tabSysInfo.Controls.Add(this.lblRam);
-            this.tabSysInfo.Controls.Add(this.lblCurrentUser);
-            this.tabSysInfo.Controls.Add(this.lblArch);
-            this.tabSysInfo.Controls.Add(this.lblProcCount);
-            this.tabSysInfo.Controls.Add(this.lblDiskFree);
-            this.tabSysInfo.Controls.Add(this.lblDiskSize);
-            this.tabSysInfo.Controls.Add(this.lblDiskName);
+            this.tabSysInfo.Controls.Add(this.splitSystemInfo);
             this.tabSysInfo.Location = new System.Drawing.Point(4, 22);
             this.tabSysInfo.Name = "tabSysInfo";
             this.tabSysInfo.Padding = new System.Windows.Forms.Padding(3);
@@ -253,7 +239,7 @@
             // lblServp
             // 
             this.lblServp.AutoSize = true;
-            this.lblServp.Location = new System.Drawing.Point(117, 259);
+            this.lblServp.Location = new System.Drawing.Point(106, 155);
             this.lblServp.Name = "lblServp";
             this.lblServp.Size = new System.Drawing.Size(10, 13);
             this.lblServp.TabIndex = 140;
@@ -262,7 +248,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(16, 259);
+            this.label15.Location = new System.Drawing.Point(5, 155);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(71, 13);
             this.label15.TabIndex = 139;
@@ -271,16 +257,16 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(16, 303);
+            this.label26.Location = new System.Drawing.Point(6, 128);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(70, 13);
+            this.label26.Size = new System.Drawing.Size(88, 13);
             this.label26.TabIndex = 138;
-            this.label26.Text = "Manufacturer";
+            this.label26.Text = "OS Manufacturer";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(16, 281);
+            this.label25.Location = new System.Drawing.Point(5, 105);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(42, 13);
             this.label25.TabIndex = 137;
@@ -289,7 +275,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(16, 237);
+            this.label24.Location = new System.Drawing.Point(6, 85);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(22, 13);
             this.label24.TabIndex = 136;
@@ -298,7 +284,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(16, 13);
+            this.label23.Location = new System.Drawing.Point(6, 18);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(60, 13);
             this.label23.TabIndex = 135;
@@ -307,7 +293,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(16, 215);
+            this.label21.Location = new System.Drawing.Point(6, 232);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(67, 13);
             this.label21.TabIndex = 134;
@@ -316,25 +302,25 @@
             // lblVer
             // 
             this.lblVer.AutoSize = true;
-            this.lblVer.Location = new System.Drawing.Point(117, 281);
+            this.lblVer.Location = new System.Drawing.Point(106, 105);
             this.lblVer.Name = "lblVer";
             this.lblVer.Size = new System.Drawing.Size(10, 13);
             this.lblVer.TabIndex = 132;
             this.lblVer.Text = "-";
             // 
-            // lblManufacturer
+            // lblOSManufacturer
             // 
-            this.lblManufacturer.AutoSize = true;
-            this.lblManufacturer.Location = new System.Drawing.Point(117, 303);
-            this.lblManufacturer.Name = "lblManufacturer";
-            this.lblManufacturer.Size = new System.Drawing.Size(10, 13);
-            this.lblManufacturer.TabIndex = 131;
-            this.lblManufacturer.Text = "-";
+            this.lblOSManufacturer.AutoSize = true;
+            this.lblOSManufacturer.Location = new System.Drawing.Point(107, 128);
+            this.lblOSManufacturer.Name = "lblOSManufacturer";
+            this.lblOSManufacturer.Size = new System.Drawing.Size(10, 13);
+            this.lblOSManufacturer.TabIndex = 131;
+            this.lblOSManufacturer.Text = "-";
             // 
             // lblCaption
             // 
             this.lblCaption.AutoSize = true;
-            this.lblCaption.Location = new System.Drawing.Point(117, 237);
+            this.lblCaption.Location = new System.Drawing.Point(107, 85);
             this.lblCaption.Name = "lblCaption";
             this.lblCaption.Size = new System.Drawing.Size(10, 13);
             this.lblCaption.TabIndex = 130;
@@ -343,7 +329,7 @@
             // lblWinDir
             // 
             this.lblWinDir.AutoSize = true;
-            this.lblWinDir.Location = new System.Drawing.Point(117, 215);
+            this.lblWinDir.Location = new System.Drawing.Point(107, 232);
             this.lblWinDir.Name = "lblWinDir";
             this.lblWinDir.Size = new System.Drawing.Size(10, 13);
             this.lblWinDir.TabIndex = 129;
@@ -352,7 +338,7 @@
             // lblComputerName
             // 
             this.lblComputerName.AutoSize = true;
-            this.lblComputerName.Location = new System.Drawing.Point(117, 13);
+            this.lblComputerName.Location = new System.Drawing.Point(107, 18);
             this.lblComputerName.Name = "lblComputerName";
             this.lblComputerName.Size = new System.Drawing.Size(10, 13);
             this.lblComputerName.TabIndex = 128;
@@ -361,7 +347,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(16, 36);
+            this.label27.Location = new System.Drawing.Point(6, 64);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(69, 13);
             this.label27.TabIndex = 126;
@@ -370,7 +356,7 @@
             // lblAdminStatus
             // 
             this.lblAdminStatus.AutoSize = true;
-            this.lblAdminStatus.Location = new System.Drawing.Point(117, 36);
+            this.lblAdminStatus.Location = new System.Drawing.Point(107, 64);
             this.lblAdminStatus.Name = "lblAdminStatus";
             this.lblAdminStatus.Size = new System.Drawing.Size(10, 13);
             this.lblAdminStatus.TabIndex = 127;
@@ -379,7 +365,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 169);
+            this.label3.Location = new System.Drawing.Point(6, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 113;
@@ -388,7 +374,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 58);
+            this.label2.Location = new System.Drawing.Point(6, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 112;
@@ -397,7 +383,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 124);
+            this.label4.Location = new System.Drawing.Point(6, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 114;
@@ -406,7 +392,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 146);
+            this.label5.Location = new System.Drawing.Point(6, 208);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 115;
@@ -415,7 +401,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 102);
+            this.label6.Location = new System.Drawing.Point(6, 64);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 116;
@@ -424,7 +410,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 80);
+            this.label7.Location = new System.Drawing.Point(6, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 13);
             this.label7.TabIndex = 117;
@@ -433,7 +419,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 192);
+            this.label10.Location = new System.Drawing.Point(6, 86);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 13);
             this.label10.TabIndex = 118;
@@ -442,7 +428,7 @@
             // lblRam
             // 
             this.lblRam.AutoSize = true;
-            this.lblRam.Location = new System.Drawing.Point(117, 192);
+            this.lblRam.Location = new System.Drawing.Point(107, 86);
             this.lblRam.Name = "lblRam";
             this.lblRam.Size = new System.Drawing.Size(10, 13);
             this.lblRam.TabIndex = 125;
@@ -451,7 +437,7 @@
             // lblCurrentUser
             // 
             this.lblCurrentUser.AutoSize = true;
-            this.lblCurrentUser.Location = new System.Drawing.Point(117, 169);
+            this.lblCurrentUser.Location = new System.Drawing.Point(107, 42);
             this.lblCurrentUser.Name = "lblCurrentUser";
             this.lblCurrentUser.Size = new System.Drawing.Size(10, 13);
             this.lblCurrentUser.TabIndex = 124;
@@ -460,7 +446,7 @@
             // lblArch
             // 
             this.lblArch.AutoSize = true;
-            this.lblArch.Location = new System.Drawing.Point(117, 124);
+            this.lblArch.Location = new System.Drawing.Point(107, 181);
             this.lblArch.Name = "lblArch";
             this.lblArch.Size = new System.Drawing.Size(10, 13);
             this.lblArch.TabIndex = 123;
@@ -469,7 +455,7 @@
             // lblProcCount
             // 
             this.lblProcCount.AutoSize = true;
-            this.lblProcCount.Location = new System.Drawing.Point(117, 146);
+            this.lblProcCount.Location = new System.Drawing.Point(107, 208);
             this.lblProcCount.Name = "lblProcCount";
             this.lblProcCount.Size = new System.Drawing.Size(10, 13);
             this.lblProcCount.TabIndex = 122;
@@ -478,7 +464,7 @@
             // lblDiskFree
             // 
             this.lblDiskFree.AutoSize = true;
-            this.lblDiskFree.Location = new System.Drawing.Point(117, 102);
+            this.lblDiskFree.Location = new System.Drawing.Point(107, 64);
             this.lblDiskFree.Name = "lblDiskFree";
             this.lblDiskFree.Size = new System.Drawing.Size(10, 13);
             this.lblDiskFree.TabIndex = 121;
@@ -487,7 +473,7 @@
             // lblDiskSize
             // 
             this.lblDiskSize.AutoSize = true;
-            this.lblDiskSize.Location = new System.Drawing.Point(117, 80);
+            this.lblDiskSize.Location = new System.Drawing.Point(107, 42);
             this.lblDiskSize.Name = "lblDiskSize";
             this.lblDiskSize.Size = new System.Drawing.Size(10, 13);
             this.lblDiskSize.TabIndex = 120;
@@ -496,7 +482,7 @@
             // lblDiskName
             // 
             this.lblDiskName.AutoSize = true;
-            this.lblDiskName.Location = new System.Drawing.Point(117, 58);
+            this.lblDiskName.Location = new System.Drawing.Point(107, 20);
             this.lblDiskName.Name = "lblDiskName";
             this.lblDiskName.Size = new System.Drawing.Size(10, 13);
             this.lblDiskName.TabIndex = 119;
@@ -1031,6 +1017,117 @@
             this.label14.TabIndex = 136;
             this.label14.Text = "User Name";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.lblArch);
+            this.groupBox1.Controls.Add(this.label26);
+            this.groupBox1.Controls.Add(this.lblServp);
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.lblVer);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lblOSManufacturer);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.lblAdminStatus);
+            this.groupBox1.Controls.Add(this.label27);
+            this.groupBox1.Controls.Add(this.lblComputerName);
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.lblProcCount);
+            this.groupBox1.Controls.Add(this.lblCurrentUser);
+            this.groupBox1.Controls.Add(this.lblCaption);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblWinDir);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(278, 313);
+            this.groupBox1.TabIndex = 141;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Software Info";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.lblHWModel);
+            this.groupBox2.Controls.Add(this.label30);
+            this.groupBox2.Controls.Add(this.lblHWManufacturer);
+            this.groupBox2.Controls.Add(this.label28);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.lblDiskName);
+            this.groupBox2.Controls.Add(this.lblDiskSize);
+            this.groupBox2.Controls.Add(this.lblDiskFree);
+            this.groupBox2.Controls.Add(this.lblRam);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(289, 313);
+            this.groupBox2.TabIndex = 142;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Hardware Info";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 107);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(70, 13);
+            this.label28.TabIndex = 126;
+            this.label28.Text = "Manufacturer";
+            // 
+            // lblHWManufacturer
+            // 
+            this.lblHWManufacturer.AutoSize = true;
+            this.lblHWManufacturer.Location = new System.Drawing.Point(107, 107);
+            this.lblHWManufacturer.Name = "lblHWManufacturer";
+            this.lblHWManufacturer.Size = new System.Drawing.Size(10, 13);
+            this.lblHWManufacturer.TabIndex = 127;
+            this.lblHWManufacturer.Text = "-";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(6, 128);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(36, 13);
+            this.label30.TabIndex = 128;
+            this.label30.Text = "Model";
+            // 
+            // lblHWModel
+            // 
+            this.lblHWModel.AutoSize = true;
+            this.lblHWModel.Location = new System.Drawing.Point(107, 128);
+            this.lblHWModel.Name = "lblHWModel";
+            this.lblHWModel.Size = new System.Drawing.Size(10, 13);
+            this.lblHWModel.TabIndex = 129;
+            this.lblHWModel.Text = "-";
+            // 
+            // splitSystemInfo
+            // 
+            this.splitSystemInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitSystemInfo.Location = new System.Drawing.Point(6, 6);
+            this.splitSystemInfo.Name = "splitSystemInfo";
+            // 
+            // splitSystemInfo.Panel1
+            // 
+            this.splitSystemInfo.Panel1.Controls.Add(this.groupBox1);
+            // 
+            // splitSystemInfo.Panel2
+            // 
+            this.splitSystemInfo.Panel2.Controls.Add(this.groupBox2);
+            this.splitSystemInfo.Size = new System.Drawing.Size(583, 319);
+            this.splitSystemInfo.SplitterDistance = 284;
+            this.splitSystemInfo.TabIndex = 143;
+            // 
             // Main
             // 
             this.AcceptButton = this.btnConnect;
@@ -1055,7 +1152,6 @@
             this.menuStrip1.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabSysInfo.ResumeLayout(false);
-            this.tabSysInfo.PerformLayout();
             this.tabServices.ResumeLayout(false);
             this.tabServices.PerformLayout();
             this.tabSoftware.ResumeLayout(false);
@@ -1066,6 +1162,14 @@
             this.tabLocalAccounts.ResumeLayout(false);
             this.groupLocalAccountInfo.ResumeLayout(false);
             this.groupLocalAccountInfo.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.splitSystemInfo.Panel1.ResumeLayout(false);
+            this.splitSystemInfo.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitSystemInfo)).EndInit();
+            this.splitSystemInfo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1103,7 +1207,7 @@
         private System.Windows.Forms.Label lblDiskSize;
         private System.Windows.Forms.Label lblDiskName;
         private System.Windows.Forms.Label lblVer;
-        private System.Windows.Forms.Label lblManufacturer;
+        private System.Windows.Forms.Label lblOSManufacturer;
         private System.Windows.Forms.Label lblCaption;
         private System.Windows.Forms.Label lblWinDir;
         private System.Windows.Forms.Label lblComputerName;
@@ -1159,5 +1263,12 @@
         private System.Windows.Forms.Label lblServp;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblHWModel;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lblHWManufacturer;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.SplitContainer splitSystemInfo;
     }
 }

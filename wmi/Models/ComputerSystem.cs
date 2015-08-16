@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace wmi.Models
 {
-    public class AdminPasswordStatus
+    public class ComputerSystem
     {
-        public string Status { get; set; }
+        public string PasswordStatus { get; set; }
         public string Username { get; set; }
+        public string Manufacturer { get; set; }
+        public string Model { get; set; }
     }
 }

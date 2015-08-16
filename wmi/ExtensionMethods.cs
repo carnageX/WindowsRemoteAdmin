@@ -16,7 +16,8 @@ namespace wmi
         public static List<DiskInfo> GetDiskInfo(this SystemInfo systemInfo, ManagementScope scope)
         {
             var disks = new List<DiskInfo>();
-            var query = new ObjectQuery("SELECT FreeSpace,Size,Name,VolumeName,DeviceID FROM Win32_LogicalDisk WHERE DriveType=3");
+            var criteria = "FreeSpace,Size,Name,VolumeName,DeviceID";
+            var query = new ObjectQuery(String.Format("SELECT {0} FROM Win32_LogicalDisk WHERE DriveType=3", criteria));
             var searcher = new ManagementObjectSearcher(scope, query);
             var diskCollection = searcher.Get();
 
@@ -39,7 +40,8 @@ namespace wmi
         public static List<DriveInfo> GetDriveInfo(this SystemInfo systemInfo, ManagementScope scope)
         {
             var driveList = new List<DriveInfo>();
-            var query = new ObjectQuery("SELECT Caption, DeviceID, Model, Partitions, Size FROM Win32_DiskDrive");
+            var criteria = "Caption, DeviceID, Model, Partitions, Size";
+            var query = new ObjectQuery(String.Format("SELECT {0} FROM Win32_DiskDrive", criteria));
             var searcher = new ManagementObjectSearcher(scope, query);
             var drives = searcher.Get();
 
@@ -59,35 +61,36 @@ namespace wmi
             return driveList;
         }
 
-        public static List<AdminPasswordStatus> GetAdminPasswordStatus(this SystemInfo systemInfo, ManagementScope scope)
+        public static List<ComputerSystem> GetComputerSystemInfo(this SystemInfo systemInfo, ManagementScope scope)
         {
-            var statuses = new List<AdminPasswordStatus>();
-            var query = new ObjectQuery("SELECT AdminPasswordStatus,UserName FROM Win32_ComputerSystem");
+            var infoList = new List<ComputerSystem>();
+            var criteria = "AdminPasswordStatus,UserName,Manufacturer,Model";
+            var query = new ObjectQuery(String.Format("SELECT {0} FROM Win32_ComputerSystem", criteria));
             var searcher = new ManagementObjectSearcher(scope, query);
-            var statusCollection = searcher.Get();
-            foreach (var status in statusCollection)
+            var infoCollection = searcher.Get();
+            foreach (var item in infoCollection)
             {
                 var passwordStatus = String.Empty;
-                if (status["AdminPasswordStatus"] == null) { passwordStatus = "null"; }
-                else if (status["AdminPasswordStatus"].ToString() == "0") { passwordStatus = "Disabled"; }
-                else if (status["AdminPasswordStatus"].ToString() == "1") { passwordStatus = "Enabled"; }
-                else if (status["AdminPasswordStatus"].ToString() == "2") { passwordStatus = "Not Implemented"; }
-                else if (status["AdminPasswordStatus"].ToString() == "3") { passwordStatus = "Unknown"; }
+                if (item["AdminPasswordStatus"] == null) { passwordStatus = "null"; }
+                else if (item["AdminPasswordStatus"].ToString() == "0") { passwordStatus = "Disabled"; }
+                else if (item["AdminPasswordStatus"].ToString() == "1") { passwordStatus = "Enabled"; }
+                else if (item["AdminPasswordStatus"].ToString() == "2") { passwordStatus = "Not Implemented"; }
+                else if (item["AdminPasswordStatus"].ToString() == "3") { passwordStatus = "Unknown"; }
                 else { passwordStatus = "Unknown"; }
 
-                string username;
-                if (status["UserName"] != null) { username = status["UserName"].ToString(); }
-                else { username = "null"; }
+                var username = item["UserName"];
 
-                statuses.Add(
-                    new AdminPasswordStatus()
+                infoList.Add(
+                    new ComputerSystem()
                     {
-                        Status = passwordStatus,
-                        Username = username
+                        PasswordStatus = passwordStatus,
+                        Username = (username != null) ? username.ToString() : "null",
+                        Manufacturer = String.Format("{0}", item["Manufacturer"]),
+                        Model = String.Format("{0}", item["Model"])
                     }
                 );
             }
-            return statuses;
+            return infoList;
         }
     }
 

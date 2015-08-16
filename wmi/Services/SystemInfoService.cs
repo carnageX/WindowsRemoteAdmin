@@ -26,18 +26,18 @@ namespace wmi.Services
         public List<SystemInfo> GetSystemInfo()
         {
             var systemInfoCollection = new List<SystemInfo>();
-            GetBaseSystemInfo(systemInfoCollection);
+            GetOperatingSystemInfo(systemInfoCollection);
             foreach (var item in systemInfoCollection)
             {
                 item.Disks = item.GetDiskInfo(_scope);
                 item.Drives = item.GetDriveInfo(_scope);
-                item.AdminPasswordStatuses = item.GetAdminPasswordStatus(_scope);
+                item.CompSystem = item.GetComputerSystemInfo(_scope);
             }
 
             return systemInfoCollection;
         }
 
-        public void GetBaseSystemInfo(List<SystemInfo> systemInfoCollection)
+        public void GetOperatingSystemInfo(List<SystemInfo> systemInfoCollection)
         {
             var fields = "CSName, WindowsDirectory, Caption, Manufacturer, Version, NumberOfProcesses, OSType, OSArchitecture, TotalVisibleMemorySize, CSDVersion";
             var query = new ObjectQuery(String.Format("SELECT {0} FROM Win32_OperatingSystem", fields));
@@ -51,7 +51,7 @@ namespace wmi.Services
                         HostName = String.Format("{0}", item["CSName"]),
                         WinDir = String.Format("{0}", item["WindowsDirectory"]),
                         Caption = String.Format("{0}", item["Caption"]),
-                        Manufacturer = String.Format("{0}", item["Manufacturer"]),
+                        OSManufacturer = String.Format("{0}", item["Manufacturer"]),
                         Version = String.Format("{0}", item["Version"]),
                         ProcessCount = String.Format("{0}", item["NumberOfProcesses"]),
                         OSType = String.Format("{0}", item["OSType"]),

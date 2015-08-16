@@ -10,6 +10,6 @@ namespace wmi.Services.Interfaces
     public interface ISystemInfoService
     {
         List<SystemInfo> GetSystemInfo();
-        void GetBaseSystemInfo(List<SystemInfo> systemInfoCollection);
+        void GetOperatingSystemInfo(List<SystemInfo> systemInfoCollection);
     }
 }
