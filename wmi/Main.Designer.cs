@@ -39,34 +39,41 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabSysInfo = new System.Windows.Forms.TabPage();
-            this.lblServp = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.splitSystemInfo = new System.Windows.Forms.SplitContainer();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.lblVer = new System.Windows.Forms.Label();
-            this.lblOSManufacturer = new System.Windows.Forms.Label();
-            this.lblCaption = new System.Windows.Forms.Label();
-            this.lblWinDir = new System.Windows.Forms.Label();
-            this.lblComputerName = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.lblAdminStatus = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblRam = new System.Windows.Forms.Label();
-            this.lblCurrentUser = new System.Windows.Forms.Label();
             this.lblArch = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.lblServp = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lblVer = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblOSManufacturer = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblAdminStatus = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.lblComputerName = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.lblProcCount = new System.Windows.Forms.Label();
-            this.lblDiskFree = new System.Windows.Forms.Label();
-            this.lblDiskSize = new System.Windows.Forms.Label();
+            this.lblCurrentUser = new System.Windows.Forms.Label();
+            this.lblCaption = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblWinDir = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblHWModel = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.lblHWManufacturer = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblDiskName = new System.Windows.Forms.Label();
+            this.lblDiskSize = new System.Windows.Forms.Label();
+            this.lblDiskFree = new System.Windows.Forms.Label();
+            this.lblRam = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabServices = new System.Windows.Forms.TabPage();
             this.lblServiceStatus = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -115,28 +122,22 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.lblHWManufacturer = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.lblHWModel = new System.Windows.Forms.Label();
-            this.splitSystemInfo = new System.Windows.Forms.SplitContainer();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitSystemInfo)).BeginInit();
+            this.splitSystemInfo.Panel1.SuspendLayout();
+            this.splitSystemInfo.Panel2.SuspendLayout();
+            this.splitSystemInfo.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabServices.SuspendLayout();
             this.tabSoftware.SuspendLayout();
             this.tabPrinters.SuspendLayout();
             this.tabDisks.SuspendLayout();
             this.tabLocalAccounts.SuspendLayout();
             this.groupLocalAccountInfo.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitSystemInfo)).BeginInit();
-            this.splitSystemInfo.Panel1.SuspendLayout();
-            this.splitSystemInfo.Panel2.SuspendLayout();
-            this.splitSystemInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -145,7 +146,7 @@
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 117;
-            this.btnConnect.Text = "Connect";
+            this.btnConnect.Text = "&Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
@@ -170,6 +171,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.exportToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -184,13 +186,13 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Text = "&File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -199,12 +201,12 @@
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -236,50 +238,56 @@
             this.tabSysInfo.TabIndex = 0;
             this.tabSysInfo.Text = "System Info";
             // 
-            // lblServp
+            // splitSystemInfo
             // 
-            this.lblServp.AutoSize = true;
-            this.lblServp.Location = new System.Drawing.Point(106, 155);
-            this.lblServp.Name = "lblServp";
-            this.lblServp.Size = new System.Drawing.Size(10, 13);
-            this.lblServp.TabIndex = 140;
-            this.lblServp.Text = "-";
+            this.splitSystemInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitSystemInfo.Location = new System.Drawing.Point(6, 6);
+            this.splitSystemInfo.Name = "splitSystemInfo";
             // 
-            // label15
+            // splitSystemInfo.Panel1
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(5, 155);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 13);
-            this.label15.TabIndex = 139;
-            this.label15.Text = "Service Pack";
+            this.splitSystemInfo.Panel1.Controls.Add(this.groupBox1);
             // 
-            // label26
+            // splitSystemInfo.Panel2
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(6, 128);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(88, 13);
-            this.label26.TabIndex = 138;
-            this.label26.Text = "OS Manufacturer";
+            this.splitSystemInfo.Panel2.Controls.Add(this.groupBox2);
+            this.splitSystemInfo.Size = new System.Drawing.Size(583, 319);
+            this.splitSystemInfo.SplitterDistance = 284;
+            this.splitSystemInfo.TabIndex = 143;
             // 
-            // label25
+            // groupBox1
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 105);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(42, 13);
-            this.label25.TabIndex = 137;
-            this.label25.Text = "Version";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(6, 85);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(22, 13);
-            this.label24.TabIndex = 136;
-            this.label24.Text = "OS";
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.lblArch);
+            this.groupBox1.Controls.Add(this.label26);
+            this.groupBox1.Controls.Add(this.lblServp);
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.lblVer);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lblOSManufacturer);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.lblAdminStatus);
+            this.groupBox1.Controls.Add(this.label27);
+            this.groupBox1.Controls.Add(this.lblComputerName);
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.lblProcCount);
+            this.groupBox1.Controls.Add(this.lblCurrentUser);
+            this.groupBox1.Controls.Add(this.lblCaption);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblWinDir);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(278, 313);
+            this.groupBox1.TabIndex = 141;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Software Info";
             // 
             // label23
             // 
@@ -290,14 +298,41 @@
             this.label23.TabIndex = 135;
             this.label23.Text = "Host Name";
             // 
-            // label21
+            // lblArch
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 232);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(67, 13);
-            this.label21.TabIndex = 134;
-            this.label21.Text = "Windows Dir";
+            this.lblArch.AutoSize = true;
+            this.lblArch.Location = new System.Drawing.Point(107, 181);
+            this.lblArch.Name = "lblArch";
+            this.lblArch.Size = new System.Drawing.Size(10, 13);
+            this.lblArch.TabIndex = 123;
+            this.lblArch.Text = "-";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(6, 128);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(88, 13);
+            this.label26.TabIndex = 138;
+            this.label26.Text = "OS Manufacturer";
+            // 
+            // lblServp
+            // 
+            this.lblServp.AutoSize = true;
+            this.lblServp.Location = new System.Drawing.Point(106, 155);
+            this.lblServp.Name = "lblServp";
+            this.lblServp.Size = new System.Drawing.Size(10, 13);
+            this.lblServp.TabIndex = 140;
+            this.lblServp.Text = "-";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(5, 105);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 13);
+            this.label25.TabIndex = 137;
+            this.label25.Text = "Version";
             // 
             // lblVer
             // 
@@ -308,6 +343,15 @@
             this.lblVer.TabIndex = 132;
             this.lblVer.Text = "-";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 181);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 114;
+            this.label4.Text = "Arch Type";
+            // 
             // lblOSManufacturer
             // 
             this.lblOSManufacturer.AutoSize = true;
@@ -317,41 +361,14 @@
             this.lblOSManufacturer.TabIndex = 131;
             this.lblOSManufacturer.Text = "-";
             // 
-            // lblCaption
+            // label15
             // 
-            this.lblCaption.AutoSize = true;
-            this.lblCaption.Location = new System.Drawing.Point(107, 85);
-            this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(10, 13);
-            this.lblCaption.TabIndex = 130;
-            this.lblCaption.Text = "-";
-            // 
-            // lblWinDir
-            // 
-            this.lblWinDir.AutoSize = true;
-            this.lblWinDir.Location = new System.Drawing.Point(107, 232);
-            this.lblWinDir.Name = "lblWinDir";
-            this.lblWinDir.Size = new System.Drawing.Size(10, 13);
-            this.lblWinDir.TabIndex = 129;
-            this.lblWinDir.Text = "-";
-            // 
-            // lblComputerName
-            // 
-            this.lblComputerName.AutoSize = true;
-            this.lblComputerName.Location = new System.Drawing.Point(107, 18);
-            this.lblComputerName.Name = "lblComputerName";
-            this.lblComputerName.Size = new System.Drawing.Size(10, 13);
-            this.lblComputerName.TabIndex = 128;
-            this.lblComputerName.Text = "-";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(6, 64);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(69, 13);
-            this.label27.TabIndex = 126;
-            this.label27.Text = "Admin Status";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(5, 155);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(71, 13);
+            this.label15.TabIndex = 139;
+            this.label15.Text = "Service Pack";
             // 
             // lblAdminStatus
             // 
@@ -362,32 +379,32 @@
             this.lblAdminStatus.TabIndex = 127;
             this.lblAdminStatus.Text = "-";
             // 
-            // label3
+            // label27
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
-            this.label3.TabIndex = 113;
-            this.label3.Text = "Current User";
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 64);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(69, 13);
+            this.label27.TabIndex = 126;
+            this.label27.Text = "Admin Status";
             // 
-            // label2
+            // lblComputerName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 112;
-            this.label2.Text = "Disk Name";
+            this.lblComputerName.AutoSize = true;
+            this.lblComputerName.Location = new System.Drawing.Point(107, 18);
+            this.lblComputerName.Name = "lblComputerName";
+            this.lblComputerName.Size = new System.Drawing.Size(10, 13);
+            this.lblComputerName.TabIndex = 128;
+            this.lblComputerName.Text = "-";
             // 
-            // label4
+            // label24
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 181);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 114;
-            this.label4.Text = "Arch Type";
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(6, 85);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(22, 13);
+            this.label24.TabIndex = 136;
+            this.label24.Text = "OS";
             // 
             // label5
             // 
@@ -398,59 +415,14 @@
             this.label5.TabIndex = 115;
             this.label5.Text = "Processes";
             // 
-            // label6
+            // label21
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 13);
-            this.label6.TabIndex = 116;
-            this.label6.Text = "Free";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 42);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 13);
-            this.label7.TabIndex = 117;
-            this.label7.Text = "Size";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 86);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(31, 13);
-            this.label10.TabIndex = 118;
-            this.label10.Text = "RAM";
-            // 
-            // lblRam
-            // 
-            this.lblRam.AutoSize = true;
-            this.lblRam.Location = new System.Drawing.Point(107, 86);
-            this.lblRam.Name = "lblRam";
-            this.lblRam.Size = new System.Drawing.Size(10, 13);
-            this.lblRam.TabIndex = 125;
-            this.lblRam.Text = "-";
-            // 
-            // lblCurrentUser
-            // 
-            this.lblCurrentUser.AutoSize = true;
-            this.lblCurrentUser.Location = new System.Drawing.Point(107, 42);
-            this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Size = new System.Drawing.Size(10, 13);
-            this.lblCurrentUser.TabIndex = 124;
-            this.lblCurrentUser.Text = "-";
-            // 
-            // lblArch
-            // 
-            this.lblArch.AutoSize = true;
-            this.lblArch.Location = new System.Drawing.Point(107, 181);
-            this.lblArch.Name = "lblArch";
-            this.lblArch.Size = new System.Drawing.Size(10, 13);
-            this.lblArch.TabIndex = 123;
-            this.lblArch.Text = "-";
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 232);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(67, 13);
+            this.label21.TabIndex = 134;
+            this.label21.Text = "Windows Dir";
             // 
             // lblProcCount
             // 
@@ -461,14 +433,119 @@
             this.lblProcCount.TabIndex = 122;
             this.lblProcCount.Text = "-";
             // 
-            // lblDiskFree
+            // lblCurrentUser
             // 
-            this.lblDiskFree.AutoSize = true;
-            this.lblDiskFree.Location = new System.Drawing.Point(107, 64);
-            this.lblDiskFree.Name = "lblDiskFree";
-            this.lblDiskFree.Size = new System.Drawing.Size(10, 13);
-            this.lblDiskFree.TabIndex = 121;
-            this.lblDiskFree.Text = "-";
+            this.lblCurrentUser.AutoSize = true;
+            this.lblCurrentUser.Location = new System.Drawing.Point(107, 42);
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Size = new System.Drawing.Size(10, 13);
+            this.lblCurrentUser.TabIndex = 124;
+            this.lblCurrentUser.Text = "-";
+            // 
+            // lblCaption
+            // 
+            this.lblCaption.AutoSize = true;
+            this.lblCaption.Location = new System.Drawing.Point(107, 85);
+            this.lblCaption.Name = "lblCaption";
+            this.lblCaption.Size = new System.Drawing.Size(10, 13);
+            this.lblCaption.TabIndex = 130;
+            this.lblCaption.Text = "-";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.TabIndex = 113;
+            this.label3.Text = "Current User";
+            // 
+            // lblWinDir
+            // 
+            this.lblWinDir.AutoSize = true;
+            this.lblWinDir.Location = new System.Drawing.Point(107, 232);
+            this.lblWinDir.Name = "lblWinDir";
+            this.lblWinDir.Size = new System.Drawing.Size(10, 13);
+            this.lblWinDir.TabIndex = 129;
+            this.lblWinDir.Text = "-";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.lblHWModel);
+            this.groupBox2.Controls.Add(this.label30);
+            this.groupBox2.Controls.Add(this.lblHWManufacturer);
+            this.groupBox2.Controls.Add(this.label28);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.lblDiskName);
+            this.groupBox2.Controls.Add(this.lblDiskSize);
+            this.groupBox2.Controls.Add(this.lblDiskFree);
+            this.groupBox2.Controls.Add(this.lblRam);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(289, 313);
+            this.groupBox2.TabIndex = 142;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Hardware Info";
+            // 
+            // lblHWModel
+            // 
+            this.lblHWModel.AutoSize = true;
+            this.lblHWModel.Location = new System.Drawing.Point(107, 128);
+            this.lblHWModel.Name = "lblHWModel";
+            this.lblHWModel.Size = new System.Drawing.Size(10, 13);
+            this.lblHWModel.TabIndex = 129;
+            this.lblHWModel.Text = "-";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(6, 128);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(36, 13);
+            this.label30.TabIndex = 128;
+            this.label30.Text = "Model";
+            // 
+            // lblHWManufacturer
+            // 
+            this.lblHWManufacturer.AutoSize = true;
+            this.lblHWManufacturer.Location = new System.Drawing.Point(107, 107);
+            this.lblHWManufacturer.Name = "lblHWManufacturer";
+            this.lblHWManufacturer.Size = new System.Drawing.Size(10, 13);
+            this.lblHWManufacturer.TabIndex = 127;
+            this.lblHWManufacturer.Text = "-";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 107);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(70, 13);
+            this.label28.TabIndex = 126;
+            this.label28.Text = "Manufacturer";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 112;
+            this.label2.Text = "Disk Name";
+            // 
+            // lblDiskName
+            // 
+            this.lblDiskName.AutoSize = true;
+            this.lblDiskName.Location = new System.Drawing.Point(107, 20);
+            this.lblDiskName.Name = "lblDiskName";
+            this.lblDiskName.Size = new System.Drawing.Size(10, 13);
+            this.lblDiskName.TabIndex = 119;
+            this.lblDiskName.Text = "-";
             // 
             // lblDiskSize
             // 
@@ -479,14 +556,50 @@
             this.lblDiskSize.TabIndex = 120;
             this.lblDiskSize.Text = "-";
             // 
-            // lblDiskName
+            // lblDiskFree
             // 
-            this.lblDiskName.AutoSize = true;
-            this.lblDiskName.Location = new System.Drawing.Point(107, 20);
-            this.lblDiskName.Name = "lblDiskName";
-            this.lblDiskName.Size = new System.Drawing.Size(10, 13);
-            this.lblDiskName.TabIndex = 119;
-            this.lblDiskName.Text = "-";
+            this.lblDiskFree.AutoSize = true;
+            this.lblDiskFree.Location = new System.Drawing.Point(107, 64);
+            this.lblDiskFree.Name = "lblDiskFree";
+            this.lblDiskFree.Size = new System.Drawing.Size(10, 13);
+            this.lblDiskFree.TabIndex = 121;
+            this.lblDiskFree.Text = "-";
+            // 
+            // lblRam
+            // 
+            this.lblRam.AutoSize = true;
+            this.lblRam.Location = new System.Drawing.Point(107, 86);
+            this.lblRam.Name = "lblRam";
+            this.lblRam.Size = new System.Drawing.Size(10, 13);
+            this.lblRam.TabIndex = 125;
+            this.lblRam.Text = "-";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 86);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(31, 13);
+            this.label10.TabIndex = 118;
+            this.label10.Text = "RAM";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 42);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 13);
+            this.label7.TabIndex = 117;
+            this.label7.Text = "Size";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(28, 13);
+            this.label6.TabIndex = 116;
+            this.label6.Text = "Free";
             // 
             // tabServices
             // 
@@ -1017,116 +1130,12 @@
             this.label14.TabIndex = 136;
             this.label14.Text = "User Name";
             // 
-            // groupBox1
+            // exportToolStripMenuItem
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.lblArch);
-            this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Controls.Add(this.lblServp);
-            this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Controls.Add(this.lblVer);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.lblOSManufacturer);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.lblAdminStatus);
-            this.groupBox1.Controls.Add(this.label27);
-            this.groupBox1.Controls.Add(this.lblComputerName);
-            this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.lblProcCount);
-            this.groupBox1.Controls.Add(this.lblCurrentUser);
-            this.groupBox1.Controls.Add(this.lblCaption);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblWinDir);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(278, 313);
-            this.groupBox1.TabIndex = 141;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Software Info";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.lblHWModel);
-            this.groupBox2.Controls.Add(this.label30);
-            this.groupBox2.Controls.Add(this.lblHWManufacturer);
-            this.groupBox2.Controls.Add(this.label28);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.lblDiskName);
-            this.groupBox2.Controls.Add(this.lblDiskSize);
-            this.groupBox2.Controls.Add(this.lblDiskFree);
-            this.groupBox2.Controls.Add(this.lblRam);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(289, 313);
-            this.groupBox2.TabIndex = 142;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Hardware Info";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(6, 107);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(70, 13);
-            this.label28.TabIndex = 126;
-            this.label28.Text = "Manufacturer";
-            // 
-            // lblHWManufacturer
-            // 
-            this.lblHWManufacturer.AutoSize = true;
-            this.lblHWManufacturer.Location = new System.Drawing.Point(107, 107);
-            this.lblHWManufacturer.Name = "lblHWManufacturer";
-            this.lblHWManufacturer.Size = new System.Drawing.Size(10, 13);
-            this.lblHWManufacturer.TabIndex = 127;
-            this.lblHWManufacturer.Text = "-";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(6, 128);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(36, 13);
-            this.label30.TabIndex = 128;
-            this.label30.Text = "Model";
-            // 
-            // lblHWModel
-            // 
-            this.lblHWModel.AutoSize = true;
-            this.lblHWModel.Location = new System.Drawing.Point(107, 128);
-            this.lblHWModel.Name = "lblHWModel";
-            this.lblHWModel.Size = new System.Drawing.Size(10, 13);
-            this.lblHWModel.TabIndex = 129;
-            this.lblHWModel.Text = "-";
-            // 
-            // splitSystemInfo
-            // 
-            this.splitSystemInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitSystemInfo.Location = new System.Drawing.Point(6, 6);
-            this.splitSystemInfo.Name = "splitSystemInfo";
-            // 
-            // splitSystemInfo.Panel1
-            // 
-            this.splitSystemInfo.Panel1.Controls.Add(this.groupBox1);
-            // 
-            // splitSystemInfo.Panel2
-            // 
-            this.splitSystemInfo.Panel2.Controls.Add(this.groupBox2);
-            this.splitSystemInfo.Size = new System.Drawing.Size(583, 319);
-            this.splitSystemInfo.SplitterDistance = 284;
-            this.splitSystemInfo.TabIndex = 143;
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.exportToolStripMenuItem.Text = "&Export...";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1152,6 +1161,14 @@
             this.menuStrip1.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabSysInfo.ResumeLayout(false);
+            this.splitSystemInfo.Panel1.ResumeLayout(false);
+            this.splitSystemInfo.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitSystemInfo)).EndInit();
+            this.splitSystemInfo.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabServices.ResumeLayout(false);
             this.tabServices.PerformLayout();
             this.tabSoftware.ResumeLayout(false);
@@ -1162,14 +1179,6 @@
             this.tabLocalAccounts.ResumeLayout(false);
             this.groupLocalAccountInfo.ResumeLayout(false);
             this.groupLocalAccountInfo.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.splitSystemInfo.Panel1.ResumeLayout(false);
-            this.splitSystemInfo.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitSystemInfo)).EndInit();
-            this.splitSystemInfo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1270,5 +1279,6 @@
         private System.Windows.Forms.Label lblHWManufacturer;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.SplitContainer splitSystemInfo;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
     }
 }

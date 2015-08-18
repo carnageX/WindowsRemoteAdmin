@@ -439,5 +439,11 @@ namespace wmi
             ClearLocalAccountsControls();
         }
         #endregion
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var exportWindow = new ExportForm();
+            exportWindow.ShowDialog();
+        }
     }
 }

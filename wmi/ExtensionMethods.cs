@@ -84,7 +84,7 @@ namespace wmi
                     new ComputerSystem()
                     {
                         PasswordStatus = passwordStatus,
-                        Username = (username != null) ? username.ToString() : "null",
+                        Username = (username != null) ? username.ToString() : "None",
                         Manufacturer = String.Format("{0}", item["Manufacturer"]),
                         Model = String.Format("{0}", item["Model"])
                     }
