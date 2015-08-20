@@ -31,7 +31,14 @@ namespace wmi
         {
             InitializeComponent();
 
+            //TODO: remove once complete to enable the Export menu
+            this.exportToolStripMenuItem.Enabled = false;
+            this.exportToolStripMenuItem.ToolTipText = "Feature in development.";
+
             txtUserName.SetWatermark(_watermark);
+
+            txtUserName.Enabled = false;
+            txtPassword.Enabled = false;
         }
 
         #region System Info
@@ -444,6 +451,20 @@ namespace wmi
         {
             var exportWindow = new ExportForm();
             exportWindow.ShowDialog();
+        }
+
+        private void checkRequiresCredentials_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkRequiresCredentials.Checked)
+            {
+                txtUserName.Enabled = true;
+                txtPassword.Enabled = true;
+            }
+            else
+            {
+                txtUserName.Enabled = false;
+                txtPassword.Enabled = false;
+            }
         }
     }
 }

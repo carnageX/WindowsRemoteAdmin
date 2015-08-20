@@ -35,6 +35,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -122,7 +123,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkRequiresCredentials = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
@@ -142,7 +143,7 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(280, 36);
+            this.btnConnect.Location = new System.Drawing.Point(280, 31);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 117;
@@ -153,7 +154,7 @@
             // lblComputerConn
             // 
             this.lblComputerConn.AutoSize = true;
-            this.lblComputerConn.Location = new System.Drawing.Point(12, 41);
+            this.lblComputerConn.Location = new System.Drawing.Point(12, 36);
             this.lblComputerConn.Name = "lblComputerConn";
             this.lblComputerConn.Size = new System.Drawing.Size(105, 13);
             this.lblComputerConn.TabIndex = 116;
@@ -161,7 +162,7 @@
             // 
             // txtCompName
             // 
-            this.txtCompName.Location = new System.Drawing.Point(123, 38);
+            this.txtCompName.Location = new System.Drawing.Point(123, 33);
             this.txtCompName.Name = "txtCompName";
             this.txtCompName.Size = new System.Drawing.Size(151, 20);
             this.txtCompName.TabIndex = 115;
@@ -191,9 +192,16 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.exportToolStripMenuItem.Text = "&Export...";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -206,7 +214,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -221,10 +229,10 @@
             this.tabControl.Controls.Add(this.tabPrinters);
             this.tabControl.Controls.Add(this.tabDisks);
             this.tabControl.Controls.Add(this.tabLocalAccounts);
-            this.tabControl.Location = new System.Drawing.Point(12, 80);
+            this.tabControl.Location = new System.Drawing.Point(12, 107);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(603, 354);
+            this.tabControl.Size = new System.Drawing.Size(603, 369);
             this.tabControl.TabIndex = 119;
             // 
             // tabSysInfo
@@ -234,7 +242,7 @@
             this.tabSysInfo.Location = new System.Drawing.Point(4, 22);
             this.tabSysInfo.Name = "tabSysInfo";
             this.tabSysInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSysInfo.Size = new System.Drawing.Size(595, 328);
+            this.tabSysInfo.Size = new System.Drawing.Size(595, 343);
             this.tabSysInfo.TabIndex = 0;
             this.tabSysInfo.Text = "System Info";
             // 
@@ -253,7 +261,7 @@
             // splitSystemInfo.Panel2
             // 
             this.splitSystemInfo.Panel2.Controls.Add(this.groupBox2);
-            this.splitSystemInfo.Size = new System.Drawing.Size(583, 319);
+            this.splitSystemInfo.Size = new System.Drawing.Size(583, 334);
             this.splitSystemInfo.SplitterDistance = 284;
             this.splitSystemInfo.TabIndex = 143;
             // 
@@ -284,7 +292,7 @@
             this.groupBox1.Controls.Add(this.lblWinDir);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(278, 313);
+            this.groupBox1.Size = new System.Drawing.Size(278, 328);
             this.groupBox1.TabIndex = 141;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Software Info";
@@ -488,7 +496,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(289, 313);
+            this.groupBox2.Size = new System.Drawing.Size(289, 328);
             this.groupBox2.TabIndex = 142;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hardware Info";
@@ -1098,7 +1106,7 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(447, 39);
+            this.txtUserName.Location = new System.Drawing.Point(441, 34);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(168, 20);
             this.txtUserName.TabIndex = 133;
@@ -1106,7 +1114,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(447, 65);
+            this.txtPassword.Location = new System.Drawing.Point(441, 56);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(168, 20);
@@ -1115,7 +1123,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(379, 68);
+            this.label12.Location = new System.Drawing.Point(373, 59);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 13);
             this.label12.TabIndex = 135;
@@ -1124,25 +1132,30 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(379, 41);
+            this.label14.Location = new System.Drawing.Point(373, 36);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 13);
             this.label14.TabIndex = 136;
             this.label14.Text = "User Name";
             // 
-            // exportToolStripMenuItem
+            // checkRequiresCredentials
             // 
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.exportToolStripMenuItem.Text = "&Export...";
-            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            this.checkRequiresCredentials.AutoSize = true;
+            this.checkRequiresCredentials.Location = new System.Drawing.Point(15, 59);
+            this.checkRequiresCredentials.Name = "checkRequiresCredentials";
+            this.checkRequiresCredentials.Size = new System.Drawing.Size(123, 17);
+            this.checkRequiresCredentials.TabIndex = 137;
+            this.checkRequiresCredentials.Text = "Requires Credentials";
+            this.checkRequiresCredentials.UseVisualStyleBackColor = true;
+            this.checkRequiresCredentials.CheckedChanged += new System.EventHandler(this.checkRequiresCredentials_CheckedChanged);
             // 
             // Main
             // 
             this.AcceptButton = this.btnConnect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 447);
+            this.ClientSize = new System.Drawing.Size(627, 489);
+            this.Controls.Add(this.checkRequiresCredentials);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label12);
@@ -1280,5 +1293,6 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.SplitContainer splitSystemInfo;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkRequiresCredentials;
     }
 }

@@ -31,10 +31,10 @@
             this.checkedListBoxExport = new System.Windows.Forms.CheckedListBox();
             this.groupExportFields = new System.Windows.Forms.GroupBox();
             this.groupExportMode = new System.Windows.Forms.GroupBox();
-            this.rbSingleMode = new System.Windows.Forms.RadioButton();
-            this.rbMultiMode = new System.Windows.Forms.RadioButton();
-            this.txtInputList = new System.Windows.Forms.TextBox();
             this.btnExportBrowse = new System.Windows.Forms.Button();
+            this.txtInputList = new System.Windows.Forms.TextBox();
+            this.rbMultiMode = new System.Windows.Forms.RadioButton();
+            this.rbSingleMode = new System.Windows.Forms.RadioButton();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.openFileExport = new System.Windows.Forms.OpenFileDialog();
@@ -77,16 +77,22 @@
             this.groupExportMode.TabStop = false;
             this.groupExportMode.Text = "Mode";
             // 
-            // rbSingleMode
+            // btnExportBrowse
             // 
-            this.rbSingleMode.AutoSize = true;
-            this.rbSingleMode.Location = new System.Drawing.Point(6, 19);
-            this.rbSingleMode.Name = "rbSingleMode";
-            this.rbSingleMode.Size = new System.Drawing.Size(156, 17);
-            this.rbSingleMode.TabIndex = 0;
-            this.rbSingleMode.TabStop = true;
-            this.rbSingleMode.Text = "Single (Existing) Connection";
-            this.rbSingleMode.UseVisualStyleBackColor = true;
+            this.btnExportBrowse.Location = new System.Drawing.Point(260, 64);
+            this.btnExportBrowse.Name = "btnExportBrowse";
+            this.btnExportBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnExportBrowse.TabIndex = 3;
+            this.btnExportBrowse.Text = "Browse...";
+            this.btnExportBrowse.UseVisualStyleBackColor = true;
+            this.btnExportBrowse.Click += new System.EventHandler(this.btnExportBrowse_Click);
+            // 
+            // txtInputList
+            // 
+            this.txtInputList.Location = new System.Drawing.Point(7, 66);
+            this.txtInputList.Name = "txtInputList";
+            this.txtInputList.Size = new System.Drawing.Size(247, 20);
+            this.txtInputList.TabIndex = 2;
             // 
             // rbMultiMode
             // 
@@ -100,21 +106,16 @@
             this.rbMultiMode.UseVisualStyleBackColor = true;
             this.rbMultiMode.CheckedChanged += new System.EventHandler(this.rbMultiMode_CheckedChanged);
             // 
-            // txtInputList
+            // rbSingleMode
             // 
-            this.txtInputList.Location = new System.Drawing.Point(7, 66);
-            this.txtInputList.Name = "txtInputList";
-            this.txtInputList.Size = new System.Drawing.Size(247, 20);
-            this.txtInputList.TabIndex = 2;
-            // 
-            // btnExportBrowse
-            // 
-            this.btnExportBrowse.Location = new System.Drawing.Point(260, 64);
-            this.btnExportBrowse.Name = "btnExportBrowse";
-            this.btnExportBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnExportBrowse.TabIndex = 3;
-            this.btnExportBrowse.Text = "Browse...";
-            this.btnExportBrowse.UseVisualStyleBackColor = true;
+            this.rbSingleMode.AutoSize = true;
+            this.rbSingleMode.Location = new System.Drawing.Point(6, 19);
+            this.rbSingleMode.Name = "rbSingleMode";
+            this.rbSingleMode.Size = new System.Drawing.Size(193, 17);
+            this.rbSingleMode.TabIndex = 0;
+            this.rbSingleMode.TabStop = true;
+            this.rbSingleMode.Text = "Single System (Existing Connection)";
+            this.rbSingleMode.UseVisualStyleBackColor = true;
             // 
             // btnExport
             // 
@@ -124,6 +125,7 @@
             this.btnExport.TabIndex = 3;
             this.btnExport.Text = "Export...";
             this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnCancel
             // 
