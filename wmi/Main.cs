@@ -365,14 +365,21 @@ namespace wmi
 
         private void InitializeConnection()
         {
-            //TODO: can password be blank???
-            if ((!String.IsNullOrWhiteSpace(txtUserName.Text) && !txtUserName.Text.Equals(_watermark)) 
-                && !String.IsNullOrWhiteSpace(txtPassword.Text))
+            if(checkRequiresCredentials.Checked)
             {
-                var options = new ConnectionOptions();
-                options.Username = txtUserName.Text;
-                options.Password = txtPassword.Text;
-                _sysConnector = new SystemConnector(this.txtCompName.Text, options);
+                //TODO: can password be blank???
+                if ((!String.IsNullOrWhiteSpace(txtUserName.Text) && !txtUserName.Text.Equals(_watermark)) 
+                    && !String.IsNullOrWhiteSpace(txtPassword.Text))
+                {
+                    var options = new ConnectionOptions();
+                    options.Username = txtUserName.Text;
+                    options.Password = txtPassword.Text;
+                    _sysConnector = new SystemConnector(this.txtCompName.Text, options);
+                }
+                else
+                {
+                    _sysConnector = new SystemConnector(this.txtCompName.Text);
+                }
             }
             else
             {
@@ -398,6 +405,8 @@ namespace wmi
             lblServp.Text = String.Empty;
             lblVer.Text = String.Empty;
             lblOSManufacturer.Text = String.Empty;
+            lblHWModel.Text = String.Empty;
+            lblHWManufacturer.Text = String.Empty;
         }
 
         private void ClearServicesControls()
