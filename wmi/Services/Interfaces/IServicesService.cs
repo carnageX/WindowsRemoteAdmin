@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Management;
 using System.Management.Instrumentation;
+using wmi.Models;
 
 namespace wmi.Services.Interfaces
 {
     public interface IServicesService
     {
         List<string> GetServicesNameList();
-        ManagementObjectCollection GetAllServices();
+        List<ServiceInfo> GetAllServices();
         ManagementObject GetServiceObject(string serviceName);
         List<ManagementObject> GetServiceObjects(params string[] serviceNames);
         bool StartService(string serviceName);

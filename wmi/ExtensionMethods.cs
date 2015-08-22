@@ -92,6 +92,11 @@ namespace wmi
             }
             return infoList;
         }
+
+        public static T ToEnum<T>(this string value)
+        {
+            return (T)Enum.Parse(typeof(T), value, true);
+        }
     }
 
     public static class TextBoxWatermarkExtensionMethod

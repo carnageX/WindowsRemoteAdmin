@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using wmi.Services.Interfaces;
 using System.Management;
 using System.Management.Instrumentation;
+using wmi.Models;
 
 namespace wmi.Services
 {
@@ -22,15 +23,20 @@ namespace wmi.Services
             _scope.Connect();
         }
 
-        public List<string> GetAllSoftwareNames()
+        public List<SoftwareInfo> GetAllSoftware()
         {
-            var softwareList = new List<string>();
+            var softwareList = new List<SoftwareInfo>();
             var query = new ObjectQuery("SELECT Name FROM Win32_Product");
             var searcher = new ManagementObjectSearcher(_scope, query);
             var softwares = searcher.Get();
             foreach(var s in softwares)
             {
-                if (s != null && s["Name"] != null) { softwareList.Add(s["Name"].ToString()); }
+                softwareList.Add(
+                    new SoftwareInfo
+                    {
+                        Name = String.Format("{0}", s["Name"])
+                    }
+                );
             }
             return softwareList;
         }

@@ -29,16 +29,28 @@ namespace wmi.Services.Interfaces
             var services = GetAllServices();
             foreach(var service in services)
             {
-                serviceNames.Add(service["Caption"].ToString());
+                serviceNames.Add(service.Caption);
             }
             return serviceNames;
         }
 
-        public ManagementObjectCollection GetAllServices()
+        public List<ServiceInfo> GetAllServices()
         {
-            var query = new ObjectQuery("SELECT * FROM Win32_Service");
+            var servicesList = new List<ServiceInfo>();
+            var query = new ObjectQuery("SELECT Caption,State FROM Win32_Service");
             var searcher = new ManagementObjectSearcher(_scope, query);
-            return searcher.Get();
+            var services = searcher.Get();
+            foreach (var s in services)
+            {
+                servicesList.Add(
+                    new ServiceInfo()
+                    {
+                        Caption = String.Format("{0}", s["Caption"]),
+                        State = String.Format("{0}", s["State"])
+                    }
+                );
+            }
+            return servicesList;
         }
 
         public ManagementObject GetServiceObject(string serviceName)

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using wmi.Services.Interfaces;
 using System.Management;
 using System.Management.Instrumentation;
+using wmi.Models;
 
 namespace wmi.Services
 {
@@ -22,13 +23,18 @@ namespace wmi.Services
             _scope.Connect();
         }
 
-        public List<string> GetPrinterNames()
+        public List<PrinterInfo> GetPrinters()
         {
-            var printerNames = new List<string>();
+            var printerNames = new List<PrinterInfo>();
             var printers = GetAllPrinters();
             foreach (var printer in printers)
             {
-                printerNames.Add(printer["Name"].ToString());
+                printerNames.Add(
+                    new PrinterInfo
+                    {
+                        Name = String.Format("{0}", printer["Name"])
+                    }
+                );
             }
             return printerNames;
         }

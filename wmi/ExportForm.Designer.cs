@@ -39,8 +39,12 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.openFileExport = new System.Windows.Forms.OpenFileDialog();
             this.saveFileExport = new System.Windows.Forms.SaveFileDialog();
+            this.rbFileCredsSingle = new System.Windows.Forms.RadioButton();
+            this.rbFileCredsMulti = new System.Windows.Forms.RadioButton();
+            this.groupFileCredentials = new System.Windows.Forms.GroupBox();
             this.groupExportFields.SuspendLayout();
             this.groupExportMode.SuspendLayout();
+            this.groupFileCredentials.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkedListBoxExport
@@ -57,7 +61,7 @@
             // groupExportFields
             // 
             this.groupExportFields.Controls.Add(this.checkedListBoxExport);
-            this.groupExportFields.Location = new System.Drawing.Point(12, 114);
+            this.groupExportFields.Location = new System.Drawing.Point(12, 159);
             this.groupExportFields.Name = "groupExportFields";
             this.groupExportFields.Size = new System.Drawing.Size(341, 132);
             this.groupExportFields.TabIndex = 1;
@@ -66,13 +70,14 @@
             // 
             // groupExportMode
             // 
+            this.groupExportMode.Controls.Add(this.groupFileCredentials);
             this.groupExportMode.Controls.Add(this.btnExportBrowse);
             this.groupExportMode.Controls.Add(this.txtInputList);
             this.groupExportMode.Controls.Add(this.rbMultiMode);
             this.groupExportMode.Controls.Add(this.rbSingleMode);
             this.groupExportMode.Location = new System.Drawing.Point(12, 12);
             this.groupExportMode.Name = "groupExportMode";
-            this.groupExportMode.Size = new System.Drawing.Size(341, 96);
+            this.groupExportMode.Size = new System.Drawing.Size(341, 141);
             this.groupExportMode.TabIndex = 2;
             this.groupExportMode.TabStop = false;
             this.groupExportMode.Text = "Mode";
@@ -119,7 +124,7 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(197, 254);
+            this.btnExport.Location = new System.Drawing.Point(197, 299);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 3;
@@ -129,7 +134,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(278, 254);
+            this.btnCancel.Location = new System.Drawing.Point(278, 299);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 4;
@@ -141,11 +146,44 @@
             // 
             this.openFileExport.FileName = "openFileDialog1";
             // 
+            // rbFileCredsSingle
+            // 
+            this.rbFileCredsSingle.AutoSize = true;
+            this.rbFileCredsSingle.Location = new System.Drawing.Point(6, 20);
+            this.rbFileCredsSingle.Name = "rbFileCredsSingle";
+            this.rbFileCredsSingle.Size = new System.Drawing.Size(160, 17);
+            this.rbFileCredsSingle.TabIndex = 4;
+            this.rbFileCredsSingle.TabStop = true;
+            this.rbFileCredsSingle.Text = "Single Credentials (First Line)";
+            this.rbFileCredsSingle.UseVisualStyleBackColor = true;
+            // 
+            // rbFileCredsMulti
+            // 
+            this.rbFileCredsMulti.AutoSize = true;
+            this.rbFileCredsMulti.Location = new System.Drawing.Point(172, 20);
+            this.rbFileCredsMulti.Name = "rbFileCredsMulti";
+            this.rbFileCredsMulti.Size = new System.Drawing.Size(125, 17);
+            this.rbFileCredsMulti.TabIndex = 5;
+            this.rbFileCredsMulti.TabStop = true;
+            this.rbFileCredsMulti.Text = "Individual Credentials";
+            this.rbFileCredsMulti.UseVisualStyleBackColor = true;
+            // 
+            // groupFileCredentials
+            // 
+            this.groupFileCredentials.Controls.Add(this.rbFileCredsMulti);
+            this.groupFileCredentials.Controls.Add(this.rbFileCredsSingle);
+            this.groupFileCredentials.Location = new System.Drawing.Point(7, 92);
+            this.groupFileCredentials.Name = "groupFileCredentials";
+            this.groupFileCredentials.Size = new System.Drawing.Size(328, 43);
+            this.groupFileCredentials.TabIndex = 4;
+            this.groupFileCredentials.TabStop = false;
+            this.groupFileCredentials.Text = "File Credential Mode";
+            // 
             // ExportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 289);
+            this.ClientSize = new System.Drawing.Size(365, 334);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupExportMode);
@@ -156,11 +194,13 @@
             this.Name = "ExportForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ExportForm";
+            this.Text = "Export to File";
             this.Load += new System.EventHandler(this.ExportForm_Load);
             this.groupExportFields.ResumeLayout(false);
             this.groupExportMode.ResumeLayout(false);
             this.groupExportMode.PerformLayout();
+            this.groupFileCredentials.ResumeLayout(false);
+            this.groupFileCredentials.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -178,5 +218,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.OpenFileDialog openFileExport;
         private System.Windows.Forms.SaveFileDialog saveFileExport;
+        private System.Windows.Forms.RadioButton rbFileCredsMulti;
+        private System.Windows.Forms.RadioButton rbFileCredsSingle;
+        private System.Windows.Forms.GroupBox groupFileCredentials;
     }
 }

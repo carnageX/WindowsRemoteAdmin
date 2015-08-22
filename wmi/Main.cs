@@ -32,7 +32,7 @@ namespace wmi
             InitializeComponent();
 
             //TODO: remove once complete to enable the Export menu
-            this.exportToolStripMenuItem.Enabled = false;
+            //this.exportToolStripMenuItem.Enabled = false;
             this.exportToolStripMenuItem.ToolTipText = "Feature in development.";
 
             txtUserName.SetWatermark(_watermark);
@@ -153,7 +153,8 @@ namespace wmi
                 {
                     this.Cursor = Cursors.WaitCursor;
                     _applications = new SoftwareService(_sysConnector.Scope, _sysConnector.Options);
-                    listSoftware.DataSource = new BindingList<string>(_applications.GetAllSoftwareNames());
+                    listSoftware.DataSource = new BindingList<SoftwareInfo>(_applications.GetAllSoftware());
+                    listSoftware.DisplayMember = "Name";
                     this.Cursor = Cursors.Default;
                 }
             }
@@ -188,7 +189,8 @@ namespace wmi
                 else
                 {
                     _printers = new PrintersService(_sysConnector.Scope, _sysConnector.Options);
-                    listPrinters.DataSource = new BindingList<string>(_printers.GetPrinterNames());
+                    listPrinters.DataSource = new BindingList<PrinterInfo>(_printers.GetPrinters());
+                    listPrinters.DisplayMember = "Name";
                 }
             }
             catch (Exception ex)
@@ -459,6 +461,9 @@ namespace wmi
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var exportWindow = new ExportForm();
+            exportWindow.SingleHostname = txtCompName.Text;
+            exportWindow.SingleUsername = txtUserName.Text;
+            exportWindow.SinglePassword = txtPassword.Text;
             exportWindow.ShowDialog();
         }
 
