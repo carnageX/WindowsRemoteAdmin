@@ -245,11 +245,11 @@ namespace wmi
                 else
                 {
                     var selectedDrive = listDrives.SelectedItem as DriveInfo;
-                    var diskSizeInGB = Math.Round((((double)Convert.ToDouble(selectedDrive.SizeInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
+                    //var diskSizeInGB = Math.Round((((double)Convert.ToDouble(selectedDrive.SizeInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
 
                     lblDriveModel.Text = selectedDrive.Model;
                     lblDrivePartitionCount.Text = selectedDrive.Partitions;
-                    lblDriveSize.Text = String.Format("{0} bytes ({1} GB)", selectedDrive.SizeInBytes, diskSizeInGB);
+                    lblDriveSize.Text = String.Format("{0} bytes ({1} GB)", selectedDrive.SizeInBytes, selectedDrive.SizeInGB);
                     lblDriveDeviceId.Text = selectedDrive.DeviceId;
                 }
             }
@@ -341,16 +341,16 @@ namespace wmi
         {
             var disk = sysInfo.Disks.First();
             lblDiskName.Text = disk.DiskName;
-            var diskSizeGB = Math.Round((((double)Convert.ToDouble(disk.SizeInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
-            var diskFreeGB = Math.Round((((double)Convert.ToDouble(disk.FreeSpaceInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
-            lblDiskSize.Text = String.Format("{0} bytes ({1} GB)", disk.SizeInBytes, diskSizeGB);
-            lblDiskFree.Text = String.Format("{0} bytes ({1} GB)", disk.FreeSpaceInBytes, diskFreeGB);
+            //var diskSizeGB = Math.Round((((double)Convert.ToDouble(disk.SizeInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
+            //var diskFreeGB = Math.Round((((double)Convert.ToDouble(disk.FreeSpaceInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
+            lblDiskSize.Text = String.Format("{0} bytes ({1} GB)", disk.SizeInBytes, disk.SizeInGB);
+            lblDiskFree.Text = String.Format("{0} bytes ({1} GB)", disk.FreeSpaceInBytes, disk.FreeSpaceInGB);
         }
 
         private void SetMemoryInfo(SystemInfo sysInfo)
         {
-            var memoryGB = Math.Round((((double)Convert.ToDouble(sysInfo.MemoryInBytes) / 1024) / 1024), 2).ToString("N");
-            lblRam.Text = String.Format("{0} bytes ({1} GB)", sysInfo.MemoryInBytes, memoryGB);
+            //var memoryGB = Math.Round((((double)Convert.ToDouble(sysInfo.MemoryInBytes) / 1024) / 1024), 2).ToString("N");
+            lblRam.Text = String.Format("{0} bytes ({1} GB)", sysInfo.MemoryInBytes, sysInfo.MemoryInGB);
         }
 
         private void SetGenericSystemInfo(SystemInfo sysInfo)
@@ -388,8 +388,6 @@ namespace wmi
                 _sysConnector = new SystemConnector(this.txtCompName.Text);
             }
         }
-
-
 
         private void ClearSystemInfoControls()
         {

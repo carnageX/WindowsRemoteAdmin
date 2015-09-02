@@ -8,6 +8,8 @@ using System.Management;
 using System.Management.Instrumentation;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Data;
+using System.Reflection;
 
 namespace wmi
 {
@@ -96,6 +98,51 @@ namespace wmi
         public static T ToEnum<T>(this string value)
         {
             return (T)Enum.Parse(typeof(T), value, true);
+        }
+
+        public static DataTable ConvertToDataTable(this DataTable dt, Object[] array, string tableName = "")
+        {
+            PropertyInfo[] properties = array.GetType().GetElementType().GetProperties();
+            dt = dt.CreateDataTable(properties, tableName);
+            if (array.Length != 0)
+            {
+                foreach (object o in array)
+                    FillData(properties, dt, o);
+            }
+            return dt;
+        }
+
+        public static DataTable ConvertToDataTable(Object obj, string tableName = "")
+        {
+            PropertyInfo[] properties = obj.GetType().GetProperties();
+            DataTable dt = new DataTable(tableName);
+            dt = dt.CreateDataTable(properties, tableName);
+            FillData(properties, dt, obj);
+            return dt;
+        }
+
+        public static DataTable CreateDataTable(this DataTable dt, PropertyInfo[] properties, string tableName = "")
+        {
+            dt = new DataTable(tableName);
+            DataColumn dc = null;
+            foreach (PropertyInfo pi in properties)
+            {
+                dc = new DataColumn();
+                dc.ColumnName = pi.Name;
+                dc.DataType = pi.PropertyType;
+                dt.Columns.Add(dc);
+            }
+            return dt;
+        }
+
+        public static void FillData(PropertyInfo[] properties, DataTable dt, Object o)
+        {
+            DataRow dr = dt.NewRow();
+            foreach (PropertyInfo pi in properties)
+            {
+                dr[pi.Name] = pi.GetValue(o, null);
+            }
+            dt.Rows.Add(dr);
         }
     }
 

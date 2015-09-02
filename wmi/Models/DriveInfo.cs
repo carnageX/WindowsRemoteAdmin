@@ -12,6 +12,13 @@ namespace wmi.Models
         public string Partitions { get; set; }
         public string DeviceId { get; set; }
         public string SizeInBytes { get; set; }
+        public string SizeInGB
+        {
+            get
+            {
+                return Math.Round((((double)Convert.ToDouble(SizeInBytes) / 1024) / 1024 / 1024), 2).ToString("N");
+            }
+        }
         public string Caption { get; set; }
     }
 }

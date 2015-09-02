@@ -38,12 +38,13 @@ namespace wmi
         private BackgroundWorker exportWorker;
         private StreamWriter _writer;
         private SystemConnector _sysConnector;
-        private IServicesService _services;
-        private ISoftwareService _applications;
-        private IPrintersService _printers;
-        private ISystemInfoService _sysInfo;
-        private IDiskService _disk;
-        private ILocalAccountService _localAccounts;
+        private IExportService _export;
+        //private IServicesService _services;
+        //private ISoftwareService _applications;
+        //private IPrintersService _printers;
+        //private ISystemInfoService _sysInfo;
+        //private IDiskService _disk;
+        //private ILocalAccountService _localAccounts;
         private string _watermark = @"domain OR pcname\username";
         #endregion
 
@@ -135,6 +136,9 @@ namespace wmi
         #region Export Single Mode Worker Methods
         private void ExportSingleCurrent()
         {
+            InitializeConnection(SingleUsername, SinglePassword, SingleHostname);
+            _export = new ExportService(_sysConnector.Scope, _sysConnector.Options);
+
             exportWorker.DoWork += new DoWorkEventHandler(ExportSingleWorker_DoWork);
             exportWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(ExportSingleWorker_RunWorkerCompleted);
             //exportWorker.ProgressChanged += new ProgressChangedEventHandler(ExportSingleWorker_ProgressChanged);
@@ -172,7 +176,7 @@ namespace wmi
         {
             try
             {
-                SetupConnection(SingleHostname, SingleUsername, SinglePassword);
+                //SetupConnection(SingleHostname, SingleUsername, SinglePassword);
                 DataSet dsSingle = new DataSet();
                 foreach(var item in checkedListBoxExport.CheckedItems)
                 {
@@ -257,103 +261,48 @@ namespace wmi
         private void AddInfoToDataSet(DataSet ds, ExportOptions exportType)
         {
             //TODO: need to fix items that have lists as properties... how to make those into datatable with parent? 
-            if (exportType == ExportOptions.Drives) { ds.Tables.Add(GetDrivesInfo()); }
-            else if (exportType == ExportOptions.LocalAccounts) { ds.Tables.Add(GetLocalAccountsInfo()); }
-            else if (exportType == ExportOptions.Printers) { ds.Tables.Add(GetPrintersInfo()); }
-            else if (exportType == ExportOptions.Services) { ds.Tables.Add(GetServicesInfo()); }
-            else if (exportType == ExportOptions.Software) { ds.Tables.Add(GetSoftwareInfo()); }
-            else if (exportType == ExportOptions.SystemInfo) { ds.Tables.Add(GetSystemInfo()); }
+            if (exportType == ExportOptions.Drives) { ds.Tables.Add(_export.GetDrivesInfo()); }
+            else if (exportType == ExportOptions.LocalAccounts) { ds.Tables.Add(_export.GetLocalAccountsInfo()); }
+            else if (exportType == ExportOptions.Printers) { ds.Tables.Add(_export.GetPrintersInfo()); }
+            else if (exportType == ExportOptions.Services) { ds.Tables.Add(_export.GetServicesInfo()); }
+            else if (exportType == ExportOptions.Software) { ds.Tables.Add(_export.GetSoftwareInfo()); }
+            else if (exportType == ExportOptions.SystemInfo)
+            {
+                var dtSysInfos = _export.GetSystemInfo();
+                foreach(var t in dtSysInfos)
+                {
+                    ds.Tables.Add(t);
+                }
+            }
         }
 
-        private DataTable GetSystemInfo()
+        private void InitializeConnection(string username, string password, string hostname)
         {
-            _sysInfo = new SystemInfoService(_sysConnector.Scope, _sysConnector.Options);
-            var sysInfo = _sysInfo.GetSystemInfo().FirstOrDefault();
-            return ConvertToDataTable(sysInfo, "System Info");
-        }
-
-        private DataTable GetServicesInfo()
-        {
-            _services = new ServicesService(_sysConnector.Scope, _sysConnector.Options);
-            var serviceNamesList = _services.GetAllServices();
-            return CreateExcelFile.ListToDataTable(serviceNamesList, "Services");
-        }
-
-        private DataTable GetSoftwareInfo()
-        {
-            _applications = new SoftwareService(_sysConnector.Scope, _sysConnector.Options);
-            var softwareNamesList = _applications.GetAllSoftware();
-            var dt = CreateExcelFile.ListToDataTable(softwareNamesList, "Software");
-            DataView dv = dt.DefaultView;
-            dv.Sort = "Name asc";
-            return dv.ToTable();
-        }
-
-        private DataTable GetPrintersInfo()
-        {
-            _printers = new PrintersService(_sysConnector.Scope, _sysConnector.Options);
-            var printerNamesList = _printers.GetPrinters();
-            return CreateExcelFile.ListToDataTable(printerNamesList, "Printers");
-        }
-
-        private DataTable GetDrivesInfo()
-        {
-            var sysInfo = _sysInfo.GetSystemInfo().FirstOrDefault();
-            return CreateExcelFile.ListToDataTable(sysInfo.Drives, "Drives");
-        }
-
-        private DataTable GetLocalAccountsInfo()
-        {
-            _localAccounts = new LocalAccountService(_sysConnector.Scope, _sysConnector.Options);
-            var localAccountsList = _localAccounts.GetAllLocalAccounts();
-            return CreateExcelFile.ListToDataTable(localAccountsList, "Local Accounts");
+            if (!username.Equals(String.Empty) && !username.Equals(String.Empty))
+            {
+                //TODO: can password be blank???
+                if ((!String.IsNullOrWhiteSpace(username) && !username.Equals(_watermark))
+                    && !String.IsNullOrWhiteSpace(password))
+                {
+                    var options = new ConnectionOptions();
+                    options.Username = username;
+                    options.Password = password;
+                    _sysConnector = new SystemConnector(hostname, options);
+                }
+                else
+                {
+                    _sysConnector = new SystemConnector(hostname);
+                }
+            }
+            else
+            {
+                _sysConnector = new SystemConnector(hostname);
+            }
         }
         #endregion
 
         #region Converting ObjectArray to DataTable
-        private DataTable ConvertToDataTable(Object[] array, string tableName = "")
-        {
-            PropertyInfo[] properties = array.GetType().GetElementType().GetProperties();
-            DataTable dt = CreateDataTable(properties, tableName);
-            if (array.Length != 0)
-            {
-                foreach (object o in array)
-                    FillData(properties, dt, o);
-            }
-            return dt;
-        }
 
-        private DataTable ConvertToDataTable(Object obj, string tableName = "")
-        {
-            PropertyInfo[] properties = obj.GetType().GetProperties();
-            DataTable dt = CreateDataTable(properties, tableName);
-            FillData(properties, dt, obj);
-            return dt;
-        }
-
-        private DataTable CreateDataTable(PropertyInfo[] properties, string tableName = "")
-        {
-            DataTable dt = new DataTable(tableName);
-            DataColumn dc = null;
-            foreach (PropertyInfo pi in properties)
-            {
-                dc = new DataColumn();
-                dc.ColumnName = pi.Name;
-                dc.DataType = pi.PropertyType;
-                dt.Columns.Add(dc);
-            }
-            return dt;
-        }
-
-        private void FillData(PropertyInfo[] properties, DataTable dt, Object o)
-        {
-            DataRow dr = dt.NewRow();
-            foreach (PropertyInfo pi in properties)
-            {
-                dr[pi.Name] = pi.GetValue(o, null);
-            }
-            dt.Rows.Add(dr);
-        }
 
         #endregion
     }

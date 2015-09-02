@@ -17,6 +17,13 @@ namespace wmi.Models
         public string OSType { get; set; }
         public string OSArchitecture { get; set; }
         public string MemoryInBytes { get; set; }
+        public string MemoryInGB
+        {
+            get
+            {
+                return Math.Round((((double)Convert.ToDouble(MemoryInBytes) / 1024) / 1024), 2).ToString("N");
+            }
+        }
         public string ServicePack { get; set; }
         public List<DiskInfo> Disks { get; set; }
         public List<DriveInfo> Drives { get; set; }
