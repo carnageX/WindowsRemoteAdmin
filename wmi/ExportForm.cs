@@ -68,7 +68,7 @@ namespace wmi
             SetMultiFileControlState(false);
 
             //TODO: Temporary - remove once implemented
-            //rbMultiMode.Enabled = false;
+            rbMultiMode.Enabled = false;
             rbSingleMode.Checked = true;
         }
         #endregion
