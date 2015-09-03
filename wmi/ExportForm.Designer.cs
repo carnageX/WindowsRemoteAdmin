@@ -31,6 +31,9 @@
             this.checkedListBoxExport = new System.Windows.Forms.CheckedListBox();
             this.groupExportFields = new System.Windows.Forms.GroupBox();
             this.groupExportMode = new System.Windows.Forms.GroupBox();
+            this.groupFileCredentials = new System.Windows.Forms.GroupBox();
+            this.rbFileCredsMulti = new System.Windows.Forms.RadioButton();
+            this.rbFileCredsSingle = new System.Windows.Forms.RadioButton();
             this.btnExportBrowse = new System.Windows.Forms.Button();
             this.txtInputList = new System.Windows.Forms.TextBox();
             this.rbMultiMode = new System.Windows.Forms.RadioButton();
@@ -39,9 +42,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.openFileExport = new System.Windows.Forms.OpenFileDialog();
             this.saveFileExport = new System.Windows.Forms.SaveFileDialog();
-            this.rbFileCredsSingle = new System.Windows.Forms.RadioButton();
-            this.rbFileCredsMulti = new System.Windows.Forms.RadioButton();
-            this.groupFileCredentials = new System.Windows.Forms.GroupBox();
             this.groupExportFields.SuspendLayout();
             this.groupExportMode.SuspendLayout();
             this.groupFileCredentials.SuspendLayout();
@@ -81,6 +81,39 @@
             this.groupExportMode.TabIndex = 2;
             this.groupExportMode.TabStop = false;
             this.groupExportMode.Text = "Mode";
+            // 
+            // groupFileCredentials
+            // 
+            this.groupFileCredentials.Controls.Add(this.rbFileCredsMulti);
+            this.groupFileCredentials.Controls.Add(this.rbFileCredsSingle);
+            this.groupFileCredentials.Location = new System.Drawing.Point(7, 92);
+            this.groupFileCredentials.Name = "groupFileCredentials";
+            this.groupFileCredentials.Size = new System.Drawing.Size(328, 43);
+            this.groupFileCredentials.TabIndex = 4;
+            this.groupFileCredentials.TabStop = false;
+            this.groupFileCredentials.Text = "File Credential Mode";
+            // 
+            // rbFileCredsMulti
+            // 
+            this.rbFileCredsMulti.AutoSize = true;
+            this.rbFileCredsMulti.Location = new System.Drawing.Point(172, 20);
+            this.rbFileCredsMulti.Name = "rbFileCredsMulti";
+            this.rbFileCredsMulti.Size = new System.Drawing.Size(125, 17);
+            this.rbFileCredsMulti.TabIndex = 5;
+            this.rbFileCredsMulti.TabStop = true;
+            this.rbFileCredsMulti.Text = "Individual Credentials";
+            this.rbFileCredsMulti.UseVisualStyleBackColor = true;
+            // 
+            // rbFileCredsSingle
+            // 
+            this.rbFileCredsSingle.AutoSize = true;
+            this.rbFileCredsSingle.Location = new System.Drawing.Point(6, 20);
+            this.rbFileCredsSingle.Name = "rbFileCredsSingle";
+            this.rbFileCredsSingle.Size = new System.Drawing.Size(160, 17);
+            this.rbFileCredsSingle.TabIndex = 4;
+            this.rbFileCredsSingle.TabStop = true;
+            this.rbFileCredsSingle.Text = "Single Credentials (First Line)";
+            this.rbFileCredsSingle.UseVisualStyleBackColor = true;
             // 
             // btnExportBrowse
             // 
@@ -145,39 +178,6 @@
             // openFileExport
             // 
             this.openFileExport.FileName = "openFileDialog1";
-            // 
-            // rbFileCredsSingle
-            // 
-            this.rbFileCredsSingle.AutoSize = true;
-            this.rbFileCredsSingle.Location = new System.Drawing.Point(6, 20);
-            this.rbFileCredsSingle.Name = "rbFileCredsSingle";
-            this.rbFileCredsSingle.Size = new System.Drawing.Size(160, 17);
-            this.rbFileCredsSingle.TabIndex = 4;
-            this.rbFileCredsSingle.TabStop = true;
-            this.rbFileCredsSingle.Text = "Single Credentials (First Line)";
-            this.rbFileCredsSingle.UseVisualStyleBackColor = true;
-            // 
-            // rbFileCredsMulti
-            // 
-            this.rbFileCredsMulti.AutoSize = true;
-            this.rbFileCredsMulti.Location = new System.Drawing.Point(172, 20);
-            this.rbFileCredsMulti.Name = "rbFileCredsMulti";
-            this.rbFileCredsMulti.Size = new System.Drawing.Size(125, 17);
-            this.rbFileCredsMulti.TabIndex = 5;
-            this.rbFileCredsMulti.TabStop = true;
-            this.rbFileCredsMulti.Text = "Individual Credentials";
-            this.rbFileCredsMulti.UseVisualStyleBackColor = true;
-            // 
-            // groupFileCredentials
-            // 
-            this.groupFileCredentials.Controls.Add(this.rbFileCredsMulti);
-            this.groupFileCredentials.Controls.Add(this.rbFileCredsSingle);
-            this.groupFileCredentials.Location = new System.Drawing.Point(7, 92);
-            this.groupFileCredentials.Name = "groupFileCredentials";
-            this.groupFileCredentials.Size = new System.Drawing.Size(328, 43);
-            this.groupFileCredentials.TabIndex = 4;
-            this.groupFileCredentials.TabStop = false;
-            this.groupFileCredentials.Text = "File Credential Mode";
             // 
             // ExportForm
             // 

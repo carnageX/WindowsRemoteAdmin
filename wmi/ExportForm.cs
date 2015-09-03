@@ -46,6 +46,8 @@ namespace wmi
         //private IDiskService _disk;
         //private ILocalAccountService _localAccounts;
         private string _watermark = @"domain OR pcname\username";
+        private List<MultiSystemInput> systemsList;
+        private string openFilename;
         #endregion
 
         #region Form Events
@@ -66,7 +68,7 @@ namespace wmi
             SetMultiFileControlState(false);
 
             //TODO: Temporary - remove once implemented
-            rbMultiMode.Enabled = false;
+            //rbMultiMode.Enabled = false;
             rbSingleMode.Checked = true;
         }
         #endregion
@@ -76,8 +78,8 @@ namespace wmi
         {
             if (this.openFileExport.ShowDialog() == DialogResult.OK)
             {
-                var openFilename = this.openFileExport.FileName;
-                var inputSystemsRaw = File.ReadAllLines(openFilename).ToList();
+                openFilename = this.openFileExport.FileName;
+                txtInputList.Text = openFilename;
             }
         }
 
@@ -176,7 +178,6 @@ namespace wmi
         {
             try
             {
-                //SetupConnection(SingleHostname, SingleUsername, SinglePassword);
                 DataSet dsSingle = new DataSet();
                 foreach(var item in checkedListBoxExport.CheckedItems)
                 {
@@ -197,8 +198,8 @@ namespace wmi
         {
             exportWorker.DoWork += new DoWorkEventHandler(ExportMultpleWorker_DoWork);
             exportWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(ExportMultipleWorker_RunWorkerCompleted);
-            exportWorker.ProgressChanged += new ProgressChangedEventHandler(ExportMultipleWorker_ProgressChanged);
-            exportWorker.WorkerReportsProgress = true;
+            //exportWorker.ProgressChanged += new ProgressChangedEventHandler(ExportMultipleWorker_ProgressChanged);
+            //exportWorker.WorkerReportsProgress = true;
             exportWorker.WorkerSupportsCancellation = true;
 
             exportWorker.RunWorkerAsync();
@@ -211,26 +212,50 @@ namespace wmi
 
         private void ExportMultipleWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (e.Error != null)
+            try
             {
-                //TODO: handle error
+                DataSet resultSet = e.Result as DataSet;
+                CreateExcelFile.CreateExcelDocument(resultSet, saveFileExport.FileName);
+                this.Cursor = Cursors.Default;
+                MessageBox.Show(String.Format("System info exported to: {0}", saveFileExport.FileName), "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information); //TODO: Change message
+                this.Close();
             }
-            else if (e.Cancelled)
+            catch (Exception ex)
             {
-                //TODO: handle cancel
+                this.Cursor = Cursors.Default;
+                btnExport.Enabled = true;
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
             }
-            else
-            {
-                _writer = (StreamWriter)e.Result;
-            }
-            throw new NotImplementedException();
         }
 
         private void ExportMultpleWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            //TODO: do processing.... 
-            //e.Result = "method that returns streamwriter or list?"
-            throw new NotImplementedException();
+            try
+            {
+                var inputSystemsRaw = File.ReadAllLines(openFilename).ToList();
+                ProcessInputFile(inputSystemsRaw);
+                //TODO: need to re-think how to do this...
+                //Worksheets will be unorganized with many systems (e.g. Disks / Services)
+                //Can't make worksheets by system b/c dataset is excel sheet creates worksheets based on tables in DataSet
+                //Maybe need to create new excel file for each system????
+                DataSet dsMultiple = new DataSet();
+                foreach(var item in checkedListBoxExport.CheckedItems)
+                {
+                    var exportItem = item.ToString().ToEnum<ExportOptions>();
+                    foreach(var system in systemsList)
+                    {
+                        InitializeConnection(system.Username, system.Password, system.Hostname);
+                        _export = new ExportService(_sysConnector.Scope, _sysConnector.Options);
+                        AddInfoToDataSet(dsMultiple, exportItem);
+                    }
+                }
+                e.Result = dsMultiple;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
@@ -297,6 +322,63 @@ namespace wmi
             else
             {
                 _sysConnector = new SystemConnector(hostname);
+            }
+        }
+
+        private void ProcessInputFile(List<string> rawInput)
+        {
+            systemsList = new List<MultiSystemInput>();
+            if(rbFileCredsSingle.Checked)
+            {
+                GenerateMultiSystemSingleCredList(rawInput, systemsList);
+            }
+            else if(rbFileCredsMulti.Checked)
+            {
+                GenerateMultiSystemMultiCredList(rawInput, systemsList);
+            }
+        }
+
+        private void GenerateMultiSystemSingleCredList(List<string> rawInput, List<MultiSystemInput> sysList)
+        {
+            var credsLine = rawInput[0].Split(',');
+            if (credsLine.Length < 1)
+            {
+                throw new Exception("First line of input file must contain comma separated credentials in format: username,password");
+            }
+            var username = credsLine[0];
+            var password = credsLine[1];
+
+            rawInput.RemoveAt(0);
+
+            foreach(var line in rawInput)
+            {
+                if (line[0] == '#') { continue; }
+                sysList.Add(new MultiSystemInput
+                {
+                    Username = username,
+                    Password = password,
+                    Hostname = line
+                });
+            }
+        }
+
+        private void GenerateMultiSystemMultiCredList(List<string> rawInput, List<MultiSystemInput> sysList)
+        {
+            foreach(var line in rawInput)
+            {
+                if (line[0] == '#') { continue; }
+                var splitLine = line.Split(',');
+                if(splitLine.Length < 3)
+                {
+                    var lineIndex = rawInput.IndexOf(line);
+                    throw new Exception(String.Format("Line {0} is invalid.  Must be comma separated format: hostname,username,password", lineIndex + 1));
+                }
+                sysList.Add(new MultiSystemInput
+                {
+                    Hostname = splitLine[0],
+                    Username = splitLine[1],
+                    Password = splitLine[2]
+                });
             }
         }
         #endregion

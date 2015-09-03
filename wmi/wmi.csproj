@@ -114,6 +114,7 @@
     <Compile Include="Models\DiskInfo.cs" />
     <Compile Include="Models\DriveInfo.cs" />
     <Compile Include="Models\LocalAccountInfo.cs" />
+    <Compile Include="Models\MultiSystemInput.cs" />
     <Compile Include="Models\PrinterInfo.cs" />
     <Compile Include="Models\ServiceInfo.cs" />
     <Compile Include="Models\SoftwareInfo.cs" />
