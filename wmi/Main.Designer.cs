@@ -35,7 +35,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -124,6 +124,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.checkRequiresCredentials = new System.Windows.Forms.CheckBox();
+            this.remoteAssistanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSysInfo.SuspendLayout();
@@ -172,7 +174,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.exportToolStripMenuItem,
+            this.toolsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -184,6 +186,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -192,16 +195,17 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // exportToolStripMenuItem
+            // toolsToolStripMenuItem
             // 
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.exportToolStripMenuItem.Text = "&Export...";
-            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.remoteAssistanceToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // helpToolStripMenuItem
             // 
@@ -621,7 +625,7 @@
             this.tabServices.Location = new System.Drawing.Point(4, 22);
             this.tabServices.Name = "tabServices";
             this.tabServices.Padding = new System.Windows.Forms.Padding(3);
-            this.tabServices.Size = new System.Drawing.Size(595, 328);
+            this.tabServices.Size = new System.Drawing.Size(595, 343);
             this.tabServices.TabIndex = 1;
             this.tabServices.Text = "Services";
             // 
@@ -701,7 +705,7 @@
             this.tabSoftware.Location = new System.Drawing.Point(4, 22);
             this.tabSoftware.Name = "tabSoftware";
             this.tabSoftware.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSoftware.Size = new System.Drawing.Size(595, 328);
+            this.tabSoftware.Size = new System.Drawing.Size(595, 343);
             this.tabSoftware.TabIndex = 2;
             this.tabSoftware.Text = "Software";
             // 
@@ -777,7 +781,7 @@
             this.tabPrinters.Location = new System.Drawing.Point(4, 22);
             this.tabPrinters.Name = "tabPrinters";
             this.tabPrinters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPrinters.Size = new System.Drawing.Size(595, 328);
+            this.tabPrinters.Size = new System.Drawing.Size(595, 343);
             this.tabPrinters.TabIndex = 3;
             this.tabPrinters.Text = "Printers";
             // 
@@ -830,7 +834,7 @@
             this.tabDisks.Location = new System.Drawing.Point(4, 22);
             this.tabDisks.Name = "tabDisks";
             this.tabDisks.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDisks.Size = new System.Drawing.Size(595, 328);
+            this.tabDisks.Size = new System.Drawing.Size(595, 343);
             this.tabDisks.TabIndex = 4;
             this.tabDisks.Text = "Drives";
             // 
@@ -946,7 +950,7 @@
             this.tabLocalAccounts.Location = new System.Drawing.Point(4, 22);
             this.tabLocalAccounts.Name = "tabLocalAccounts";
             this.tabLocalAccounts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLocalAccounts.Size = new System.Drawing.Size(595, 328);
+            this.tabLocalAccounts.Size = new System.Drawing.Size(595, 343);
             this.tabLocalAccounts.TabIndex = 5;
             this.tabLocalAccounts.Text = "Local Accounts";
             // 
@@ -1149,6 +1153,20 @@
             this.checkRequiresCredentials.UseVisualStyleBackColor = true;
             this.checkRequiresCredentials.CheckedChanged += new System.EventHandler(this.checkRequiresCredentials_CheckedChanged);
             // 
+            // remoteAssistanceToolStripMenuItem
+            // 
+            this.remoteAssistanceToolStripMenuItem.Name = "remoteAssistanceToolStripMenuItem";
+            this.remoteAssistanceToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.remoteAssistanceToolStripMenuItem.Text = "&Remote Assistance";
+            this.remoteAssistanceToolStripMenuItem.Click += new System.EventHandler(this.remoteAssistanceToolStripMenuItem_Click);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportToolStripMenuItem.Text = "&Export...";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AcceptButton = this.btnConnect;
@@ -1292,7 +1310,9 @@
         private System.Windows.Forms.Label lblHWManufacturer;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.SplitContainer splitSystemInfo;
-        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkRequiresCredentials;
+        private System.Windows.Forms.ToolStripMenuItem remoteAssistanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
     }
 }

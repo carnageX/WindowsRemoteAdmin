@@ -39,12 +39,6 @@ namespace wmi
         private StreamWriter _writer;
         private SystemConnector _sysConnector;
         private IExportService _export;
-        //private IServicesService _services;
-        //private ISoftwareService _applications;
-        //private IPrintersService _printers;
-        //private ISystemInfoService _sysInfo;
-        //private IDiskService _disk;
-        //private ILocalAccountService _localAccounts;
         private string _watermark = @"domain OR pcname\username";
         private List<MultiSystemInput> systemsList;
         private string openFilename;
@@ -67,8 +61,12 @@ namespace wmi
 
             SetMultiFileControlState(false);
 
-            //TODO: Temporary - remove once implemented
-            rbMultiMode.Enabled = false;
+            //Deprecated feature...leaving code and controls in but just disabling in case of future implementation. 
+            rbMultiMode.Visible = false;
+            txtInputList.Visible = false;
+            btnExportBrowse.Visible = false;
+            groupFileCredentials.Visible = false;
+
             rbSingleMode.Checked = true;
         }
         #endregion
@@ -162,7 +160,7 @@ namespace wmi
                 DataSet resultSet = e.Result as DataSet;
                 CreateExcelFile.CreateExcelDocument(resultSet, saveFileExport.FileName);
                 this.Cursor = Cursors.Default;
-                MessageBox.Show(String.Format("System info exported to: {0}", saveFileExport.FileName), "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information); //TODO: Change message
+                MessageBox.Show(String.Format("System info exported to: {0}", saveFileExport.FileName), "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch(Exception ex)
@@ -217,7 +215,7 @@ namespace wmi
                 DataSet resultSet = e.Result as DataSet;
                 CreateExcelFile.CreateExcelDocument(resultSet, saveFileExport.FileName);
                 this.Cursor = Cursors.Default;
-                MessageBox.Show(String.Format("System info exported to: {0}", saveFileExport.FileName), "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information); //TODO: Change message
+                MessageBox.Show(String.Format("System info exported to: {0}", saveFileExport.FileName), "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (Exception ex)
@@ -285,7 +283,6 @@ namespace wmi
 
         private void AddInfoToDataSet(DataSet ds, ExportOptions exportType)
         {
-            //TODO: need to fix items that have lists as properties... how to make those into datatable with parent? 
             if (exportType == ExportOptions.Drives) { ds.Tables.Add(_export.GetDrivesInfo()); }
             else if (exportType == ExportOptions.LocalAccounts) { ds.Tables.Add(_export.GetLocalAccountsInfo()); }
             else if (exportType == ExportOptions.Printers) { ds.Tables.Add(_export.GetPrintersInfo()); }
@@ -343,7 +340,7 @@ namespace wmi
             var credsLine = rawInput[0].Split(',');
             if (credsLine.Length < 1)
             {
-                throw new Exception("First line of input file must contain comma separated credentials in format: username,password");
+                throw new Exception(@"First line of input file must contain comma separated credentials in format: domain\username,password");
             }
             var username = credsLine[0];
             var password = credsLine[1];
@@ -371,7 +368,7 @@ namespace wmi
                 if(splitLine.Length < 3)
                 {
                     var lineIndex = rawInput.IndexOf(line);
-                    throw new Exception(String.Format("Line {0} is invalid.  Must be comma separated format: hostname,username,password", lineIndex + 1));
+                    throw new Exception(String.Format(@"Line {0} is invalid.  Must be comma separated format: hostname,domain\username,password", lineIndex + 1));
                 }
                 sysList.Add(new MultiSystemInput
                 {
@@ -381,11 +378,6 @@ namespace wmi
                 });
             }
         }
-        #endregion
-
-        #region Converting ObjectArray to DataTable
-
-
         #endregion
     }
 }

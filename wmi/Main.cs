@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Management;
@@ -33,7 +34,7 @@ namespace wmi
 
             //TODO: remove once complete to enable the Export menu
             //this.exportToolStripMenuItem.Enabled = false;
-            this.exportToolStripMenuItem.ToolTipText = "Feature in development.";
+            this.toolsToolStripMenuItem.ToolTipText = "Feature in development.";
 
             txtUserName.SetWatermark(_watermark);
 
@@ -388,7 +389,9 @@ namespace wmi
                 _sysConnector = new SystemConnector(this.txtCompName.Text);
             }
         }
+        #endregion
 
+        #region Clear Methods
         private void ClearSystemInfoControls()
         {
             lblComputerName.Text = String.Empty;
@@ -465,6 +468,23 @@ namespace wmi
             exportWindow.ShowDialog();
         }
 
+        private void remoteAssistanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var hostname = String.IsNullOrWhiteSpace(txtCompName.Text) ? String.Empty : txtCompName.Text;
+                Process p = new Process();
+                p.StartInfo.FileName = String.Format(@"%windir%\system32\msra.exe /offerra {0}", hostname);
+                p.EnableRaisingEvents = true;
+                p.Start();
+            }
+            catch(Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
+        }
+
         private void checkRequiresCredentials_CheckedChanged(object sender, EventArgs e)
         {
             if(checkRequiresCredentials.Checked)
@@ -478,5 +498,6 @@ namespace wmi
                 txtPassword.Enabled = false;
             }
         }
+
     }
 }
