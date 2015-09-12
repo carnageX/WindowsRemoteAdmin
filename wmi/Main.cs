@@ -316,6 +316,48 @@ namespace wmi
             aboutScreen.Show();
         }
 
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var exportWindow = new ExportForm();
+            exportWindow.SingleHostname = txtCompName.Text;
+            exportWindow.SingleUsername = txtUserName.Text;
+            exportWindow.SinglePassword = txtPassword.Text;
+            exportWindow.ShowDialog();
+        }
+
+        private void remoteAssistanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //https://technet.microsoft.com/en-us/magazine/ff356868.aspx
+                var hostname = (String.IsNullOrWhiteSpace(txtCompName.Text) || txtCompName.Text.Equals("127.0.0.1")) ? String.Empty : txtCompName.Text;
+                Process p = new Process();
+                p.StartInfo.FileName = Environment.ExpandEnvironmentVariables(@"%windir%\system32\msra.exe");
+                p.StartInfo.Arguments = String.Format("/offerra {0}", hostname);
+                p.EnableRaisingEvents = true;
+                p.Start();
+            }
+            catch (Exception ex)
+            {
+                var message = new MessageWindow("Error", ex);
+                message.ShowDialog();
+            }
+        }
+
+        private void checkRequiresCredentials_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkRequiresCredentials.Checked)
+            {
+                txtUserName.Enabled = true;
+                txtPassword.Enabled = true;
+            }
+            else
+            {
+                txtUserName.Enabled = false;
+                txtPassword.Enabled = false;
+            }
+        }
+
         private void txtUserName_Enter(object sender, EventArgs e)
         {
             if(txtUserName.Text.Equals(_watermark)) { txtUserName.SetWatermark(String.Empty); }
@@ -458,46 +500,5 @@ namespace wmi
             ClearLocalAccountsControls();
         }
         #endregion
-
-        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var exportWindow = new ExportForm();
-            exportWindow.SingleHostname = txtCompName.Text;
-            exportWindow.SingleUsername = txtUserName.Text;
-            exportWindow.SinglePassword = txtPassword.Text;
-            exportWindow.ShowDialog();
-        }
-
-        private void remoteAssistanceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var hostname = String.IsNullOrWhiteSpace(txtCompName.Text) ? String.Empty : txtCompName.Text;
-                Process p = new Process();
-                p.StartInfo.FileName = String.Format(@"%windir%\system32\msra.exe /offerra {0}", hostname);
-                p.EnableRaisingEvents = true;
-                p.Start();
-            }
-            catch(Exception ex)
-            {
-                var message = new MessageWindow("Error", ex);
-                message.ShowDialog();
-            }
-        }
-
-        private void checkRequiresCredentials_CheckedChanged(object sender, EventArgs e)
-        {
-            if(checkRequiresCredentials.Checked)
-            {
-                txtUserName.Enabled = true;
-                txtPassword.Enabled = true;
-            }
-            else
-            {
-                txtUserName.Enabled = false;
-                txtPassword.Enabled = false;
-            }
-        }
-
     }
 }
